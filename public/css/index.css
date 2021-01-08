@@ -1,0 +1,9 @@
+h1 {
+  padding: 30px;
+  color: grey;
+  font-size: 100px;
+}
+form {
+  display: inline-block;
+  padding: 30px;
+}

@@ -1,9 +1,31 @@
-h1 {
-  padding: 30px;
-  color: grey;
-  font-size: 100px;
+body {
+  background-color: #adb8ea;
 }
+
+.topSection {
+
+}
+
+
+h1 {
+  margin-top: 150px;
+  text-align: center;
+  color: white;
+  font-size: 100px;
+  text-shadow: 1px 1px 2px black;
+}
+
+
 form {
   display: inline-block;
   padding: 30px;
+
+}
+
+
+.forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }

@@ -47,7 +47,10 @@ button {
     margin-left: 20px;
 }
 .nav-menu {
-    background-color: white;
+    background-color: aquamarine;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
 }
 
 

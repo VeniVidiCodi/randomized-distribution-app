@@ -13,6 +13,7 @@ function renderGroupRangeButtons(a, b) {
         let btn = document.createElement("div");
         btn.className = "group-button";
         btn.innerText = i;
+        btn.onclick = "makeGroups(i)";
         console.log(btn);
         buttonBar.appendChild(btn);
     }

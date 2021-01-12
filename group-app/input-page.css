@@ -71,10 +71,15 @@
     flex-flow: row wrap;
     justify-content: start;
 }
+#groups-display-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
 .group-container {
     /* border: 2px solid pink; */
     border-radius: 15px;
-    border: 2px solid brown; 
+    /* border: 2px solid brown;  */
     background-color: rosybrown;
     min-height: 70px;
     min-width: 240px;
@@ -97,13 +102,14 @@
 
 /* ADD GROUP CARD */
 .group-item--new {
-    width: 60px;
-    height: 70px;
+    /* width: 60px; */
+    min-width: 240px;   
+    min-height: 70px;
     border: 2px solid brown;
     border-radius: 20px;
     background-color: wheat;
-    margin: 30px 50px;
-    padding: 10px;
+    margin: 30px;
+    /* padding-top: 10px; */
     text-align: center;
     font-size: 1.2rem;
 }

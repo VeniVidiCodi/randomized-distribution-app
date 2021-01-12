@@ -1,0 +1,149 @@
+/* This is the styling for elements specific to input-page.html */
+
+
+#entry-container {
+    background-color: grey;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* height: 100vh; */
+}
+
+
+/* THE FOLLOWING SECTIONS SHOULD BE MADE SCROLLABLE WITH A  VERTICAL DIVIDER BAR THAT MOVES HORIZONTALLY */
+
+/* --- GROUP SECTION --- */
+.group-section {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+    margin-right: 5px;
+}
+.group-nav {
+    /* background-color: gray; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    background-color: brown;
+}
+.group-header-caption {
+    font-size: x-large;
+    padding: 10px;
+}
+.group-btn-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    /* background-color: black; */
+    border-radius: 5px 0 0 5px;
+    /* border-left: 1px solid black; */
+    /* padding: 1px; */
+}
+.group-button {
+    display: flex;
+    height: 40px;
+    /* width: 40px; */
+    padding: 0 20px;
+    font-size: x-large;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: lightslategray;
+    border-left: 1px solid black;
+    border-radius: 3px;
+}
+.group-button:nth-child(even) {
+    background-color: lightgrey;
+}
+
+/* SINGLE GROUP CARD */
+.group-items-container {
+    /* border: 3px solid red; */
+    padding: 30px;
+    /* margin: 20px; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    /* align-items: ; */
+}
+.group--display {
+    /* border: 2px solid pink; */
+    border-radius: 15px;
+    border: 2px solid brown; 
+    background-color: rosybrown;
+    min-height: 60px;
+    max-width: 160px;
+    /* margin: 30px; */
+}
+.group-name {
+    text-align: center;
+    font-size: large;
+    /* border: 2px solid pink; */
+    border-radius: 15px;
+    border-bottom-right-radius: 0;   
+    border-bottom-left-radius: 0;   
+    padding: 20px;
+    background-color: pink;
+    /* color: wheat; */
+}
+
+/* ADD GROUP CARD */
+.group-item--new {
+    width: 60px;
+    height: 70px;
+    border: 2px solid brown;
+    border-radius: 20px;
+    background-color: wheat;
+    /* margin: 20px; */
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.group-add--button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
+    margin-bottom: 5px;
+}
+/* .group-items--display {} */
+.group-item {
+    border: 2px solid grey;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+/* --- ROSTER SECTION --- */
+.roster-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: whitesmoke;
+}
+.roster-nav {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.roster-header-caption {
+    font-size: x-large;
+    padding: 10px;
+}
+.roster-input {
+    padding: 0px 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+.roster-items-container {}
+.roster-item--add {}
+.roster-item--display {}

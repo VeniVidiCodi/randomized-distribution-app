@@ -3,6 +3,8 @@ let state = {
     roster: []
 }
 
+
+
 function renderGroupRangeButtons(a, b) {
     let buttonBar = document.querySelector(".group-btn-container");
     console.log(buttonBar);

@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* height: 100vh; */
+    height: 76vh;
 }
 
 
@@ -27,7 +27,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
+    padding: 0 5px 0 10px;
     background-color: brown;
 }
 .group-header-caption {
@@ -58,34 +58,39 @@
 .group-button:nth-child(even) {
     background-color: lightgrey;
 }
+.group-button:hover {
+    background-color: lightgreen;
+}
 
 /* SINGLE GROUP CARD */
 .group-items-container {
     /* border: 3px solid red; */
-    padding: 30px;
+    /* padding: 30px; */
     /* margin: 20px; */
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    /* align-items: ; */
+    justify-content: start;
 }
-.group--display {
+.group-container {
     /* border: 2px solid pink; */
     border-radius: 15px;
     border: 2px solid brown; 
     background-color: rosybrown;
-    min-height: 60px;
-    max-width: 160px;
-    /* margin: 30px; */
+    min-height: 70px;
+    min-width: 240px;
+    margin: 30px;
 }
 .group-name {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    /* text-justify: center; */
     font-size: large;
     /* border: 2px solid pink; */
     border-radius: 15px;
-    border-bottom-right-radius: 0;   
-    border-bottom-left-radius: 0;   
-    padding: 20px;
+    /* border-bottom-right-radius: 0;   
+    border-bottom-left-radius: 0;    */
+    padding: 15px 25px;
     background-color: pink;
     /* color: wheat; */
 }
@@ -97,7 +102,7 @@
     border: 2px solid brown;
     border-radius: 20px;
     background-color: wheat;
-    /* margin: 20px; */
+    margin: 30px 50px;
     padding: 10px;
     text-align: center;
     font-size: 1.2rem;
@@ -120,7 +125,28 @@
     border-radius: 15px;
     text-align: center;
 }
-
+.group-del-btn {
+    /* width: 22px;
+    height: 22px; */
+    /* background-color: white; */
+    /* border: 1px solid black; */
+    /* border-radius: 15px; */
+    /* position: absolute; */
+    color: red;
+    /* margin-top: -45px; */
+    /* margin-left: 65px; */
+}
+/* .group-del-btn2 {
+    width: 22px;
+    height: 22px;
+    border: 1px solid black;
+    border-radius: 15px;
+    position: absolute;
+    color: red;
+    background-color: white;
+    margin-top: -60px;
+    margin-left: 145px;
+} */
 
 /* --- ROSTER SECTION --- */
 .roster-container {
@@ -165,6 +191,7 @@
     display: flex;
     flex-direction: row;
     justify-content: left;
+    background-color: wheat;
 }
 .roster-item--display {
     padding-left: 20px;

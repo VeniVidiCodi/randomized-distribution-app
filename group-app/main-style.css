@@ -12,6 +12,7 @@
 body {
     margin: 0;
     box-sizing: border-box;
+    /* height: 100vw; */
 }
 main {
     overflow-y: auto;

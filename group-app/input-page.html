@@ -20,9 +20,11 @@
     </header>
 
 
+
     <section id="project-title-container">
-        <input id="#project-title--input" type="text" placeholder="ADD PROJECT TITLE">
+        <input id="project-title--input" type="text" placeholder="ADD PROJECT TITLE">
     </section>
+
 
 
     <main id="entry-container">
@@ -30,13 +32,13 @@
             <header class="group-nav">
                 <div class="group-header-caption">Groups/Categories:</div>
                 <div class="group-btn-container">
-                    <div class="group-button">2</div>
+                    <!-- <div class="group-button">2</div>
                     <div class="group-button">3</div>
                     <div class="group-button">4</div>
                     <div class="group-button">5</div>
                     <div class="group-button">6</div>
                     <div class="group-button">7</div>
-                    <div class="group-button">8</div>
+                    <div class="group-button">8</div> -->
                 </div>
             </header>
 
@@ -57,7 +59,7 @@
 
                 <div class="group-item--new">
                     <button class="group-add--button">+</button>
-                    <div>Add Group</div>
+                    <div class="new-group-item-text">Add Group</div>
                 </div>
                 
             </div>        
@@ -66,14 +68,25 @@
         <div class="roster-container">
             <header class="roster-nav">
                 <div class="roster-header-caption ">Roster/Items:</div>
-                <input class="roster-input" type="dropdown" placeholder="4 - 40">
+                <select name="roster" id="roster-select">
+                </select>
             </header>
+
             <div class="roster-items-container">
-                <div class="roster-item--add">Add Item</div>
-                <div class="roster-item--display">Add Item</div>
+                <div class="roster-item roster-item--display">
+                    <div class="roster-item--text">Item 1</div>
+                    <button class="roster-delete--button">X</button>
+                </div>
+                <div class="roster-item roster-item--new">
+                    <button class="roster-add--button">+</button>
+                    <div class="roster-item--text">Add Item</div>
+                </div>
             </div>
         </div>
     </main>
+
+
+
 
     <footer id="app-footer">
          <!-- <form action="/action_page.php"> -->
@@ -82,4 +95,5 @@
          <!-- </form> -->
     </footer>
 </body>
+<script src="input-page.js"></script>
 </html>

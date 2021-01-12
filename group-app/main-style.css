@@ -53,12 +53,11 @@ button {
 /* PROJECT SECTION */
 #project-title-container {
     background-color: goldenrod;
-    padding: 20px;
-    padding-left: 80px;
+    padding: 10px 75px;
 }
 #project-title--input {
-    height: 30px;
-
+    height: 0px;
+    padding: 15px 20px;
 }
 
 

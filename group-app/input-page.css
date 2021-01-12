@@ -102,14 +102,17 @@
     text-align: center;
     font-size: 1.2rem;
 }
-.group-add--button {
+.group-add--button, .roster-add--button {
     width: 30px;
     height: 30px;
     border: 2px solid brown;
     border-radius: 30px;
     font-weight: bold;
     color:  brown;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+}
+.new-group-item-text {
+    margin-top: 5px;
 }
 /* .group-items--display {} */
 .group-item {
@@ -138,12 +141,47 @@
     font-size: x-large;
     padding: 10px;
 }
-.roster-input {
-    padding: 0px 5px;
+#roster-select {
+    width: 50px;
+    height: 40px;
+    border-radius: 4px;
+}
+.roster-items-container {
+    background-color: blanchedalmond;
+}
+.roster-item {
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    background-color: burlywood;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.roster-item--new {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.roster-item--display {
+    padding-left: 20px;
+}
+
+.roster-item--text {
+    font-size: large;
+    margin-left: 20px;
+}
+
+/* see group-add--button above */
+
+.roster-delete--button {
     width: 30px;
     height: 30px;
-    border-radius: 10px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
 }
-.roster-items-container {}
-.roster-item--add {}
-.roster-item--display {}

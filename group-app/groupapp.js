@@ -10,7 +10,7 @@ let state = {
             };
             
         let rosterArray = state.data.roster;
-        console.log(rosterArray); 
+        // console.log(rosterArray); 
 
         // PROJECT TIME DATA  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 
@@ -56,7 +56,7 @@ let state = {
             for (let item of rosterArray) {
                 let div = document.createElement('div');
                 div.innerText =`${item}`;
-                console.log(div);
+                // console.log(div);
                 rosterSection.appendChild(div);
             }
         }
@@ -121,4 +121,11 @@ let state = {
         //     }
         //     console.log(arr);
         // }
+
+        function renderSelectInput() {
+            let selector = document.getElementById("roster-select");
+            console.log(selector);
+            return selector;
+        }
 renderRoster();
+renderSelectInput();

@@ -1,0 +1,220 @@
+/* This is the styling for elements specific to input-page.html */
+
+
+#entry-container {
+    background-color: grey;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 76vh;
+}
+
+
+/* THE FOLLOWING SECTIONS SHOULD BE MADE SCROLLABLE WITH A  VERTICAL DIVIDER BAR THAT MOVES HORIZONTALLY */
+
+/* --- GROUP SECTION --- */
+.group-section {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+    margin-right: 5px;
+}
+.group-nav {
+    /* background-color: gray; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px 0 10px;
+    background-color: brown;
+}
+.group-header-caption {
+    font-size: x-large;
+    padding: 10px;
+}
+.group-btn-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    /* background-color: black; */
+    border-radius: 5px 0 0 5px;
+    /* border-left: 1px solid black; */
+    /* padding: 1px; */
+}
+.group-button {
+    display: flex;
+    height: 40px;
+    /* width: 40px; */
+    padding: 0 20px;
+    font-size: x-large;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: lightslategray;
+    border-left: 1px solid black;
+    border-radius: 3px;
+}
+.group-button:nth-child(even) {
+    background-color: lightgrey;
+}
+.group-button:hover {
+    background-color: lightgreen;
+}
+
+/* SINGLE GROUP CARD */
+.group-items-container {
+    /* border: 3px solid red; */
+    /* padding: 30px; */
+    /* margin: 20px; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+}
+#groups-display-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.group-container {
+    /* border: 2px solid pink; */
+    border-radius: 15px;
+    /* border: 2px solid brown;  */
+    background-color: rosybrown;
+    min-height: 70px;
+    min-width: 240px;
+    margin: 30px;
+}
+.group-name {
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    /* text-justify: center; */
+    font-size: large;
+    /* border: 2px solid pink; */
+    border-radius: 15px;
+    /* border-bottom-right-radius: 0;   
+    border-bottom-left-radius: 0;    */
+    padding: 15px 25px;
+    background-color: pink;
+    /* color: wheat; */
+}
+
+/* ADD GROUP CARD */
+.group-item--new {
+    /* width: 60px; */
+    min-width: 240px;   
+    min-height: 70px;
+    border: 2px solid brown;
+    border-radius: 20px;
+    background-color: wheat;
+    margin: 30px;
+    /* padding-top: 10px; */
+    text-align: center;
+    font-size: 1.2rem;
+}
+.group-add--button, .roster-add--button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
+    /* margin-bottom: 5px; */
+}
+.new-group-item-text {
+    margin-top: 5px;
+}
+/* .group-items--display {} */
+.group-item {
+    border: 2px solid grey;
+    border-radius: 15px;
+    text-align: center;
+}
+.group-del-btn {
+    /* width: 22px;
+    height: 22px; */
+    /* background-color: white; */
+    /* border: 1px solid black; */
+    /* border-radius: 15px; */
+    /* position: absolute; */
+    color: red;
+    /* margin-top: -45px; */
+    /* margin-left: 65px; */
+}
+/* .group-del-btn2 {
+    width: 22px;
+    height: 22px;
+    border: 1px solid black;
+    border-radius: 15px;
+    position: absolute;
+    color: red;
+    background-color: white;
+    margin-top: -60px;
+    margin-left: 145px;
+} */
+
+/* --- ROSTER SECTION --- */
+.roster-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: whitesmoke;
+}
+.roster-nav {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.roster-header-caption {
+    font-size: x-large;
+    padding: 10px;
+}
+#roster-select {
+    width: 50px;
+    height: 40px;
+    border-radius: 4px;
+}
+.roster-items-container {
+    background-color: blanchedalmond;
+}
+.roster-item {
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    background-color: burlywood;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.roster-item--new {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: wheat;
+}
+.roster-item--display {
+    padding-left: 20px;
+}
+
+.roster-item--text {
+    font-size: large;
+    margin-left: 20px;
+}
+
+/* see group-add--button above */
+
+.roster-delete--button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
+}

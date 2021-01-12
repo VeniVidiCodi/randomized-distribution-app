@@ -1,0 +1,56 @@
+#project-title-container {
+    background-color: lightgreen;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    /* padding: 30px 75px; */
+    padding: 10px 0px;
+}
+
+.p-title {
+    /* margin-top: 0; */
+    /* margin-bottom: 5px; */
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+}
+.p-id {
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;    
+    font-size: 24px;
+}
+.p-stats, .p-memo {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+.p-memo {
+    background-color: yellowgreen;
+}
+.spacer1 {
+    width: 30px;
+}
+
+
+
+#project-groups-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 40px;
+    min-height: 180%
+}
+
+
+.group-container {
+    max-width: 400px;
+}
+
+#app-footer {
+    min-height: 30px;
+    margin-top: 40px;
+}

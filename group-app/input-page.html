@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main-style.css">
+    <link rel="stylesheet" href="input-page.css">
+</head>
+
+<body>
+    <header>
+        <nav class="app-nav">
+            <div class="title-container">
+                <img class="app-logo" src="" alt="&#129414">
+                <div class="app-title">GROUP APP</div>
+            </div>
+            <div class="nav-menu"><a href="#"><menu></menu></a></div>
+        </nav>
+    </header>
+
+
+
+    <section id="project-title-container">
+        <input id="project-title--input" type="text" placeholder="ADD PROJECT TITLE">
+    </section>
+
+
+
+    <main id="entry-container">
+        <div class="group-section">
+            <header class="group-nav">
+                <div class="group-header-caption">Groups/Categories:</div>
+                <div class="group-btn-container">
+                    <!-- <div class="group-button">2</div>
+                    <div class="group-button">3</div>
+                    <div class="group-button">4</div>
+                    <div class="group-button">5</div>
+                    <div class="group-button">6</div>
+                    <div class="group-button">7</div>
+                    <div class="group-button">8</div> -->
+                </div>
+            </header>
+
+            <div class="group-items-container">
+                <div id="groups-display-wrapper">
+                    <div class="group-container">
+                        <div class="group-name">DECORATIONS
+                            <!-- <div class="group-del-btn">x</div> -->
+                        </div>
+                        <div class="group-items--display">
+                            <!-- <div class="group-item">item 1</div>
+                            <div class="group-item">item 2</div>
+                            <div class="group-item">item 3</div> -->
+                        </div>
+                        <!-- <div class="group-del-btn2">x</div> -->
+                    </div>
+                    
+
+                    <div class="group-container">
+                        <div class="group-name">GROUP 2</div>
+                        <div class="group-items--display"></div>
+                    </div>
+
+                    <div class="group-item--new">
+                        <button class="group-add--button">+</button>
+                        <div class="new-group-item-text">Add Group</div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="roster-container">
+            <header class="roster-nav">
+                <div class="roster-header-caption ">Roster/Items:</div>
+                <select name="roster" id="roster-select">
+                </select>
+            </header>
+
+            <div class="roster-items-container">
+                <div class="roster-item roster-item--display">
+                    <div class="roster-item--text">Item 1</div>
+                    <button class="roster-delete--button">X</button>
+                </div>
+                <div class="roster-item roster-item--new">
+                    <button class="roster-add--button">+</button>
+                    <div class="roster-item--text">Add Item</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <footer id="app-footer">
+         <!-- <form action="/action_page.php"> -->
+            <button class="footer-button" type="submit" value="Save">Save</button>
+            <button class="footer-button" type="submit" value="Shuffle">Shuffle</button>
+         <!-- </form> -->
+    </footer>
+</body>
+<script src="input-page.js"></script>
+</html>

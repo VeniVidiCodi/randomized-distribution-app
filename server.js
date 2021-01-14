@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //sends root page to client
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/views/index.html");
-
+  
 });
 
 

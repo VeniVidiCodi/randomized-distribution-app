@@ -1,9 +1,176 @@
-h1 {
-  padding: 30px;
-  color: grey;
-  font-size: 100px;
+* {
+  margin: 0;
+  padding: 0;
+
 }
-form {
-  display: inline-block;
-  padding: 30px;
+
+
+body {
+  min-width; 400px;
+  width:100%;
+  height:100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(150, 160, 209, 0.5),rgba(255, 255, 255, 0.1) 80%),
+    radial-gradient(circle at 50% 50%, rgba(144, 206, 196, 0.5),rgba(255, 255, 255, 0.1) 80%),
+    radial-gradient(circle at 100% 100%, rgba(150, 160, 209, 0.6),rgba(255, 255, 255, 0.1) 80%),
+    radial-gradient(circle at 0% 100%, rgba(127, 180, 255, 0.6),rgba(255, 255, 255, 0.1) 80%),
+    radial-gradient(circle at 100% 0%, rgba(127, 180, 255, 0.6),rgba(255, 255, 255, 0.1) 80%);
+  white-space: nowrap;
+
+  /*border: 2px solid yellow;*/
 }
+
+
+.topSection {
+  height: 40vh;
+  display: flex;
+  align-items:flex-center;
+  justify-content:center;
+  padding:3%;
+
+  /*border: 2px solid red;*/
+}
+
+
+.bottomSection {
+  height: 50%;
+  width:100%;
+  display:flex;
+
+  /*border: 2px solid blue;*/
+}
+
+
+/*Bottom left child*/
+.buttonChild {
+  width:50%;
+  display:flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding:30px;
+
+  /*border: 2px solid pink;*/
+}
+
+
+/*Bottom Right Child*/
+.inputChild {
+  width:50%;
+  display:flex;
+  align-items:flex-start;
+  padding:30px;
+
+  /*border: 2px solid green;*/
+}
+
+
+/*  Green Button*/
+#btn-start {
+  border: solid white;
+  border-radius: 0.6em;
+  outline: none;
+  color: white;
+  padding: 7px 38px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+  background-color: #7CB48B;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: background .5s;
+
+
+}
+
+#btn-start:hover {
+  background-color: #57CAE4;
+}
+
+
+/*text field along with button*/
+.textField{
+  padding: 10px;
+  width:180px;
+  border:none;
+  outline: none;
+  letter-spacing: 2px;
+  border-radius: 0.6em 0 0 0.6em;
+  font-size: 30px;
+  position:relative;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+
+/*button for text field*/
+.submit {
+  cursor: pointer;
+  padding: 7px;
+  border: solid white;
+  border-left: none;
+  outline: none;
+  left:-5px;
+  border-radius: 0 0.6em 0.6em 0;
+  background-color: #57CAE4;
+  font-size: 30px;
+  color:#ffffff;
+  position:relative;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: background .5s;
+
+}
+
+.submit:hover {
+  background-color: #7CB48B;
+}
+
+
+img {
+    width: inherit;
+    height:inherit;
+    max-width: 400px;
+
+}
+
+
+img:hover {
+  animation-timing-function: linear;
+  animation: shake 10s linear;
+  animation-iteration-count: 1;
+
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  5% { transform: translate(2px, 3px) rotate(2deg); }
+  10% { transform: translate(4px,4px) rotate(0deg); }
+  15% { transform: translate(6px, 3px) rotate(-2deg); }
+  20% { transform: translate(7px, 2px) rotate(-1deg); }
+  25% { transform: translate(8px, 0px) rotate(0deg); }
+  30% { transform: translate(7px, -2px) rotate(1deg); }
+  35% { transform: translate(6px, -3px) rotate(2deg); }
+  40% { transform: translate(4px, -4px) rotate(0deg); }
+  45% { transform: translate(2px, -3px) rotate(-2deg); }
+  50% { transform: translate(0px, 0px) rotate(0deg); }
+  55% { transform: translate(-2px, 3px) rotate(-2deg); }
+  60% { transform: translate(-4px, 4px) rotate(0deg); }
+  65% { transform: translate(-6px, 3px) rotate(2deg); }
+  70% { transform: translate(-7px, 2px) rotate(1deg); }
+  75% { transform: translate(-8px, 0px) rotate(0deg); }
+  80% { transform: translate(-7px, -2px) rotate(-1deg); }
+  85% { transform: translate(-6px, -3px) rotate(-2deg); }
+  90% { transform: translate(-4px, -4px) rotate(0deg); }
+  95% { transform: translate(-2px, -3px) rotate(-2deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+
+}
+
+
+
+/*linear-gradient(-45deg, #648880, #293f50);
+
+background-color: #adb8ea;
+#7CB48B
+green #4CAF50
+*/

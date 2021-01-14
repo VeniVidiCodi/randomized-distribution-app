@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>SORDA</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
+
   <body>
-    <h1>Grüpr</h1>
-    <div class="forms">
-      <form action="/reactApp" method="post">
-        <button type="submit" value="Submit">Create Group</button>
-      </form>
-      <form action="/resultsPage" method="post">
-        <input type="text" name="AccessID" placeholder="Enter ID">
-        <button type="submit" name="getResultsPage">GO</button>
-      </form>
+    <div class="topSection">
+      <img src="img/mallard.svg" alt="duck logo">
+    </div>
+    <div class="bottomSection">
+      <div class="buttonChild">
+        <form action="/reactApp" method="post">
+          <button type="submit" value="Submit" id="btn-start">Create Group</button>
+        </form>
+      </div>
+      <div class="inputChild">
+          <form action="/resultsPage" method="post">
+            <input type="text" name="AccessID" placeholder="Enter ID" class="textField" maxlength="7">
+            <button type="submit" name="getResultsPage" class="submit">GO</button>
+          </form>
+      </div>
     </div>
   </body>
+
 </html>

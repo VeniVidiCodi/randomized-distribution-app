@@ -1,0 +1,17 @@
+.titlebar {
+    display: flex;
+    /* height: 20px; */
+    justify-content: center;
+    width: 100%;
+    /* border: 2px solid red; */
+    background-color: rgb(222, 212, 190);
+    padding: 10px 0;
+}
+
+#project-title--input {
+    /* height: 30px; */
+    font-size: .8em;
+    border-radius: 10px;
+    padding: 10px;
+    /* margin-left: 100px; */
+}

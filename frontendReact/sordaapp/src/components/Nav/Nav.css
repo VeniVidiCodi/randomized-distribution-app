@@ -1,0 +1,32 @@
+.app-nav {
+    background-color: rgb(191, 210, 191);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.title-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    margin-left: 20px;
+}
+.app-logo {
+    /* border: 1px solid red; */
+    /* font-size: xx-large; */
+    height: 2em;
+}
+.app-title {
+    color: white;
+    font-size: xx-large;
+    margin-left: 40px;
+}
+.nav-menu {
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 30px;
+}

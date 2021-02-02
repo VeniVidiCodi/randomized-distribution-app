@@ -11,3 +11,5 @@ class ResultCard extends Component {
         );
     }
 }
+
+export default ResultCard;

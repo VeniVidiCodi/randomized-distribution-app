@@ -1,0 +1,37 @@
+/* SINGLE GROUP CARD */
+.group-items-container {
+    /* border: 3px solid red; */
+    /* padding: 30px; */
+    /* margin: 20px; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+}
+#groups-display-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.group-container {
+    /* border: 2px solid pink; */
+    border-radius: 15px;
+    /* border: 2px solid brown;  */
+    background-color: rosybrown;
+    min-height: 70px;
+    min-width: 240px;
+    margin: 30px;
+}
+.group-name {
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    /* text-justify: center; */
+    font-size: large;
+    /* border: 2px solid pink; */
+    border-radius: 15px;
+    /* border-bottom-right-radius: 0;   
+    border-bottom-left-radius: 0;    */
+    padding: 15px 25px;
+    background-color: pink;
+    /* color: wheat; */
+}

@@ -13,10 +13,9 @@
     justify-content: space-around;
 }
 .group-container {
-    /* border: 2px solid pink; */
-    border-radius: 15px;
-    /* border: 2px solid brown;  */
-    background-color: rosybrown;
+    border-radius: 18px;
+    border: 2px solid black; 
+    background-color: rgb(206, 204, 204);
     min-height: 70px;
     min-width: 240px;
     margin: 30px;
@@ -24,14 +23,15 @@
 .group-name {
     display: flex;
     justify-content: center;
-    /* text-align: center; */
-    /* text-justify: center; */
     font-size: large;
-    /* border: 2px solid pink; */
-    border-radius: 15px;
-    /* border-bottom-right-radius: 0;   
-    border-bottom-left-radius: 0;    */
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    border-radius: 15px 15px 0 0;
     padding: 15px 25px;
-    background-color: pink;
-    /* color: wheat; */
+    background-color: rgb(233, 223, 213);
+}
+
+.group-items--display {
+    background-color: rgb(222, 216, 216);
+    border-radius: 0 0 15px 15px;
 }

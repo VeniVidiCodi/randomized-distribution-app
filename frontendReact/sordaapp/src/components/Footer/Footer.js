@@ -6,8 +6,8 @@ class Footer extends Component {
         return(
             <footer id="app-footer">
                 {/*<form action="/action_page.php"> */}
-                    <button class="footer-button" type="submit" value="Save">Save</button>
-                    <button class="footer-button" type="submit" value="Shuffle">Shuffle</button>
+                    <button className="footer-button" type="submit" value="Save">Save</button>
+                    <button className="footer-button" type="submit" value="Shuffle">Shuffle</button>
                 {/*</form>*/}
             </footer>
         )

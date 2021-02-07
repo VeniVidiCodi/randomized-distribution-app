@@ -1,5 +1,7 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
+require('dotenv').config();  //allows the use of .env variables
 
 
 //defines express app
@@ -7,18 +9,39 @@ const app = express();
 const PORT = process.env.PORT || 3000;  //use environment port or use 3000 for development
 
 
-//used to access static pages
-app.use(express.static("public"));
+app.use(express.static("public"));  //used to access static pages
+app.use(cors());  //allows communication from outside server
+app.use(express.json());  //allows parsing of JSON
 
 
-//parses data from lient
-app.use(bodyParser.urlencoded({extended:true}));
+//MongoDB connection
+const uri = process.env.ATLAS_URI;  //URI is located in a local .env file
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true });
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
 
 
+//route for group CRUD
+const groupRouter = require('./routes/group');
+app.use('/group', groupRouter);
+
+
+//starts listening on Port
+app.listen(PORT, () => {
+  console.log("Listening on " + PORT);
+});
+
+
+
+
+/*
 //sends root page to client
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/views/index.html");
-  
+
 });
 
 
@@ -33,7 +56,7 @@ app.post("/resultsPage", function(req, res){
   res.sendFile(__dirname + "/views/resultsPage.html");
 });
 
+const id = require("./uniqueID.js")
 
-app.listen(PORT, function(){
-  console.log("Listening on 3000");
-});
+console.log(id());
+*/

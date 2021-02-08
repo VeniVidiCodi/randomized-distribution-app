@@ -1,4 +1,4 @@
-class group {
+class Group {
   constructor() {
     this.projectName = "";
     this.groupNames = [];
@@ -46,7 +46,7 @@ class Person {
 }
 
 
-const groups = new group();
+const groups = new Group();
 
 groups.setProjectName("Grouper");
 groups.addPerson(new Person("Kenly", 1));

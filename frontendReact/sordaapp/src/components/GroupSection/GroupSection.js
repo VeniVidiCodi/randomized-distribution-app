@@ -26,13 +26,11 @@ class GroupSection extends Component {
     addGroup() {
         console.log("Adding new group...");
         // Adds new entry in state.groups array
-        const index  = 0;
-        const title = "Group " + (index + 1);
-        const newGroup = {
-            title: title,
-            entries: []
-        }
-        let groups = this.state.groups.push(newGroup);
+        let index  = this.state.groups.length;
+        let title = "Group " + (index + 1);
+        const newGroup = {title: title, entries: []}
+        let groups = this.state.groups;
+        groups.push(newGroup);
         this.setState({groups: groups});
     }
 

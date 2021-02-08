@@ -11,14 +11,16 @@ class GroupSection extends Component {
             max: 8,
             min: 2,
             buttons: [2, 3, 4, 5, 6, 7, 8],
-            groups: [
-                {title: "setup", entries: ["Gollom", "Javier", "Lucretia"]},
-                {title: "cook", entries: []},
-                {title: "clean", entries: []}
-            ]
-            // count:  this.groups.length
+            projectName: "Grouper",
+            groups: [], // An array of strings as group names
+            rosterItems: [
+                // {"Kenly": 1},
+                // {"Victor" : 2}
+            ] 
         }
+        // this.handleClick = this.handleClick.bind(this); EXAMPLE
         this.addGroup = this.addGroup.bind(this);
+        this.generateGroups = this.generateGroups.bind(this);
     }    
 
     // FUNCTIONS -------------------------------------------------
@@ -27,17 +29,25 @@ class GroupSection extends Component {
         console.log("Adding new group...");
         // Adds new entry in state.groups array
         let index  = this.state.groups.length;
-        let title = "Group " + (index + 1);
-        const newGroup = {title: title, entries: []}
+        let groupName = "Group " + (index + 1);
         let groups = this.state.groups;
-        groups.push(newGroup);
+        groups.push(groupName);
         this.setState({groups: groups});
     }
 
     // On click of a numbered group menu button, add entries to group array and generate cards
-    generateGroups(num) {
+    generateGroups(e) {
         console.log("Generating multiple groups...")
-        // TODO
+        console.log(e.target.innerText);
+        let num = e.target.innerText;
+        let groups = [];
+        // console.log(groups);
+        for (let i=0; i<num; i++) {
+            let groupName = "Group " + (i + 1);
+            groups.push(groupName);
+        }
+        // Also, 
+        this.setState({groups: groups});
     }
 
     // Generate group cards for the DOM based on state
@@ -56,7 +66,13 @@ class GroupSection extends Component {
                     <div className="group-header-caption">Groups/Categories:</div>
                     <div className="group-btn-container">
                         {/* {this.state.buttons.map((button) => <div className="group-button">{button}</div>)} */}
-                        {this.state.buttons.map((button) => <GroupMenuButton value={button} onClick={this.createGroup} />)}
+                        {this.state.buttons.map((button) => 
+                            <GroupMenuButton 
+                                key={button}
+                                value={button} 
+                                onClick={this.generateGroups}
+                            />
+                        )}
                         
                     </div>
                 </header>
@@ -85,7 +101,7 @@ class GroupSection extends Component {
                         {/* <GroupCard /> */}
                         
                         {this.state.groups.map((group) => 
-                            <GroupCard title={group.title} entries={group.entries} />
+                            <GroupCard title={group} />
                         )}
 
                         <NewGroupButton onClick={this.addGroup} />

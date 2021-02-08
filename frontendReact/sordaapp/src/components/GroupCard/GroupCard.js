@@ -5,7 +5,7 @@ import GroupListItem from '../GroupListItem/GroupListItem';
 class GroupCard extends Component {
     render() {
     let title = this.props.title;
-    let entries = this.props.entries;
+    // let entries = this.props.entries;
 
         return(
             <div className="group-container">
@@ -13,10 +13,10 @@ class GroupCard extends Component {
                     {/* <div className="group-del-btn">x</div> */}
                 </div>
                 <div className="group-items--display">
-                    {entries.map((entry) => 
+                    {/* entries.map((entry) => 
                         <GroupListItem entry={entry} />
                         // <GroupListItem>{entry}</GroupListItem>
-                    )}
+                    )*/}
                     {/* <div className="group-item">item 1</div>
                     <div className="group-item">item 2</div>
                     <div className="group-item">item 3</div> */}

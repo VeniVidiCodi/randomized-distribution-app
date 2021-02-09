@@ -38,6 +38,7 @@ class Group {
   }
 }
 
+
 class Person {
   constructor(name, groupNum) {
     this.name = name;

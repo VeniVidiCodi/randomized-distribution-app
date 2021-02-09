@@ -11,6 +11,7 @@ class GroupSection extends Component {
             max: 8,
             min: 2,
             buttons: [2, 3, 4, 5, 6, 7, 8],
+            showGroupMenu: true,
             projectName: "Grouper",
             groups: [], // An array of strings as group names
             rosterItems: [
@@ -37,26 +38,32 @@ class GroupSection extends Component {
 
     // On click of a numbered group menu button, add entries to group array and generate cards
     generateGroups(e) {
-        console.log("Generating multiple groups...")
-        console.log(e.target.innerText);
+        console.log("Generating multiple groups...");
         let num = e.target.innerText;
-        let groups = [];
-        // console.log(groups);
+        let groups = [];    // Resets the groups array
+        let showGroupMenu = this.state.showGroupMenu;
+
+        if (num == 8) {
+        // If there are already 8 groups, remove the AddGroup Button from the page
+        }
+
+        // When the user clicks the menu, remove or mask down the button menu
+        showGroupMenu = false;
+        console.log(showGroupMenu);
+
+
+        // Populate the groups array with chosen number of entries
         for (let i=0; i<num; i++) {
             let groupName = "Group " + (i + 1);
+            let group = {}  // Replace with class?
             groups.push(groupName);
         }
-        // Also, 
-        this.setState({groups: groups});
+
+        this.setState({
+            groups: groups,
+            showGroupMenu: showGroupMenu
+        });
     }
-
-    // Generate group cards for the DOM based on state
-    generateCards() {
-        console.log("Creating Card Elements");
-        // TODO 
-    }
-
-
     
     render() {
         return (
@@ -64,8 +71,8 @@ class GroupSection extends Component {
 
                 <header className="group-nav">
                     <div className="group-header-caption">Groups/Categories:</div>
+                    {this.state.showGroupMenu ? 
                     <div className="group-btn-container">
-                        {/* {this.state.buttons.map((button) => <div className="group-button">{button}</div>)} */}
                         {this.state.buttons.map((button) => 
                             <GroupMenuButton 
                                 key={button}
@@ -73,37 +80,16 @@ class GroupSection extends Component {
                                 onClick={this.generateGroups}
                             />
                         )}
-                        
-                    </div>
+
+                    </div>:
+                    <div></div>}
                 </header>
 
                 <div className="group-items-container">
                     <div id="groups-display-wrapper">
-
-                        {/* <div className="group-container">
-                            <div className="group-name">DECORATIONS
-                                <div className="group-del-btn">x</div>
-                            </div>
-                            <div className="group-items--display">
-                                <div className="group-item">item 1</div>
-                                <div className="group-item">item 2</div>
-                                <div className="group-item">item 3</div>
-                            </div>
-                            <div className="group-del-btn2">x</div>
-                        </div>
-
-
-                        <div className="group-container">
-                            <div className="group-name">GROUP 2</div>
-                            <div className="group-items--display"></div>
-                        </div> */}
-
-                        {/* <GroupCard /> */}
-                        
                         {this.state.groups.map((group) => 
-                            <GroupCard title={group} />
+                            <GroupCard key={group.key} title={group} />
                         )}
-
                         <NewGroupButton onClick={this.addGroup} />
                     </div>
                 </div>   

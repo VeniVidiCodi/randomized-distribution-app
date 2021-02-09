@@ -12,11 +12,6 @@ class GroupSection extends Component {
             min: 2,
             // menuButtons: [2, 3, 4, 5, 6, 7, 8],
             menuButtons: [],
-            // renderButtons: () => {
-            //     for (let i=this.min; i<this.max; i++) {
-            //         this.menuButtons.push(i);
-            //     }
-            // },
             showGroupMenu: true,
             projectName: "Grouper",
             groups: [

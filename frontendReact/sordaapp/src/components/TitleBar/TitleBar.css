@@ -29,3 +29,7 @@
     width: 39px;
     height: 39px;
 }
+
+.input-wrapper {
+    display: flex;
+}

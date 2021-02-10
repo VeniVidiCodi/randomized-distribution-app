@@ -34,14 +34,14 @@ class GroupSection extends Component {
     }
     
     renderGroupMenuButtons() {
-        console.log("GENERATING GROUP MENU BUTTONS...");
+        // console.log("GENERATING GROUP MENU BUTTONS...");
         let menuButtons = [];
         let min = this.state.min;
         let max = this.state.max;
         for (let i=min; i<=max; i++) {
             menuButtons.push(i);
         }
-        console.log(menuButtons);
+        // console.log(menuButtons);
         this.setState({menuButtons: menuButtons});
     }
 
@@ -49,7 +49,7 @@ class GroupSection extends Component {
 
     // Add entry to state's group array
     addGroup() {
-        console.log("Adding new group...");
+        // console.log("Adding new group...");
         let index  = this.state.groups.length;
         let groups = this.state.groups;
         let groupName = "Group " + (index + 1);
@@ -63,7 +63,7 @@ class GroupSection extends Component {
 
     // Add multiple entries to group array
     generateGroups(e) {
-        console.log("Generating multiple groups...");
+        // console.log("Generating multiple groups...");
         let num = e.target.innerText;
         let groups = [];    // Resets the groups array
         let showGroupMenu = this.state.showGroupMenu;
@@ -83,12 +83,12 @@ class GroupSection extends Component {
             groups: groups,
             showGroupMenu: showGroupMenu
         });
-        console.log("Groups generated:", groups);
+        // console.log("Groups generated:", groups);
     }
     
 
     render() {
-        console.log(this.state.groups);
+        // console.log(this.state.groups);
         return (
             <div className="group-section">
 
@@ -112,8 +112,7 @@ class GroupSection extends Component {
                     <div id="groups-display-wrapper">
                         {this.state.groups.map((group) => 
                             <GroupCard 
-                                key={group.key} 
-                                id={group.id} 
+                                key={group} 
                                 title={group.groupName} />
                         )}
                         {this.state.groups.length < this.state.max ? 

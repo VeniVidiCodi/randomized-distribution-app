@@ -11,68 +11,109 @@ class RosterSection extends Component {
             rosterMax: 40,
             rosterMin: 2,  // OR min. should be at least the number of groups created...
             menuRange: [],
-            // keys: [],
             showRoster: true,
+            selectValue: null,
             roster: [
-                {key:'', name: "Kenly", group: 1},
-                {key:'', name: "Victor", group: 2}
+                // {key: null, name: "Kenly", group: 1},
+                // {key: null, name: "Victor", group: 2}
             ]
         }
 
         this.renderSelectMenu = this.renderSelectMenu.bind(this);
         this.generateItems = this.generateItems.bind(this);
-        this.generateKeys = this.generateKeys.bind(this);
+        // this.generateKeys = this.generateKeys.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }    
 
-     //  LIFECYCLE -------------------------------------------------
+    //  LIFECYCLE -------------------------------------------------
     componentDidMount() {
-        // this.renderSelectMenu();
+        this.renderSelectMenu();
         // this.generateKeys();
         // this.generateItems(this.state.roster);
     }
-
-    generateKeys() {
-        console.log("GENERATING KEYS...")
-
-        let keys = [];
-        let max = this.state.rosterMax;
-        let menuRange = this.state.menuRange;
-        console.log("RANGE:", menuRange);
-        let i = 0;
-        for (let item of menuRange) {
-            let key = nanoid();
-            item.key = key;
-            item.value = i;
-            i++;
-            console.log(i + "\n KEY: " + item.key, 
-                        "\n VALUE: " + item.value);
-        }
-        // console.log("Roster w/keys?" + roster);
-        this.setState({keys: keys});
-    }
-
-
-    // // Create the options list for dropdown select menu
+    
+    // Create the options list for dropdown select menu
     renderSelectMenu() {
         console.log('RENDERING DROPDOWN...');
         // Loop through range of min/max to populate the menuRange array
         let menuRange = [];
-        let min = this.state.rosterMin;
+        // let min = this.state.rosterMin;
         let max = this.state.rosterMax;
-        for (let i=min; i<=max; i++) {
-            let obj = {
-                key: nanoid(), 
+
+        for (let i=0; i<=max; i++) {
+            const key = nanoid();
+            const obj = {
+                key: key, 
                 value: i
             };
             menuRange.push(obj);
-            // console.log(menuRange);
+            console.log(menuRange);
         }
 
         this.setState({
             menuRange: menuRange
         });
-        console.log('MENU RANGE: ' + menuRange);
+        // console.log('MENU RANGE: ' + menuRange);
+    }
+
+    // REACT EXAMPLE
+    handleChange(event) {
+        this.setState({selectValue: event.target.value});
+    }
+    // REACT EXAMPLE
+    handleSubmit(event) {
+        alert('You chose: ' + this.state.selectValue);
+        event.preventDefault();
+        this.generateItems(this.state.selectValue);
+    }
+
+    // generateKeys(num) {
+    //     console.log("GENERATING KEYS...")
+
+    //     let keys = [];
+    //     let menuRange = this.state.menuRange;
+    //     console.log("RANGE:", menuRange);
+    //     let i = 0;
+    //     for (let item of menuRange) {
+    //         let key = nanoid();
+    //         item.key = key;
+    //         item.value = i;
+    //         i++;
+    //         console.log(i + "\n KEY: " + item.key, 
+    //                     "\n VALUE: " + item.value);
+    //     }
+    //     // console.log("Roster w/keys?" + roster);
+    //     this.setState({keys: keys});
+    // }
+
+    // Accepts select option number as argument
+    generateItems(num) {
+        console.log('Generate roster list based on...', num);
+
+        let roster = [];    // Reset the roster items array
+        let showRoster = this.state.showRoster;
+        // showRoster = false;   // Hide the dropdown menu
+
+        // Populate the roster array with chosen number of entries
+        for (let i=0; i<num; i++) {
+            let genericName = "Item " + (i + 1);
+            // let key = i + 10;
+            let key = nanoid();
+            let item = {
+                name: genericName,
+                key : key,
+                group: null
+            }   // Replace with class?
+            roster.push(item);
+        }
+
+        this.setState({
+            roster: roster
+            // showRoster: showRoster
+        });
+        // console.log("Roster generated:", roster);
     }
 
     addItem() {
@@ -89,45 +130,34 @@ class RosterSection extends Component {
         this.setState({roster: roster});
     }
 
-    generateItems(arr) {
-        console.log('Generate roster list base...');
-        // let num = e.target.innerText;
-        let num = arr.length;
-        let roster = [];    // Reset the roster items array
-        let showRoster = this.state.showRoster;
-        // showRoster = false;   // Hide the dropdown menu
-
-        // Populate the roster array with chosen number of entries
-        for (let i=0; i<num; i++) {
-            let genericName = "Item " + (i + 1);
-            let key = i + 10;
-            let item = {
-                name: genericName,
-                key : key
-            }   // Replace with class?
-            roster.push(item);
-        }
-
-        this.setState({
-            roster: roster,
-            showRoster: showRoster
-        });
-        // console.log("Roster generated:", roster);
-    }
-
     
     render() {
         // console.log('result:' + this.state.roster.length)
         return (
             <div className="roster-container">
-                <header className="roster-nav">
-                    <div className="roster-header-caption ">Roster/Items:</div>
-                    <select name="roster" id="roster-select">
+
+                {/* REACT FORMS SELECT EXAMPLE */}
+                <form className="roster-nav" onSubmit={this.handleSubmit}>
+                    <label className="roster-header-caption"> 
+                        Roster/Items:
+                        <select name="roster" id="roster-select" value={this.state.value} onChange={this.handleChange}>
+                            {this.state.menuRange.map(num => 
+                                <option key={num.key} value={num.value}>{num.value}</option>
+                            )}
+                        </select>
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
+                {/* INITIAL SETUP */}
+                {/* <header className="roster-nav">
+                    <div className="roster-header-caption">Roster/Items:</div>
+                    <select name="roster" id="roster-select" onChange={this.generateItems}>
                         {this.state.menuRange.map((num) => 
                             <option key={num} value={num}>{num}</option>
                         )}
                     </select>
-                </header>
+                </header> */}
 
                 <div className="roster-items-container">
                     

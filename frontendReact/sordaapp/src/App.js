@@ -11,13 +11,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "BOB",
+      // title: "BOB",
       title: null,
       titled: false,
     }
-
     this.setTitle = this.setTitle.bind(this);
-    // this.toggleTitle = this.toggleTitle.bind(this);
   }
 
   setTitle(e) {
@@ -25,17 +23,10 @@ class App extends Component {
     // TODO: get input value from TitleBar Component
     let title = e.target.value;
     console.log(title);
-    this.setState({title: title});
-    // this.toggleTitle();
+    // this.setState({title: title});
+    this.setState({title: e.target.value});
+
   }
-  // toggleTitle() {
-  //   console.log("Toggling Title");
-  //   if (this.state.title) {
-  //     this.setState({title: false})
-  //     } else {
-  //       this.setState({title: true})
-  //     };
-  // }
 
   render(){
     return (

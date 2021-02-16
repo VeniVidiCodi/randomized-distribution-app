@@ -1,0 +1,22 @@
+.roster-item--new {
+    border: 2px solid red;
+    border-radius: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+}
+
+.roster-add--button {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.new-roster-item-text {
+    font-size: large;
+    margin-left: 20px;
+    
+}

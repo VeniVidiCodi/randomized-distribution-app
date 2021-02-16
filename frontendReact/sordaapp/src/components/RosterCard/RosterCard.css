@@ -1,0 +1,20 @@
+.roster-item-container {
+    border: 2px solid brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    border-radius: 30px;
+}
+
+.roster-item-text {
+    color: red;
+}
+
+.roster-del--btn, .roster-add--button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
+}

@@ -23,25 +23,24 @@
     border-radius: 4px;
 }
 .roster-items-container {
-    background-color: blanchedalmond;
+    background-color: #c2c2c2;
 }
 .roster-item {
     height: 30px;
     border: 2px solid brown;
     border-radius: 30px;
-    background-color: burlywood;
+    background-color: rgb(108, 108, 108);
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .roster-item--new {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    background-color: wheat;
+    background-color: rgb(223, 223, 223);
 }
 .roster-item--display {
     padding-left: 20px;
@@ -52,16 +51,7 @@
     margin-left: 20px;
 }
 
-/* .roster-add--button {
-    width: 30px;
-    height: 30px;
-    border: 2px solid brown;
-    border-radius: 30px;
-    font-weight: bold;
-    color:  brown;
-} */
-
-.roster-delete--button, .roster-add--button {
+.roster-add--button {
     width: 30px;
     height: 30px;
     border: 2px solid brown;
@@ -69,3 +59,12 @@
     font-weight: bold;
     color:  brown;
 }
+
+/* .roster-delete--button, .roster-add--button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
+} */

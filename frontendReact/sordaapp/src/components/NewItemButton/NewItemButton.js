@@ -4,8 +4,8 @@ import './NewItemButton.css';
 class NewItemButton extends Component {
  render() {
     return (
-        <div className="roster-item--new">
-            <div className="roster-add--button" onClick={this.props.onClick}>+</div>
+        <div className="add-item-button" onClick={this.props.onClick}>
+            {/* <div className="roster-add--button">+</div> */}
             <div className="new-roster-item-text">Add Roster Item</div>
         </div>
     );

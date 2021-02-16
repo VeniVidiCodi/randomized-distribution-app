@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './RosterCard.css';
+import './RosterItem.css';
 // import RosterListItem from '../GroupListItem/GroupListItem';
 
-class RosterCard extends Component {
+class RosterItem extends Component {
     render() {
     let name = this.props.name;
     // let key = this.props.key;
@@ -17,4 +17,4 @@ class RosterCard extends Component {
     }
 }
 
-export default RosterCard;
+export default RosterItem;

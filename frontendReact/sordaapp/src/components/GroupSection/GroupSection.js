@@ -10,7 +10,6 @@ class GroupSection extends Component {
         this.state = {
             max: 8,
             min: 2,
-            // menuButtons: [2, 3, 4, 5, 6, 7, 8],
             menuButtons: [],
             showGroupMenu: true,
             projectName: "Grouper",

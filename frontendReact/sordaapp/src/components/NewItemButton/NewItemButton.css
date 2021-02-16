@@ -1,22 +1,27 @@
-.roster-item--new {
+.add-item-button {
     border: 2px solid red;
     border-radius: 25px;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
+    padding: 10px;
+    background-color: white;
+}
+.roster-item--new:hover {
+    background-color: greenyellow;
 }
 
-.roster-add--button {
+/* .roster-add--button {
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-}
+} */
 
 .new-roster-item-text {
     font-size: large;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     
 }

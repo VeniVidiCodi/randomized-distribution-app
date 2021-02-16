@@ -6,10 +6,10 @@ class Footer extends Component {
         return(
             <footer id="app-footer">
                 {/*<form action="/action_page.php"> */}
-                    <button className="footer-button" type="submit" value="Save" onClick={() => console.log("SAVE BUTTON CLICKED...")}>Save</button> 
+                    <div className="footer-button" type="submit" value="Save" onClick={() => console.log("SAVE BUTTON CLICKED...")}>Save</div> 
                     
-                    <button className="footer-button" type="submit" value="Shuffle" onClick={() =>
-                    console.log("SHUFFLE BUTTON CLICKED...")}>Shuffle</button>
+                    <div className="footer-button" type="submit" value="Shuffle" onClick={() =>
+                    console.log("SHUFFLE BUTTON CLICKED...")}>Shuffle</div>
                 {/*</form>*/}
             </footer>
         )

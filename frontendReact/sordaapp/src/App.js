@@ -11,36 +11,38 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      title: "BOB",
+      title: null,
       titled: false,
     }
 
     this.setTitle = this.setTitle.bind(this);
-    this.toggleTitle = this.toggleTitle.bind(this);
+    // this.toggleTitle = this.toggleTitle.bind(this);
   }
 
-  setTitle() {
+  setTitle(e) {
     console.log("Setting Title");
     // TODO: get input value from TitleBar Component
-    // let title = ;
-    // this.setState({title: title});
-    this.toggleTitle();
+    let title = e.target.value;
+    console.log(title);
+    this.setState({title: title});
+    // this.toggleTitle();
   }
-  toggleTitle() {
-    console.log("Toggling Title");
-    if (this.state.title) {
-      this.setState({title: false})
-      } else {
-        this.setState({title: true})
-      };
-  }
+  // toggleTitle() {
+  //   console.log("Toggling Title");
+  //   if (this.state.title) {
+  //     this.setState({title: false})
+  //     } else {
+  //       this.setState({title: true})
+  //     };
+  // }
 
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <Nav logo={logo} />
-          <TitleBar title={this.state.title} toggleTitle={this.toggleTitle} setTitle={this.setTitle} />
+          <TitleBar title={this.state.title} setTitle={this.setTitle} />
         </header>
         <main id="entry-container">
           <GroupSection state={this.state} />

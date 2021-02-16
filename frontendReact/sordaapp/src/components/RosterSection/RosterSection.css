@@ -4,12 +4,13 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    background-color: whitesmoke;
+    background-color: rgb(218, 218, 218);
+    /* box-shadow: 2px 5px 5px grey inset; */
 }
 .roster-nav {
     background-color: gray;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-around;
     align-items: center;
 }
@@ -22,9 +23,9 @@
     height: 40px;
     border-radius: 4px;
 }
-.roster-items-container {
-    background-color: #c2c2c2;
-}
+/* .roster-items-container {
+    box-shadow: 0 0 5px black inset;
+} */
 .roster-item {
     height: 30px;
     border: 2px solid brown;

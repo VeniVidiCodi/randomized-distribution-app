@@ -11,7 +11,7 @@ class RosterItem extends Component {
         return(
             <div className="roster-item-container">
                 <div className="roster-item-text">{name}</div>
-                <div className="roster-del-btn" >x</div>
+                <div className="roster-del-btn" onClick={()=>console.log('delete roster item')}>x</div>
             </div>
         );
     }

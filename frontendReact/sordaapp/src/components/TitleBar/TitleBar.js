@@ -14,7 +14,7 @@ class TitleBar extends Component {
                 <h2 onClick={this.props.toggleTitle}>{this.props.title}</h2> :
                 <div className="input-wrapper">
                   <input id="project-title--input" type="text" placeholder="ADD PROJECT TITLE" />
-                  <div className="title-submit-button" onClick={this.props.setTitle}></div>
+                  <div className="title-submit-button" onClick={this.props.setTitle}>✓</div>
                 </div>
               }
             </section>

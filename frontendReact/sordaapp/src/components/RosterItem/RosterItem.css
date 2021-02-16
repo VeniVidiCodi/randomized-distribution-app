@@ -4,17 +4,41 @@
     flex-direction: row;
     justify-content: end;
     border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1em;
+
+    border: 2px solid black;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* padding: 5px; */
+    background-color: white;
 }
 
 .roster-item-text {
-    color: red;
+    color: black;
+    display: flex;
+    margin: 5px auto;
 }
 
-.roster-del--btn, .roster-add--button {
-    width: 30px;
-    height: 30px;
-    border: 2px solid brown;
-    border-radius: 30px;
+.roster-del-btn {
+    /* position: relative; */
+    /* z-index: 20; */
+    /* left: 3em; */
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid blue; */
+    /* box-shadow: 0px 5px 5px lightgrey; */
+    background-color: pink;
+    border-radius: 0 50% 50% 0;
     font-weight: bold;
-    color:  brown;
+    color:  white;
+}
+.roster-del-btn:hover {
+    background-color: red;
 }

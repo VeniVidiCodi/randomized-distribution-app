@@ -94,17 +94,16 @@ class GroupSection extends Component {
                 <header className="group-nav">
                     <div className="group-header-caption">Groups/Categories:</div>
                     {this.state.showGroupMenu ? 
-                    <div className="group-btn-container">
-                        {this.state.menuButtons.map((button) => 
-                            <GroupMenuButton 
-                                key={button}
-                                value={button} 
-                                onClick={this.generateGroups}
-                            />
-                        )}
-
-                    </div>:
-                    <div></div>}
+                        <div className="group-btn-container">
+                            {this.state.menuButtons.map((button) => 
+                                <GroupMenuButton 
+                                    key={button}
+                                    value={button} 
+                                    onClick={this.generateGroups}
+                                />
+                            )}
+                        </div> : <div></div>
+                    }
                 </header>
 
                 <div className="group-items-container">

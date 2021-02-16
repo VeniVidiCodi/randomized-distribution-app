@@ -6,7 +6,7 @@ class NewItemButton extends Component {
     return (
         <div className="add-item-button" onClick={this.props.onClick}>
             {/* <div className="roster-add--button">+</div> */}
-            <div className="new-roster-item-text">Add Roster Item</div>
+            <div className="new-roster-item-text">+</div>
         </div>
     );
  }

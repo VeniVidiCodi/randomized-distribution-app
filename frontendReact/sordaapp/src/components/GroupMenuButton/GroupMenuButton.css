@@ -1,0 +1,18 @@
+.group-button {
+    display: flex;
+    height: 40px;
+    /* width: 40px; */
+    padding: 0 20px;
+    font-size: x-large;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: rgb(231, 233, 235);
+    border-left: 1px solid black;
+    border-radius: 3px;
+}
+.group-button:nth-child(even) {
+    background-color: lightgrey;
+}
+.group-button:hover {
+    background-color: lightgreen;
+}

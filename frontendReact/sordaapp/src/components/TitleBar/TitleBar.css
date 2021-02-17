@@ -1,0 +1,52 @@
+.titlebar {
+    display: flex;
+    /* height: 20px; */
+    justify-content: center;
+    width: 100%;
+    /* border: 2px solid red; */
+    background-color: rgb(222, 212, 190);
+    padding: 10px 0;
+}
+
+
+/* ADD TEXT INPUT BOX TRANSITIONS TO/FROM TITLE */
+.title-display {
+    color: red;
+    margin: 0;
+    padding: 20px 40px;
+    border-radius: 20px;
+    border: 1px solid #666;
+}
+.title-display:hover {
+    background-color: lightgreen;
+}
+
+#project-title--input {
+    /* height: 30px; */
+    font-size: .8em;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 100px;
+}
+
+.title-submit-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #5f6d63;
+    margin-left: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-submit-button:hover {
+    background-color: lightgreen;
+    border: 1px solid green;
+    width: 39px;
+    height: 39px;
+}
+
+.input-wrapper {
+    display: flex;
+}

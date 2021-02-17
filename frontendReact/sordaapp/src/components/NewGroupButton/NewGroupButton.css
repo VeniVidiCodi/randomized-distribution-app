@@ -1,0 +1,37 @@
+/* ADD GROUP CARD */
+.group-item--new {
+    max-height: 90px;
+    max-width: 90px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: rgb(213, 208, 203);
+    margin: 30px 77px;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+.group-add--button {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid brown;
+    border-radius: 30px;
+    /* margin-bottom: 5px; */
+    margin: 0 auto;
+    text-decoration: none;
+    color:  brown;
+    font-weight: bolder;
+    transition: background-color 1s;
+}
+.group-add--button:hover {
+    background-color: greenyellow;
+    /* width: 32px;
+    height: 32px; */
+}
+
+.new-group-item-text {
+    margin-top: 5px;
+    font-weight: bold;
+}

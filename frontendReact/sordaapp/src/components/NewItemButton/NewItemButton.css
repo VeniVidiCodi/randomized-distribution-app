@@ -1,0 +1,29 @@
+.add-item-button {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.add-item-button:hover {
+    background-color: lightgreen;
+}
+
+/* .roster-add--button {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+} */
+
+.new-roster-item-text {
+    font-size: large;
+    /* margin-left: 20px; */
+    
+}

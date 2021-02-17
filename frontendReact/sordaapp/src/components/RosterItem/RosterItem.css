@@ -2,7 +2,7 @@
     border: 2px solid brown;
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
     border-radius: 30px;
     font-weight: bold;
     font-size: 1.1em;

@@ -11,6 +11,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
+=======
+      // title: "BOB",
+>>>>>>> results-page-components
       title: null,
       titled: false,
     }

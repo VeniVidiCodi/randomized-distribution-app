@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import logo from './mallard.svg';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import TitleBar from './components/TitleBar/TitleBar';
-import GroupSection from './components/GroupSection/GroupSection';
-import RosterSection from './components/RosterSection/RosterSection';
 import Footer from './components/Footer/Footer';
+import LandingPage from './components/AppPages/LandingPage';
+import ResultsPage from './components/AppPages/ResultPage';
+import InputPage from './components/AppPages/InputPage';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: null,
-      titled: false
+      title: ''
     }
-    this.setTitle = this.setTitle.bind(this);
   }
 
   setTitle(e) {
@@ -26,18 +25,22 @@ class App extends Component {
     this.setState({title: e.target.value});
 
   }
-
+  
   render(){
     return (
       <div className="App">
         <header className="App-header">
-          <Nav logo={logo} />
+          <Nav />
           <TitleBar title={this.state.title} setTitle={this.setTitle} />
         </header>
+
+        {/* SETUP/MODIFY ROUTES HERE */}
         <main id="entry-container">
-          <GroupSection state={this.state} />
-          <RosterSection />
+          <LandingPage /> 
+          <InputPage />
+          <ResultsPage />
         </main>
+
         <Footer />
       </div>
     );

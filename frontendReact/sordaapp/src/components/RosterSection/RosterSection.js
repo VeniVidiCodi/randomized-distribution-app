@@ -10,7 +10,7 @@ class RosterSection extends Component {
         this.state = {
             rosterMax: 40,
             rosterMin: 2,  // OR min. should be at least the number of groups created...
-            menuRange: [],
+            // menuRange: [],
             showRoster: true,
             selectValue: null,
             roster: [
@@ -19,41 +19,41 @@ class RosterSection extends Component {
             ]
         }
 
-        this.renderSelectMenu = this.renderSelectMenu.bind(this);
+        // this.renderSelectMenu = this.renderSelectMenu.bind(this);
         this.generateItems = this.generateItems.bind(this);
         this.addItem = this.addItem.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }    
 
     //  LIFECYCLE METHODS  -------------------------------------------------
     componentDidMount() {
-        this.renderSelectMenu();
+        // this.renderSelectMenu();
     }
     
     // Create the options list for dropdown select menu
-    renderSelectMenu() {
-        console.log('RENDERING DROPDOWN...');
-        // Loop through range of min/max to populate the menuRange array
-        let menuRange = [];
-        // let min = this.state.rosterMin;
-        let max = this.state.rosterMax;
+    // renderSelectMenu() {
+    //     console.log('RENDERING DROPDOWN...');
+    //     // Loop through range of min/max to populate the menuRange array
+    //     let menuRange = [];
+    //     // let min = this.state.rosterMin;
+    //     let max = this.state.rosterMax;
 
-        for (let i=0; i<=max; i++) {
-            const key = nanoid();
-            const obj = {
-                key: key, 
-                value: i
-            };
-            menuRange.push(obj);
-            console.log(menuRange);
-        }
+    //     for (let i=0; i<=max; i++) {
+    //         const key = nanoid();
+    //         const obj = {
+    //             key: key, 
+    //             value: i
+    //         };
+    //         menuRange.push(obj);
+    //         console.log(menuRange);
+    //     }
 
-        this.setState({
-            menuRange: menuRange
-        });
-        // console.log('MENU RANGE: ' + menuRange);
-    }
+    //     this.setState({
+    //         menuRange: menuRange
+    //     });
+    //     // console.log('MENU RANGE: ' + menuRange);
+    // }
 
     //  EVENT HANDLERS  -------------------------------------------------
     handleChange(event) {
@@ -105,6 +105,11 @@ class RosterSection extends Component {
         this.setState({roster: roster});
     }
 
+    deleteItem () {
+        console.log('Deleting Item...');
+        // Remove item from roster
+    }
+
     
     render() {
         return (
@@ -113,13 +118,13 @@ class RosterSection extends Component {
                 <form className="roster-nav" onSubmit={this.handleSubmit}>
                     <label className="roster-header-caption"> 
                         Roster/Items:
-                        <select name="roster" id="roster-select" value={this.state.value} onChange={this.handleChange}>
+                        {/* <select name="roster" id="roster-select" value={this.state.value} onChange={this.handleChange}>
                             {this.state.menuRange.map(num => 
                                 <option key={num.key} value={num.value}>{num.value}</option>
                             )}
-                        </select>
+                        </select> */}
                     </label>
-                    <input type="submit" value="Submit" />
+                    {/* <input type="submit" value="Submit" /> */}
                 </form>
 
                 <div className="roster-items-container">

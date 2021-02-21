@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import TitleBar from '../TitleBar/TitleBar';
 import Nav from '../Nav/Nav';
+import TitleBar from '../TitleBar/TitleBar';
+import GroupSection from '../GroupSection/GroupSection';
+import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 
 class Input extends Component {
@@ -25,17 +27,16 @@ class Input extends Component {
     return (
         <div>
           <header className="App-header">
-            INPUT PAGE
             <Nav />
             <TitleBar/>
           </header>
 
           <main id="entry-container">
-            {/* <GroupSection state={this.props.state} /> */}
-            {/* <RosterSection /> */}
-            <Footer />
+            <GroupSection state={this.props.state} />
+            <RosterSection />
           </main>
 
+          <Footer />
         </div>
     );
   }

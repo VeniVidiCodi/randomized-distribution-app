@@ -17,8 +17,8 @@ export default class App extends Component {
       <div className="App">
         
         {/* SETUP/MODIFY ROUTES HERE */}
-          <LandingPage /> 
-          {/* <InputPage /> */}
+          {/* <LandingPage />  */}
+          <InputPage />
           {/* <ResultsPage /> */}
 
       </div>

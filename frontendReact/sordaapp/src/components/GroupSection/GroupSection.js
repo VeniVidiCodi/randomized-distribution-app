@@ -10,39 +10,35 @@ class GroupSection extends Component {
         this.state = {
             max: 8,
             min: 2,
-            menuButtons: [],
-            showGroupMenu: true,
+            // menuButtons: [],
+            // showGroupMenu: true,
             projectName: "Grouper",
             groups: [
                 // {groupName: "Group 1", id: 0}
-            ], 
-            rosterItems: [
-                // {"Kenly": 1},
-                // {"Victor" : 2}
-            ] 
+            ]
         }
         // this.handleClick = this.handleClick.bind(this); EXAMPLE
-        this.renderGroupMenuButtons = this.renderGroupMenuButtons.bind(this);
+        // this.renderGroupMenuButtons = this.renderGroupMenuButtons.bind(this);
         this.addGroup = this.addGroup.bind(this);
         this.generateGroups = this.generateGroups.bind(this);
     }    
 
     //  LIFECYCLE -------------------------------------------------
     componentDidMount() {
-        this.renderGroupMenuButtons();
+        // this.renderGroupMenuButtons();
     }
     
-    renderGroupMenuButtons() {
-        // console.log("GENERATING GROUP MENU BUTTONS...");
-        let menuButtons = [];
-        let min = this.state.min;
-        let max = this.state.max;
-        for (let i=min; i<=max; i++) {
-            menuButtons.push(i);
-        }
-        // console.log(menuButtons);
-        this.setState({menuButtons: menuButtons});
-    }
+    // renderGroupMenuButtons() {
+    //     // console.log("GENERATING GROUP MENU BUTTONS...");
+    //     let menuButtons = [];
+    //     let min = this.state.min;
+    //     let max = this.state.max;
+    //     for (let i=min; i<=max; i++) {
+    //         menuButtons.push(i);
+    //     }
+    //     // console.log(menuButtons);
+    //     this.setState({menuButtons: menuButtons});
+    // }
 
     // EVENT HANDLERS -------------------------------------------------
 
@@ -62,7 +58,7 @@ class GroupSection extends Component {
 
     // Add multiple entries to group array
     generateGroups(e) {
-        // console.log("Generating multiple groups...");
+        console.log("Generating multiple groups...");
         let num = e.target.innerText;
         let groups = [];    // Resets the groups array
         let showGroupMenu = this.state.showGroupMenu;
@@ -92,8 +88,8 @@ class GroupSection extends Component {
             <div className="group-section">
 
                 <header className="group-nav">
-                    <div className="group-header-caption">Groups/Categories:</div>
-                    {this.state.showGroupMenu ? 
+                    <div className="group-header-caption">Groups</div>
+                    {/* {this.state.showGroupMenu ? 
                         <div className="group-btn-container">
                             {this.state.menuButtons.map((button) => 
                                 <GroupMenuButton 
@@ -103,20 +99,20 @@ class GroupSection extends Component {
                                 />
                             )}
                         </div> : <div></div>
-                    }
+                    } */}
                 </header>
 
                 <div className="group-items-container">
                     <div id="groups-display-wrapper">
+                        {this.state.groups.length < this.state.max ? 
+                            <NewGroupButton onClick={this.addGroup} /> 
+                            : <div></div>
+                        }
                         {this.state.groups.map((group) => 
                             <GroupCard 
                                 key={group} 
                                 title={group.groupName} />
                         )}
-                        {this.state.groups.length < this.state.max ? 
-                            <NewGroupButton onClick={this.addGroup} /> :
-                            <div></div>
-                        }
                     </div>
                 </div>   
                     

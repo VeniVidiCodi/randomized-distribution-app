@@ -6,7 +6,7 @@ class TitleBar extends Component {
     super(props);
     this.state = {
       title : this.props.title,
-      showTitle: false,
+      showTitle: true,
       setTitle: this.props.setTitle
     }
     this.handleChange = this.handleChange.bind(this);
@@ -24,35 +24,35 @@ class TitleBar extends Component {
   }
 
   toggleTitle() {
-    console.log("Toggling Title");
-    if (this.state.title === true) {
+    console.log("Toggling Title", );
+    if (this.state.showTitle) {
         console.log("T -> F");
         this.setState({showTitle: false})
-      } else{
+      } else {
         console.log("F -> T");
         this.setState({showTitle: true})
       };
   }
 
   render() {
-    console.log("SHOWTITLE?", this.state.showTitle)
+    // console.log("SHOWTITLE?", this.state.showTitle)
     return (
             <section className="titlebar project-title-container">
                 {/* <h2 onChange={this.handleChange}>{this.state.title}</h2> */}
+              Project Name:
 
-              { this.state.showTitle === true ?
+              { this.state.showTitle ?
                 <h2 className="title-display" onClick={this.toggleTitle} onChange={this.handleChange}>{this.state.title}</h2> :
                 // <div className="input-wrapper">
                 //   <input id="project-title--input" type="text" placeholder="ADD PROJECT TITLE" onChange={this.handleChange}/>
                 //   <div className="title-submit-button" onClick={this.props.setTitle}>✓</div>
                 // </div>
-              <form className="input-wrapper" onSubmit={this.handleSubmit}>
-                <label>
-                  Project Name:
-                  <input id="project-title--input" type="text" name="name" placeholder="ADD PROJECT TITLE" onChange={this.handleChange} />
-                </label>
-                <input className="title-submit-button" onClick={this.state.setTitle} type="submit" value="✓" />
-              </form>
+                <form className="input-wrapper" onSubmit={this.handleSubmit}>
+                  <label>
+                    <input id="project-title--input" type="text" name="name" placeholder="ADD PROJECT TITLE" onChange={this.handleChange} value={this.state.title} />
+                  </label>
+                  <input className="title-submit-button" onClick={this.state.setTitle} type="submit" value="✓" />
+                </form>
               }
             </section>
     );

@@ -16,6 +16,7 @@
     padding: 20px 40px;
     border-radius: 20px;
     border: 1px solid #666;
+    margin-left: 40px;
 }
 .title-display:hover {
     background-color: lightgreen;
@@ -26,7 +27,7 @@
     font-size: .8em;
     border-radius: 10px;
     padding: 10px;
-    margin-left: 100px;
+    margin-left: 40px;
 }
 
 .title-submit-button {

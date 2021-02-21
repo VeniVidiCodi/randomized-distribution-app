@@ -7,8 +7,7 @@ export default class ResultsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: null,
-      titled: false
+      title: 'Example Title'
     }
 
   }
@@ -19,14 +18,12 @@ export default class ResultsPage extends Component {
           <header className="App-header">
             RESULTS PAGE
             <Nav />
-            <TitleBar/>
+            <TitleBar title={this.state.title}/>
           </header>
 
-          <main id="entry-container">
-            {/* <GroupSection state={this.props.state} /> */}
-            {/* <RosterSection /> */}
+          {/* <main id="entry-container">
+          </main> */}
             <Footer />
-          </main>
 
         </div>
     );

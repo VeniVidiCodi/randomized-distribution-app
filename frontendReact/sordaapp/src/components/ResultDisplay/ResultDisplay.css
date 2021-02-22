@@ -1,0 +1,11 @@
+.display-wrapper {
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.result-header {
+    display: flex;
+    justify-content: center;
+}

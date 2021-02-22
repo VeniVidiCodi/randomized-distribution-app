@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import TitleBar from '../TitleBar/TitleBar';
 import Nav from '../Nav/Nav';
+import ResultDisplay from '../ResultDisplay/ResultDisplay';
 import Footer from '../Footer/Footer';
+import GroupSection from '../GroupSection/GroupSection';
 
 export default class ResultsPage extends Component {
   constructor(props) {
@@ -14,17 +16,12 @@ export default class ResultsPage extends Component {
 
   render(){
     return (
-        <div>
-          <header className="App-header">
-            RESULTS PAGE
+        <div className="page-wrapper">
             <Nav />
+            RESULTS PAGE
             <TitleBar title={this.state.title}/>
-          </header>
-
-          {/* <main id="entry-container">
-          </main> */}
+            <ResultDisplay />
             <Footer />
-
         </div>
     );
   }

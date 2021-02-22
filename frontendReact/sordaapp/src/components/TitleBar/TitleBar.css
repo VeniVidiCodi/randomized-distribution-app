@@ -2,6 +2,7 @@
     display: flex;
     /* height: 20px; */
     justify-content: center;
+    align-items: center;
     width: 100%;
     /* border: 2px solid red; */
     background-color: rgb(222, 212, 190);
@@ -11,12 +12,13 @@
 
 /* ADD TEXT INPUT BOX TRANSITIONS TO/FROM TITLE */
 .title-display {
-    color: red;
-    margin: 0;
-    padding: 20px 40px;
-    border-radius: 20px;
-    border: 1px solid #666;
-    margin-left: 40px;
+    font-size: calc(10px + 2vmin);  
+    /* color: red; */
+    margin: 0 20px;
+    /* padding: 10px 40px; */
+    /* border-radius: 20px; */
+    /* border: 1px solid #666; */
+    /* margin-left: 40px; */
 }
 .title-display:hover {
     background-color: lightgreen;
@@ -24,7 +26,7 @@
 
 #project-title--input {
     /* height: 30px; */
-    font-size: .8em;
+    /* font-size: .8em; */
     border-radius: 10px;
     padding: 10px;
     margin-left: 40px;

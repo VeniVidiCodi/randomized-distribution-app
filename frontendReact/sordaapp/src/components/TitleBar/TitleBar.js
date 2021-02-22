@@ -42,11 +42,8 @@ class TitleBar extends Component {
               Project Name:
 
               { this.state.showTitle ?
-                <h2 className="title-display" onClick={this.toggleTitle} onChange={this.handleChange}>{this.state.title}</h2> :
-                // <div className="input-wrapper">
-                //   <input id="project-title--input" type="text" placeholder="ADD PROJECT TITLE" onChange={this.handleChange}/>
-                //   <div className="title-submit-button" onClick={this.props.setTitle}>✓</div>
-                // </div>
+                <h2 className="title-display" onClick={this.toggleTitle} onChange={this.handleChange}>{this.state.title}</h2> 
+                :
                 <form className="input-wrapper" onSubmit={this.handleSubmit}>
                   <label>
                     <input id="project-title--input" type="text" name="name" placeholder="ADD PROJECT TITLE" onChange={this.handleChange} value={this.state.title} />

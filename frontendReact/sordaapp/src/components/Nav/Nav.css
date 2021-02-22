@@ -3,7 +3,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     flex-shrink: 0;
@@ -22,7 +22,7 @@
 .app-title {
     color: white;
     font-size: xx-large;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 .nav-menu {
     background-color: white;

@@ -8,41 +8,26 @@ export default class ResultDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        results: {
+        // results: {
             projectName: 'My Great Project',
             uniqueID: '894Z411TL1893',
             accessPassword:'KDF00NX3Z3',
             groupNames: ['Food', 'Drinks', 'Cleanup Crew', 'Music'],
-            persons: ['Gary', 'Karen', 'Shanondra', 'Kim', 'Aaron']
+            persons: [
+                {name:'Gary', groupNumber: 0}, 
+                {name: 'Karen', groupNumber: 1},
+                {name: 'Shanondra', groupNumber: 2},
+                {name: 'Kim', groupNumber: 3},
+                // {name: 'Aaron', groupNumber: null},
+            ]
             // date: Date.toString()
         }
-        // results: [
-        //     {projectName: 'My Great Project'},
-        //     {uniqueID: '894Z411TL1893'},
-        //     {accessPassword:'KDF00NX3Z3'},
-        //     {groupNames: ['Food', 'Drinks', 'Cleanup Crew', 'Music']},
-        //     {persons: ['Gary', 'Karen', 'Shanondra', 'Kim', 'Aaron']}
-        //     // date: Date.toString()
-        // ]
-    }
+    // }
 
   }
 
   render(){
-    const results = this.state.results;
-      console.log(results);
     return (
-        // <div className="display-wrapper">
-        //     {/* Display results from state results object */}
-        //     {/* {results.projectName} */}
-        //     {/* {results.map((display, value) => 
-        //         <h1>{display}: {value}</h1>
-        //         // <ResultItem display={display} />
-        //     )} */}
-            
-            
-        // </div>
-
         <div className="group-section">
 
             <header className="group-nav result-header">
@@ -51,10 +36,11 @@ export default class ResultDisplay extends Component {
 
             <div className="group-items-container">
                 <div id="groups-display-wrapper">
-                    {results.groupNames.map((group) => 
+                    {this.state.groupNames.map((group, index) => 
                         <GroupCard 
                             key={group} 
-                            title={group} />
+                            title={group}
+                            persons={this.state.persons} />
                     )}
                 </div>
             </div>   

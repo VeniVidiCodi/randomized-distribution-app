@@ -14,6 +14,7 @@ export default class ResultItem extends Component {
     return (
         <div className="result-item-container">
           ResultItem: {this.props.display}
+          <div className="group-list-item">{entry}</div>
         </div>
     );
   }

@@ -3,7 +3,7 @@ import './Nav.css';
 import logo from '../../mallard.svg';
 
 
-class Nav extends Component {
+export default class Nav extends Component {
  render() {
     return (
         <nav className="app-nav">
@@ -11,14 +11,13 @@ class Nav extends Component {
                 <img className="app-logo" src={logo} alt="duck"/>
                 <div className="app-title">SORDA</div>
             </div>
-            <div className="nav-menu">
+            {/* <div className="nav-menu">
                 <a href="#">
                     <menu></menu>
                 </a>
-            </div>
+            </div> */}
         </nav>
 
     );
   }
 }
-export default Nav;

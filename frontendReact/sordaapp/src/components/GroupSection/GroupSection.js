@@ -4,7 +4,8 @@ import NewGroupButton from '../NewGroupButton/NewGroupButton';
 import GroupMenuButton from '../GroupMenuButton/GroupMenuButton';
 import GroupCard from '../GroupCard/GroupCard';
 
-class GroupSection extends Component {
+
+export default class GroupSection extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -120,5 +121,3 @@ class GroupSection extends Component {
         );
     }
 }
-
-export default GroupSection;

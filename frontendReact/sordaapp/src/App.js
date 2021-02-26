@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './App.css';
 
 import LandingPage from './components/AppPages/LandingPage';
@@ -7,21 +8,12 @@ import InputPage from './components/AppPages/InputPage';
 
 
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render(){
+function App() {
     return (
       <div className="App">
-        
-        {/* SETUP/MODIFY ROUTES HERE */}
-          {/* <LandingPage />  */}
-          {/* <InputPage /> */}
-          <ResultsPage />
-
+        <ResultsPage/>
       </div>
     );
-  }
 }
+
+export default App;

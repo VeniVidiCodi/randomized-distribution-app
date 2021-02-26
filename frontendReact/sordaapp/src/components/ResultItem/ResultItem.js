@@ -13,8 +13,8 @@ export default class ResultItem extends Component {
   render(){
     return (
         <div className="result-item-container">
-          ResultItem: {this.props.display}
-          <div className="group-list-item">{entry}</div>
+          ResultItem: this.props.display
+          <div className="group-list-item">this.props.entry</div>
         </div>
     );
   }

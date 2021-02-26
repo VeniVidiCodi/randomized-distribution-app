@@ -15,7 +15,7 @@ export default class GroupSection extends Component {
             // showGroupMenu: true,
             projectName: "Grouper",
             groups: [
-                // {groupName: "Group 1", id: 0}
+                {groupName: "Group 1", id: 9}
             ]
         }
         // this.handleClick = this.handleClick.bind(this); EXAMPLE
@@ -112,7 +112,8 @@ export default class GroupSection extends Component {
                         {this.state.groups.map((group) => 
                             <GroupCard 
                                 key={group} 
-                                title={group.groupName} />
+                                title={group.groupName}
+                                id={group.id} />
                         )}
                     </div>
                 </div>   

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 
 import LandingPage from './components/AppPages/LandingPage';
@@ -7,21 +8,18 @@ import InputPage from './components/AppPages/InputPage';
 
 
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+function App() {
 
-  render(){
-    return (
+  return (
+    <Router>
       <div className="App">
-        
-        {/* SETUP/MODIFY ROUTES HERE */}
-          {/* <LandingPage />  */}
-          {/* <InputPage /> */}
-          <ResultsPage />
+        <Route path='/' exact component={LandingPage}/>
+        <Route path='/grouper' exact component={InputPage}/>
+        <Route path='/results' exact component={ResultsPage}/>
 
       </div>
-    );
-  }
+    </Router>
+  );
 }
+
+export default App;

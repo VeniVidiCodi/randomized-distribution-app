@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
 
@@ -13,16 +14,16 @@ class LandingPage extends Component {
   render(){
     return (
       <div class="wrapper">
-          
+
             <div class="topSection">
                 <img src={logo} alt="duck logo" />
             </div>
 
             <div class="bottomSection">
                 <div class="buttonChild">
-                    <form action="/reactApp" method="">
-                        <button type="submit" value="Submit" id="btn-start">Create Group</button>
-                    </form>
+                  <Link to="/grouper">
+                    <button type="submit" value="Submit" id="btn-start">Create Group</button>
+                  </Link>
                 </div>
                 <div class="inputChild">
                     <form action="/resultsPage" method="post">
@@ -31,10 +32,16 @@ class LandingPage extends Component {
                     </form>
                 </div>
             </div>
-          
+
       </div>
     );
   }
 }
 
 export default LandingPage;
+
+
+/*
+<form action="/grouper" method="">
+    <button type="submit" value="Submit" id="btn-start">Create Group</button>
+</form>*/

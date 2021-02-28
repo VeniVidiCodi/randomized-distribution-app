@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import ResultItem from '../ResultItem/ResultItem';
 import GroupCard from '../GroupCard/GroupCard';
 import './ResultDisplay.css';
-
+// commment
 
 export default class ResultDisplay extends Component {
   constructor(props) {

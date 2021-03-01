@@ -1,14 +1,21 @@
 .add-item-button {
-    border: 2px solid black;
-    border-radius: 10px;
+    width: 40px;
+    /* height: 30px; */
+    background-color: white;
+    border: 2px solid brown;
+    border-radius: 5px;
+    /* margin-bottom: 5px; */
+    /* margin: 0 auto; */
+    text-decoration: none;
+    color:  brown;
+    font-weight: bolder;
+    transition: background-color 1s;
+    text-align: center;
+    /* flex: 0; */
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    padding: 10px;
-    background-color: white;
-    font-weight: bold;
-    font-size: 1.1em;
 }
 .add-item-button:hover {
     background-color: lightgreen;

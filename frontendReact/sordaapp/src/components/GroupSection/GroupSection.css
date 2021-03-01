@@ -2,7 +2,6 @@
 /* --- GROUP SECTION --- */
 .group-section {
     background-color: whitesmoke;
-    /* border: 1px solid black; */
     width: 100%;
     height: auto;
     margin-right: 5px;
@@ -12,12 +11,7 @@
 }
 .group-section-header {
     display: inline-flex;
-    /* flex-flow: row wrap; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* padding: 0 5px 0 10px; */
     background-color: rgb(191, 210, 191);
-    /* text-align: center; */
 }
 .group-header-caption {
     flex: 1;
@@ -38,6 +32,7 @@
     text-align: center;
     background-color: white;
 }
+
 .group-del-btn {
     /* width: 22px;
     height: 22px; */
@@ -49,9 +44,3 @@
     /* margin-top: -45px; */
     /* margin-left: 65px; */
 }
-
-/* 
-.result-header {
-    display: flex;
-    justify-content: center;
-} */

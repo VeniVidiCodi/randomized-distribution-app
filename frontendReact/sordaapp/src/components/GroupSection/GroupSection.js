@@ -15,7 +15,7 @@ export default class GroupSection extends Component {
             // showGroupMenu: true,
             projectName: "Grouper",
             groups: [
-                {groupName: "Group A", id: 9}
+                // {groupName: "Group A", id: 9}
             ]
         }
         // this.handleClick = this.handleClick.bind(this); EXAMPLE

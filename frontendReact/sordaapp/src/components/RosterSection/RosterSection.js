@@ -12,7 +12,7 @@ class RosterSection extends Component {
             rosterMin: 2,  // OR min. should be at least the number of groups created...
             // menuRange: [],
             showRoster: true,
-            selectValue: null,
+            // selectValue: null,
             roster: [
                 // {key: null, name: "Kenly", group: 1},
                 // {key: null, name: "Victor", group: 2}
@@ -28,33 +28,10 @@ class RosterSection extends Component {
 
     //  LIFECYCLE METHODS  -------------------------------------------------
     componentDidMount() {
-        // this.renderSelectMenu();
+
     }
     
-    // Create the options list for dropdown select menu
-    // renderSelectMenu() {
-    //     console.log('RENDERING DROPDOWN...');
-    //     // Loop through range of min/max to populate the menuRange array
-    //     let menuRange = [];
-    //     // let min = this.state.rosterMin;
-    //     let max = this.state.rosterMax;
-
-    //     for (let i=0; i<=max; i++) {
-    //         const key = nanoid();
-    //         const obj = {
-    //             key: key, 
-    //             value: i
-    //         };
-    //         menuRange.push(obj);
-    //         console.log(menuRange);
-    //     }
-
-    //     this.setState({
-    //         menuRange: menuRange
-    //     });
-    //     // console.log('MENU RANGE: ' + menuRange);
-    // }
-
+    
     //  EVENT HANDLERS  -------------------------------------------------
     handleChange(event) {
         this.setState({selectValue: event.target.value});
@@ -113,19 +90,15 @@ class RosterSection extends Component {
     
     render() {
         return (
-            <div className="roster-container">
+            <div className="roster-section">
 
-                <form className="roster-nav" onSubmit={this.handleSubmit}>
-                    <label className="roster-header-caption"> 
-                        Roster/Items:
-                        {/* <select name="roster" id="roster-select" value={this.state.value} onChange={this.handleChange}>
-                            {this.state.menuRange.map(num => 
-                                <option key={num.key} value={num.value}>{num.value}</option>
-                            )}
-                        </select> */}
-                    </label>
-                    {/* <input type="submit" value="Submit" /> */}
-                </form>
+                <header className="roster-section-header">
+                    <div className="roster-header-caption">Roster/Items:</div>
+                    {(this.state.roster.length < this.state.rosterMax) ? 
+                            <NewItemButton onClick={this.addItem} /> :
+                            <div></div>
+                        } 
+                </header>
 
                 <div className="roster-items-container">
                     <div id="roster-display-wrapper">
@@ -134,12 +107,9 @@ class RosterSection extends Component {
                                 key={item.key} 
                                 name={item.name} />
                         )}
-                        {(this.state.roster.length < this.state.rosterMax) ? 
-                            <NewItemButton onClick={this.addItem} /> :
-                            <div></div>
-                        } 
                     </div>
                 </div>
+                
             </div>
         )
     }

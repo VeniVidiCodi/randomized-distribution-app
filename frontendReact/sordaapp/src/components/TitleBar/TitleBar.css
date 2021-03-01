@@ -7,17 +7,18 @@
     /* border: 2px solid red; */
     background-color: rgb(222, 212, 190);
     padding: 10px 0;
+    flex: 0 1 auto;
 }
 
 
 /* ADD TEXT INPUT BOX TRANSITIONS TO/FROM TITLE */
 .title-display {
     font-size: calc(10px + 2vmin);  
-    /* color: red; */
+    background-color: #beb;
     margin: 0 20px;
-    /* padding: 10px 40px; */
-    /* border-radius: 20px; */
-    /* border: 1px solid #666; */
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: 1px solid #666;
     /* margin-left: 40px; */
 }
 .title-display:hover {

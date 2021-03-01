@@ -18,6 +18,7 @@
     background-color: rgb(206, 204, 204);
     min-height: 112px;
     min-width: 240px;
+    max-width: 260px;
     margin: 30px;
 }
 .group-name {

@@ -6,7 +6,7 @@ class TitleBar extends Component {
     super(props);
     this.state = {
       title : this.props.title,
-      showTitle: true,
+      showTitle: false,
       setTitle: this.props.setTitle
     }
     this.handleChange = this.handleChange.bind(this);
@@ -38,8 +38,7 @@ class TitleBar extends Component {
     // console.log("SHOWTITLE?", this.state.showTitle)
     return (
             <section className="titlebar project-title-container">
-                {/* <h2 onChange={this.handleChange}>{this.state.title}</h2> */}
-              Project Name:
+              <h3>Project Name:</h3>
 
               { this.state.showTitle ?
                 <h2 className="title-display" onClick={this.toggleTitle} onChange={this.handleChange}>{this.state.title}</h2> 

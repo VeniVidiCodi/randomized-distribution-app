@@ -6,8 +6,10 @@ class Footer extends Component {
     render() {
         return(
             <footer id="app-footer">
-                    <FooterButton value="Save" text="Save" />
-                    {/* <FooterButton value="Shuffle" text="Shuffle" /> */}
+                    <FooterButton 
+                        value={this.props.value}
+                        text={this.props.text}
+                        onClick={this.props.onClick} />
             </footer>
         )
     }

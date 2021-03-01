@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import TitleBar from '../TitleBar/TitleBar';
 import Nav from '../Nav/Nav';
 import ResultDisplay from '../ResultDisplay/ResultDisplay';
 import Footer from '../Footer/Footer';
-import GroupSection from '../GroupSection/GroupSection';
+import ResultsTitle from '../ResultsTitle/ResultsTitle';
+
 
 export default class ResultsPage extends Component {
   constructor(props) {
@@ -11,17 +11,23 @@ export default class ResultsPage extends Component {
     this.state = {
       title: 'Example Title'
     }
-
+    this.saveProject = this.saveProject.bind(this);
   }
 
+  saveProject() {
+    console.log("SAVE BUTTON CLICKED...");
+  }
+  
   render(){
     return (
         <div className="page-wrapper">
             <Nav />
-            {/* RESULTS PAGE */}
-            <TitleBar title={this.state.title}/>
+            <ResultsTitle title={this.state.title}/>
             <ResultDisplay />
-            <Footer />
+            <Footer 
+              value="Save" 
+              text="Save"
+              onClick={this.saveProject}/>
         </div>
     );
   }

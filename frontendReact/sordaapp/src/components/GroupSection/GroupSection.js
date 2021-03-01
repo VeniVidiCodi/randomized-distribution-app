@@ -88,19 +88,8 @@ export default class GroupSection extends Component {
         return (
             <div className="group-section">
 
-                <header className="group-nav">
+                <header className="group-section-header">
                     <div className="group-header-caption">Groups</div>
-                    {/* {this.state.showGroupMenu ? 
-                        <div className="group-btn-container">
-                            {this.state.menuButtons.map((button) => 
-                                <GroupMenuButton 
-                                    key={button}
-                                    value={button} 
-                                    onClick={this.generateGroups}
-                                />
-                            )}
-                        </div> : <div></div>
-                    } */}
                 </header>
 
                 <div className="group-items-container">

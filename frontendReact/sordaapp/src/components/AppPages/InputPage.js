@@ -11,6 +11,12 @@ class Input extends Component {
     this.state = {
       title: ''
     }
+    this.shuffleData = this.shuffleData.bind(this);
+    this.setTitle = this.setTitle.bind(this);
+  }
+
+  shuffleData() {
+    console.log("SHUFFLING...");
   }
 
   setTitle(e) {
@@ -36,7 +42,10 @@ class Input extends Component {
             <RosterSection />
           </main>
 
-          <Footer />
+          <Footer 
+              value="Shuffle" 
+              text="Shuffle"
+              onClick={this.shuffleData}/>
         </div>
     );
   }

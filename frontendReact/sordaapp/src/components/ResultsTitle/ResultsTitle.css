@@ -1,0 +1,17 @@
+.titlebar {
+    display: flex;
+    /* height: 20px; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: 2px solid red; */
+    background-color: rgb(222, 212, 190);
+    padding: 10px 0;
+    flex: 0 1 auto;
+}
+
+.result-title-display {
+    font-size: calc(10px + 2vmin);  
+    margin: 0 20px;
+    /* padding: 10px 40px; */
+}

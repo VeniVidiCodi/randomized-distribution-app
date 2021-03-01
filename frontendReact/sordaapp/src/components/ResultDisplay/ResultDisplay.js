@@ -28,21 +28,19 @@ export default class ResultDisplay extends Component {
 
   render(){
     return (
-        <div className="group-section">
+        <div className="results-section">
 
-            <header className="group-nav result-header">
-                <div className="group-header-caption">Groups</div>
+            <header className="results-section-header">
+                <div className="results-header-caption">Groups</div>
             </header>
 
-            <div className="group-items-container">
-                <div id="groups-display-wrapper">
+            <div className="results-items-container">
                     {this.state.groupNames.map((group, index) => 
                         <GroupCard 
                             key={group} 
                             title={group}
                             persons={this.state.persons} />
                     )}
-                </div>
             </div>   
                 
         </div>

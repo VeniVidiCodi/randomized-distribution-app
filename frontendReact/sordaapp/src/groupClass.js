@@ -1,4 +1,4 @@
-class Group {
+export default class Group {
   constructor() {
     this.projectName = "";
     this.groupNames = [];
@@ -47,7 +47,7 @@ class Person {
 }
 
 
-const groups = new Group();
+  const groups = new Group();
 
 groups.setProjectName("Grouper");
 groups.addPerson(new Person("Kenly", 1));

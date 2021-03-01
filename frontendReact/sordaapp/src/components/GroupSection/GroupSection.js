@@ -15,7 +15,7 @@ export default class GroupSection extends Component {
             // showGroupMenu: true,
             projectName: "Grouper",
             groups: [
-                {groupName: "Group 1", id: 9}
+                {groupName: "Group A", id: 9}
             ]
         }
         // this.handleClick = this.handleClick.bind(this); EXAMPLE
@@ -90,14 +90,14 @@ export default class GroupSection extends Component {
 
                 <header className="group-section-header">
                     <div className="group-header-caption">Groups</div>
+                    {this.state.groups.length < this.state.max ? 
+                            <NewGroupButton onClick={this.addGroup} /> 
+                            : <div></div>
+                        }
                 </header>
 
                 <div className="group-items-container">
                     <div id="groups-display-wrapper">
-                        {this.state.groups.length < this.state.max ? 
-                            <NewGroupButton onClick={this.addGroup} /> 
-                            : <div></div>
-                        }
                         {this.state.groups.map((group) => 
                             <GroupCard 
                                 key={group} 

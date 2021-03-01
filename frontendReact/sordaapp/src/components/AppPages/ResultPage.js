@@ -21,9 +21,13 @@ export default class ResultsPage extends Component {
   render(){
     return (
         <div className="page-wrapper">
+          <header>
             <Nav />
             <ResultsTitle title={this.state.title}/>
+          </header>
+          <main id="entry-container">
             <ResultDisplay />
+          </main>
             <Footer 
               value="Save" 
               text="Save"

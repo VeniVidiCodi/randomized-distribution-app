@@ -6,29 +6,32 @@
     width: 100%;
     height: auto;
     margin-right: 5px;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    flex-grow: 2; */
+    flex-grow: 2;
 }
 .group-section-header {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5px 0 10px;
+    display: inline-flex;
+    /* flex-flow: row wrap; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* padding: 0 5px 0 10px; */
     background-color: rgb(191, 210, 191);
+    /* text-align: center; */
 }
 .group-header-caption {
+    flex: 1;
     font-size: x-large;
     padding: 10px;
 }
+
+
+
 .group-items-container {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
-
-
 .group-item {
     border: 2px solid grey;
     border-radius: 15px;

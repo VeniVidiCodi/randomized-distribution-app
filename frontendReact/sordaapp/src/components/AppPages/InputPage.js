@@ -17,15 +17,11 @@ class Input extends Component {
 
   shuffleData() {
     console.log("SHUFFLING...");
+    // Insert Shuffle Function here
   }
 
   setTitle(e) {
-    console.log("Setting Title");
-    // TODO: get input value from TitleBar Component
-    let title = e.target.value;
-    console.log(title);
-    this.setState({title: title});
-    // this.setState({title: e.target.value});
+    this.setState({title: e.target.value});
   }
 
 
@@ -36,12 +32,10 @@ class Input extends Component {
             <Nav />
             <TitleBar/>
           </header>
-
           <main id="entry-container">
             <GroupSection state={this.props.state} />
             <RosterSection />
           </main>
-
           <Footer 
               value="Shuffle" 
               text="Shuffle"

@@ -18,7 +18,7 @@ export default class ResultsPage extends Component {
     return (
         <div className="page-wrapper">
             <Nav />
-            RESULTS PAGE
+            {/* RESULTS PAGE */}
             <TitleBar title={this.state.title}/>
             <ResultDisplay />
             <Footer />

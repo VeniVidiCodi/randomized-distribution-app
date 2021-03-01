@@ -1,16 +1,13 @@
 import  React, { Component } from 'react';
+import FooterButton from '../FooterButton/FooterButton';
 import './Footer.css'
 
 class Footer extends Component {
     render() {
         return(
             <footer id="app-footer">
-                {/*<form action="/action_page.php"> */}
-                    <div className="footer-button" type="submit" value="Save" onClick={() => console.log("SAVE BUTTON CLICKED...")}>Save</div> 
-                    
-                    <div className="footer-button" type="submit" value="Shuffle" onClick={() =>
-                    console.log("SHUFFLE BUTTON CLICKED...")}>Shuffle</div>
-                {/*</form>*/}
+                    <FooterButton value="Save" text="Save" />
+                    {/* <FooterButton value="Shuffle" text="Shuffle" /> */}
             </footer>
         )
     }

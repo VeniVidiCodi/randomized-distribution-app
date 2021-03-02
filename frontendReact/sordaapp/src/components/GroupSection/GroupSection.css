@@ -7,7 +7,7 @@
     margin-right: 5px;
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
+    /* flex-grow: 2; */
 }
 .group-section-header {
     display: inline-flex;
@@ -31,16 +31,4 @@
     border-radius: 15px;
     text-align: center;
     background-color: white;
-}
-
-.group-del-btn {
-    /* width: 22px;
-    height: 22px; */
-    /* background-color: white; */
-    /* border: 1px solid black; */
-    /* border-radius: 15px; */
-    /* position: absolute; */
-    color: red;
-    /* margin-top: -45px; */
-    /* margin-left: 65px; */
 }

@@ -13,11 +13,11 @@ export default class GroupCard extends Component {
     }
 
 render() {
-        console.log(this.state.id);
     return(
         <div className="group-container">
-            <div className="group-name">{this.state.title}
-                <div className="group-del-btn">x</div>
+            <div className="group-card--header">
+                <div className="group-title">{this.state.title}</div>
+                <a className="group-del-btn" onClick={this.props.onClick}>x</a>
             </div>
             <div className="group-items--display">
                 {/* Render Groups for ResultPage */}

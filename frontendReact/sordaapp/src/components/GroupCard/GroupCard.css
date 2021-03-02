@@ -12,6 +12,8 @@
     flex-flow: row wrap;
     justify-content: space-around;
 }
+
+
 .group-container {
     border-radius: 18px;
     border: 2px solid black; 
@@ -20,18 +22,37 @@
     min-width: 240px;
     max-width: 260px;
     margin: 30px;
-}
-.group-name {
     display: flex;
-    justify-content: center;
-    font-size: large;
+    flex-direction: column;
+}
+.group-card--header {
+    display: inline-flex;
+    /* justify-content: center;
+    text-align: center; */
+    /* align-items: center; */
+    /* font-size: large; */
     font-weight: bold;
     border-bottom: 2px solid black;
     border-radius: 15px 15px 0 0;
-    padding: 15px 25px;
+    /* padding: 15px 25px; */
+    /* height: 40px; */
     background-color: rgb(233, 223, 213);
-}
 
+}
+.group-title {
+    flex: 1;
+    font-size: large;
+    padding: 10px;
+}
+.group-del-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 15px 0 0;
+    color: red;
+    background-color: rgb(241, 238, 234);
+    width: 40px;
+}
 .group-items--display {
     background-color: rgb(222, 216, 216);
     border-radius: 0 0 15px 15px;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './GroupSection.css';
 import NewGroupButton from '../NewGroupButton/NewGroupButton';
-import GroupMenuButton from '../GroupMenuButton/GroupMenuButton';
 import GroupCard from '../GroupCard/GroupCard';
+// import '../../../../../uniqueID';
+import { nanoid } from 'nanoid';
 
 
 export default class GroupSection extends Component {
@@ -22,24 +23,13 @@ export default class GroupSection extends Component {
         // this.renderGroupMenuButtons = this.renderGroupMenuButtons.bind(this);
         this.addGroup = this.addGroup.bind(this);
         this.generateGroups = this.generateGroups.bind(this);
+        this.deleteGroup = this.deleteGroup.bind(this);
     }    
 
     //  LIFECYCLE -------------------------------------------------
     componentDidMount() {
         // this.renderGroupMenuButtons();
     }
-    
-    // renderGroupMenuButtons() {
-    //     // console.log("GENERATING GROUP MENU BUTTONS...");
-    //     let menuButtons = [];
-    //     let min = this.state.min;
-    //     let max = this.state.max;
-    //     for (let i=min; i<=max; i++) {
-    //         menuButtons.push(i);
-    //     }
-    //     // console.log(menuButtons);
-    //     this.setState({menuButtons: menuButtons});
-    // }
 
     // EVENT HANDLERS -------------------------------------------------
 
@@ -79,12 +69,17 @@ export default class GroupSection extends Component {
             groups: groups,
             showGroupMenu: showGroupMenu
         });
-        // console.log("Groups generated:", groups);
+    }
+
+    deleteGroup(e) {
+        console.log("Deleting...");
+        let num = e.target.title;
+        console.log(num);
+
     }
     
 
     render() {
-        // console.log(this.state.groups);
         return (
             <div className="group-section">
 
@@ -100,9 +95,10 @@ export default class GroupSection extends Component {
                     <div id="groups-display-wrapper">
                         {this.state.groups.map((group) => 
                             <GroupCard 
-                                key={group} 
+                                key={nanoid()} 
                                 title={group.groupName}
-                                id={group.id} />
+                                id={group.id}
+                                onClick={this.deleteGroup} />
                         )}
                     </div>
                 </div>   

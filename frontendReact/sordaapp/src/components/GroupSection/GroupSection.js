@@ -17,11 +17,11 @@ export default class GroupSection extends Component {
             groups: []
         }
 
-        this.newGroup = this.newGroup.bind(this);
         this.createNewGroup = this.createNewGroup.bind(this);
         this.addGroup = this.addGroup.bind(this);
         this.generateGroups = this.generateGroups.bind(this);
-        this.removeGroup = this.removeGroup.bind(this);
+        // this.removeGroup = this.removeGroup.bind(this);
+        // this.changeName = this.changeName.bind(this);
     }    
 
     //  LIFECYCLE -------------------------------------------------
@@ -29,24 +29,19 @@ export default class GroupSection extends Component {
         // this.renderGroupMenuButtons();
     }
 
-    // EVENT HANDLERS -------------------------------------------------
-
-    // Group constructor
-    newGroup({groupName, id, key}) {
-        this.groupName = groupName;
-        this.id = id;
-        this.key = key;
-    } 
-
+    // EVENT HANDLERS ---------------------------------------------
     createNewGroup() {
         console.log("CREATING NEW GROUP...");
         const groups = this.state.groups;
         const length  = groups.length;
+        const id = length;
         const groupName = "Group " + (length + 1);
-        const id = length + 1;
         const key = nanoid();
-
-        const group = newGroup(groupName, id, key);
+        const group = { 
+            groupName: groupName,
+            id : id,
+            key: key
+        }
         console.log('NEW GROUP:', group);
         return group;
     }
@@ -61,7 +56,7 @@ export default class GroupSection extends Component {
         this.setState({groups: groups});
     }
 
-    // Add multiple entries to group array from modal input
+    // Add multiple entries to group array from MODAL INPUT
     generateGroups(e) {
         console.log("Generating multiple groups...");
         let qty = e.target.innerText;
@@ -80,20 +75,30 @@ export default class GroupSection extends Component {
         // });
     }
 
-    removeGroup(e) {
+    removeGroup = index => {
         console.log("Removing Group...");
-        console.log("OBJECT:", e.key);
+        console.log("Index:", index);
 
         // Targeting element
         const groups = this.state.groups;
-        const target = groups.indexOf(e)
+        // console.log("ID:", groups[e]);
+        const target = groups[index];
         console.log("TARGET:", target);
 
-        groups.splice(e, 1);    // Fix 'e' which is still giving a value of 0
+        groups.splice(index, 1);    // TO FIX: e is still giving a value of 0
         console.log(groups);
 
         this.setState({groups: groups});
     }
+
+    // changeName = e => {
+    //     console.log('changing name...');
+    //     console.log(e.target.value);
+    //     const groups = this.state.groups;
+    //     console.log('current groups:', groups);
+
+    //     // this.setState({groups: groups})
+    // }
 
     
 
@@ -111,12 +116,13 @@ export default class GroupSection extends Component {
 
                 <div className="group-items-container">
                     <div id="groups-display-wrapper">
-                        {this.state.groups.map((group) => 
+                        {this.state.groups.map((group, index) => 
                             <GroupCard 
                                 key={group.key} 
                                 title={group.groupName}
+                                onChange={this.changeName}
                                 id={group.id}
-                                delete={this.removeGroup} />
+                                delete={() => this.removeGroup(index)} />
                         )}
                     </div>
                 </div>   

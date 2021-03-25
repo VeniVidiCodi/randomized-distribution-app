@@ -17,7 +17,7 @@ render() {
         <div className="group-container">
             <div className="group-card--header">
                 <div className="group-title">{this.state.title}</div>
-                <a className="group-del-btn" onClick={this.props.onClick}>x</a>
+                <a className="group-del-btn" onClick={this.props.delete}>x</a>
             </div>
             <div className="group-items--display">
                 {/* Render Groups for ResultPage */}

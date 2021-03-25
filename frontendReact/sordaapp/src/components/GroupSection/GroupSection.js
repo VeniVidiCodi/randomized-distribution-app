@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './GroupSection.css';
 import NewGroupButton from '../NewGroupButton/NewGroupButton';
 import GroupCard from '../GroupCard/GroupCard';
-// import '../../../../../uniqueID';
 import { nanoid } from 'nanoid';
 
 
@@ -14,16 +13,15 @@ export default class GroupSection extends Component {
             min: 2,
             // menuButtons: [],
             // showGroupMenu: true,
-            projectName: "Grouper",
-            groups: [
-                // {groupName: "Group A", id: 9}
-            ]
+            projectName: "",
+            groups: []
         }
-        // this.handleClick = this.handleClick.bind(this); EXAMPLE
-        // this.renderGroupMenuButtons = this.renderGroupMenuButtons.bind(this);
+
+        this.newGroup = this.newGroup.bind(this);
+        this.createNewGroup = this.createNewGroup.bind(this);
         this.addGroup = this.addGroup.bind(this);
         this.generateGroups = this.generateGroups.bind(this);
-        this.deleteGroup = this.deleteGroup.bind(this);
+        this.removeGroup = this.removeGroup.bind(this);
     }    
 
     //  LIFECYCLE -------------------------------------------------
@@ -33,50 +31,70 @@ export default class GroupSection extends Component {
 
     // EVENT HANDLERS -------------------------------------------------
 
+    // Group constructor
+    newGroup({groupName, id, key}) {
+        this.groupName = groupName;
+        this.id = id;
+        this.key = key;
+    } 
+
+    createNewGroup() {
+        console.log("CREATING NEW GROUP...");
+        const groups = this.state.groups;
+        const length  = groups.length;
+        const groupName = "Group " + (length + 1);
+        const id = length + 1;
+        const key = nanoid();
+
+        const group = newGroup(groupName, id, key);
+        console.log('NEW GROUP:', group);
+        return group;
+    }
+
     // Add entry to state's group array
     addGroup() {
-        // console.log("Adding new group...");
-        let index  = this.state.groups.length;
-        let groups = this.state.groups;
-        let groupName = "Group " + (index + 1);
-        let group = {
-                        groupName : groupName,
-                        id: this.state.groups.length + 1
-                    }  // Replace with class?
+        console.log("ADDING NEW GROUP...");
+        const groups = this.state.groups;
+        const group = this.createNewGroup();
         groups.push(group);
+        console.log('GROUPS ARRAY:', groups);
         this.setState({groups: groups});
     }
 
-    // Add multiple entries to group array
+    // Add multiple entries to group array from modal input
     generateGroups(e) {
         console.log("Generating multiple groups...");
-        let num = e.target.innerText;
-        let groups = [];    // Resets the groups array
-        let showGroupMenu = this.state.showGroupMenu;
-        showGroupMenu = false;
+        let qty = e.target.innerText;
+        // let groups = this.state.groups;
+        // let showAddButton = this.state.showAddButton;
+        // showAddButton = false;
 
         // Populate the groups array with chosen number of entries
-        for (let i=0; i<num; i++) {
-            let groupName = "Group " + (i + 1);
-            let group = {
-                groupName: groupName,
-                id : i
-            }   // Replace with class?
-            groups.push(group);
+        for (let i=0; i<qty; i++) {
+            this.addGroup();
         }
 
-        this.setState({
-            groups: groups,
-            showGroupMenu: showGroupMenu
-        });
+        // this.setState({
+        //     groups: groups,
+        //     showGroupMenu: showGroupMenu
+        // });
     }
 
-    deleteGroup(e) {
-        console.log("Deleting...");
-        let num = e.target.title;
-        console.log(num);
+    removeGroup(e) {
+        console.log("Removing Group...");
+        console.log("OBJECT:", e.key);
 
+        // Targeting element
+        const groups = this.state.groups;
+        const target = groups.indexOf(e)
+        console.log("TARGET:", target);
+
+        groups.splice(e, 1);    // Fix 'e' which is still giving a value of 0
+        console.log(groups);
+
+        this.setState({groups: groups});
     }
+
     
 
     render() {
@@ -95,10 +113,10 @@ export default class GroupSection extends Component {
                     <div id="groups-display-wrapper">
                         {this.state.groups.map((group) => 
                             <GroupCard 
-                                key={nanoid()} 
+                                key={group.key} 
                                 title={group.groupName}
                                 id={group.id}
-                                onClick={this.deleteGroup} />
+                                delete={this.removeGroup} />
                         )}
                     </div>
                 </div>   

@@ -24,7 +24,7 @@ class TitleBar extends Component {
   }
 
   toggleTitle() {
-    console.log("Toggling Title", );
+    console.log("Toggling Title" );
     if (this.state.showTitle) {
         console.log("T -> F");
         this.setState({showTitle: false})

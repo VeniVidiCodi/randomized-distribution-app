@@ -91,14 +91,17 @@ export default class GroupSection extends Component {
         this.setState({groups: groups});
     }
 
-    // changeName = e => {
-    //     console.log('changing name...');
-    //     console.log(e.target.value);
-    //     const groups = this.state.groups;
-    //     console.log('current groups:', groups);
+    changeName = group => {
+        console.log('changing name...');
+        const name = group.groupName;
+        console.log(name);
+        const groups = this.state.groups;
+        console.log('current groups:', groups);
 
-    //     // this.setState({groups: groups})
-    // }
+        // this.setState({groups: groups})
+    }
+    
+    // setTitle = 
 
     
 
@@ -120,7 +123,7 @@ export default class GroupSection extends Component {
                             <GroupCard 
                                 key={group.key} 
                                 title={group.groupName}
-                                onChange={this.changeName}
+                                handleChange={() => this.changeName(group)}
                                 id={group.id}
                                 delete={() => this.removeGroup(index)} />
                         )}

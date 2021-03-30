@@ -7,17 +7,18 @@ export default class GroupCard extends Component {
         super(props);
         this.state = {
             title: props.title,
-            id: props.id,
             showTitle: true,
             setTitle: this.props.setTitle
         }
-        // this.toggleTitle = this.toggleTitle.bind(this);
-        // this.handleChange = this.handleChange.bind(this);
+    }
+
+    changeTitle = (e) => {
+        this.toggleTitle();
     }
     
     toggleTitle = () => {
         console.log("Toggling Title");
-        this.props.handleChange();
+        // this.props.handleChange();
 
         if (this.state.showTitle) {
             console.log("T -> F");
@@ -27,11 +28,12 @@ export default class GroupCard extends Component {
             this.setState({showTitle: true})
         };
     }
+
     handleChange = (event) => {
         this.setState({title: event.target.value});
     }
+
     handleSubmit = (event) => {
-        // alert('A title was submitted: ' + this.state.title);
         event.preventDefault();
         this.toggleTitle();
     }
@@ -40,10 +42,8 @@ render() {
     return(
         <div className="group-container">
             <div className="group-card--header">
-                {/* <div className="group-title" onClick={this.props.handleChange}>{this.state.title}</div> */}
                 { this.state.showTitle ?
-                    <div className="group-title" onClick={this.toggleTitle}>{this.state.title}</div>
-                    // <h2 className="title-display" onClick={this.toggleTitle} onChange={this.handleChange}>{this.state.title}</h2> 
+                    <div className="group-title" onClick={this.changeTitle}>{this.state.title}</div>
                     :
                     <form className="input-wrapper" onSubmit={this.handleSubmit}>
                     <label>

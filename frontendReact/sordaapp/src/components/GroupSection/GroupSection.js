@@ -11,8 +11,6 @@ export default class GroupSection extends Component {
         this.state = {
             max: 8,
             min: 2,
-            // menuButtons: [],
-            // showGroupMenu: true,
             projectName: "",
             groups: []
         }
@@ -20,8 +18,6 @@ export default class GroupSection extends Component {
         this.createNewGroup = this.createNewGroup.bind(this);
         this.addGroup = this.addGroup.bind(this);
         this.generateGroups = this.generateGroups.bind(this);
-        // this.removeGroup = this.removeGroup.bind(this);
-        // this.changeName = this.changeName.bind(this);
     }    
 
     //  LIFECYCLE -------------------------------------------------
@@ -39,7 +35,6 @@ export default class GroupSection extends Component {
         const key = nanoid();
         const group = { 
             groupName: groupName,
-            id : id,
             key: key
         }
         console.log('NEW GROUP:', group);
@@ -85,7 +80,7 @@ export default class GroupSection extends Component {
         const target = groups[index];
         console.log("TARGET:", target);
 
-        groups.splice(index, 1);    // TO FIX: e is still giving a value of 0
+        groups.splice(index, 1);
         console.log(groups);
 
         this.setState({groups: groups});
@@ -97,13 +92,8 @@ export default class GroupSection extends Component {
         console.log(name);
         const groups = this.state.groups;
         console.log('current groups:', groups);
-
         // this.setState({groups: groups})
     }
-    
-    // setTitle = 
-
-    
 
     render() {
         return (
@@ -124,7 +114,6 @@ export default class GroupSection extends Component {
                                 key={group.key} 
                                 title={group.groupName}
                                 handleChange={() => this.changeName(group)}
-                                id={group.id}
                                 delete={() => this.removeGroup(index)} />
                         )}
                     </div>

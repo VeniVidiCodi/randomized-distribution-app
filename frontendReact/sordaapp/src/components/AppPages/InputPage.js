@@ -12,7 +12,7 @@ class Input extends Component {
       title: ''
     }
     this.shuffleData = this.shuffleData.bind(this);
-    this.setTitle = this.setTitle.bind(this);
+    this.setProjectTitle = this.setProjectTitle.bind(this);
   }
 
   shuffleData() {
@@ -20,7 +20,7 @@ class Input extends Component {
     // Insert Shuffle Function here
   }
 
-  setTitle(e) {
+  setProjectTitle(e) {
     this.setState({title: e.target.value});
   }
 

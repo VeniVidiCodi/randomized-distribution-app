@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 // import ResultItem from '../ResultItem/ResultItem';
-import GroupCard from '../GroupCard/GroupCard';
+import ResultCard from '../ResultCard/ResultCard.js';
 import './ResultDisplay.css';
-// commment
 
 export default class ResultDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        // results: {
             projectName: 'My Great Project',
             uniqueID: '894Z411TL1893',
             accessPassword:'KDF00NX3Z3',
@@ -18,11 +16,8 @@ export default class ResultDisplay extends Component {
                 {name: 'Karen', groupNumber: 1},
                 {name: 'Shanondra', groupNumber: 2},
                 {name: 'Kim', groupNumber: 3},
-                // {name: 'Aaron', groupNumber: null},
             ]
-            // date: Date.toString()
-        }
-    // }
+    }
 
   }
 
@@ -36,9 +31,10 @@ export default class ResultDisplay extends Component {
 
             <div className="results-items-container">
                     {this.state.groupNames.map((group, index) => 
-                        <GroupCard 
+                        <ResultCard 
                             key={group} 
                             title={group}
+                            groupNumber={index}
                             persons={this.state.persons} />
                     )}
             </div>   

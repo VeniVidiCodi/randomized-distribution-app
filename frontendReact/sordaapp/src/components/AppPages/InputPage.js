@@ -17,8 +17,12 @@ class Input extends Component {
 
   shuffleData() {
     console.log("SHUFFLING...");
-    // Insert Shuffle Function here
+    // Shuffle Roster Items randomly
+    // Assign each roster item a group #
+    let groups = this.state;
+    console.log(groups);
   }
+ 
 
   setProjectTitle(e) {
     this.setState({title: e.target.value});

@@ -12,6 +12,8 @@ export default class ResultsPage extends Component {
       title: 'Example Title'
     }
     this.saveProject = this.saveProject.bind(this);
+    console.log(props.location.state);
+
   }
 
   saveProject() {

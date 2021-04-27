@@ -16,6 +16,7 @@ export default class ResultDisplay extends Component {
                 {name: 'Karen', groupNumber: 1},
                 {name: 'Shanondra', groupNumber: 2},
                 {name: 'Kim', groupNumber: 3},
+                {name: 'Kenly', groupNumber: 1},
             ]
     }
 

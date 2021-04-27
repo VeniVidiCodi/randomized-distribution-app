@@ -41,9 +41,10 @@ class Input extends Component {
             <RosterSection />
           </main>
           <Footer 
-              value="Shuffle" 
-              text="Shuffle"
-              onClick={this.shuffleData}/>
+            state={this.props.state}
+            value="Shuffle" 
+            text="Shuffle"
+            onClick={this.shuffleData}/>
         </div>
     );
   }

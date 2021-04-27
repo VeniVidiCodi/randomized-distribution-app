@@ -9,6 +9,7 @@ class Footer extends Component {
             <footer id="app-footer">
                 <Link to="/results">
                     <FooterButton 
+                        state = {this.props.state}
                         value={this.props.value}
                         text={this.props.text}
                         onClick={this.props.onClick} />

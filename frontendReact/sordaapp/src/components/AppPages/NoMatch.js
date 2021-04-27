@@ -19,6 +19,8 @@ class NoMatch extends Component {
                 <img src={logo} alt="duck logo" />
             </div> */}
             <div class="topSection">
+                <h1>404</h1>
+                <h4>Oops! You are looking for something that doesn't exist.</h4>
                 <img src="https://media.giphy.com/media/xvGEx3cazysda/giphy.gif" alt="upside down duck in water" />
             </div>
 

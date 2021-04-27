@@ -42,3 +42,13 @@
 .roster-del-btn:hover {
     background-color: red;
 }
+
+#input-wrapper {
+    color: yellow;
+}
+.project-title--input{
+    color: red;
+}
+.title-submit-button {
+    color: blue;
+}

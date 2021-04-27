@@ -1,47 +1,34 @@
 import React, { Component } from 'react';
-import logo from './mallard.svg';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-import Nav from './components/Nav/Nav';
-import TitleBar from './components/TitleBar/TitleBar';
-import GroupSection from './components/GroupSection/GroupSection';
-import RosterSection from './components/RosterSection/RosterSection';
-import Footer from './components/Footer/Footer';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: null,
-      titled: false
-    }
-    this.setTitle = this.setTitle.bind(this);
-  }
+import LandingPage from './components/AppPages/LandingPage';
+import ResultsPage from './components/AppPages/ResultPage';
+import InputPage from './components/AppPages/InputPage';
+import NoMatch from './components/AppPages/NoMatch';
 
-  setTitle(e) {
-    console.log("Setting Title");
-    // TODO: get input value from TitleBar Component
-    let title = e.target.value;
-    console.log(title);
-    // this.setState({title: title});
-    this.setState({title: e.target.value});
 
-  }
 
-  render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <Nav logo={logo} />
-          <TitleBar title={this.state.title} setTitle={this.setTitle} />
-        </header>
-        <main id="entry-container">
-          <GroupSection state={this.state} />
-          <RosterSection />
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+function App() {
+
+  return (
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route path='/' exact component={LandingPage}/>
+          <Route path='/grouper' exact component={InputPage}/>
+          <Route path='/results' exact component={ResultsPage}/> 
+          
+          {/* <Route path='/results' render={<ResultsPage state={this.state}/>}/>  */}
+          {/* <Route path='/results' exact render={props => <ResultsPage {...props} state={this.state}/>}/>  */}
+          {/* render={props => 
+  (<Homepage {...props} pieceOfState={this.state.pieceOfState}/>) */}
+  
+          <Route component={NoMatch}/>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

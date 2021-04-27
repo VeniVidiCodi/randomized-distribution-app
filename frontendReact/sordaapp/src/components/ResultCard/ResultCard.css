@@ -1,5 +1,16 @@
 .card-container {
-    height: 100px;
-    width: 100px;
-    background-color: grey;
+    min-height: 100px;
+    min-width: 200px;
+    /* background-color: grey; */
+    display: flex;
+    flex-direction: column;
+}
+.group-card--header {
+    display: flex;
+}
+
+.group-items--display {
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
 }

@@ -1,0 +1,9 @@
+img {
+    margin: auto;
+    /* border-radius: 50%; */
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+}

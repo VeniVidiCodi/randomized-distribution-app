@@ -6,7 +6,7 @@ require('dotenv').config();  //allows the use of .env variables
 
 //defines express app
 const app = express();
-const PORT = process.env.PORT || 3000;  //use environment port or use 3000 for development
+const PORT = process.env.PORT || 3050;  //use environment port or use 3000 for development
 
 
 app.use(express.static("public"));  //used to access static pages

@@ -1,9 +1,12 @@
 #app-footer {
-    background-color: #777;
+    background-color: rgb(191, 210, 191);
     width: 100%;
     padding: 10px 0;
     display: flex;
     justify-content: space-around;
+    flex-shrink: 0;
+    flex: 0 1 auto;
+    /* margin-top: auto; */
 }
 
 .footer-button {

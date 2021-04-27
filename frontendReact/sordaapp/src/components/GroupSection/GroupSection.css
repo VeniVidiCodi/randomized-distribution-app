@@ -2,52 +2,33 @@
 /* --- GROUP SECTION --- */
 .group-section {
     background-color: whitesmoke;
-    border: 1px solid black;
     width: 100%;
     height: auto;
     margin-right: 5px;
-}
-.group-nav {
-    /* background-color: gray; */
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5px 0 10px;
-    background-color: rgb(210, 188, 188);
+    flex-direction: column;
+    /* flex-grow: 2; */
+}
+.group-section-header {
+    display: inline-flex;
+    background-color: rgb(191, 210, 191);
 }
 .group-header-caption {
+    flex: 1;
     font-size: x-large;
     padding: 10px;
 }
-.group-btn-container {
+
+
+
+.group-items-container {
     display: flex;
-    flex-direction: row;
-    height: 100%;
-    /* background-color: black; */
-    border-radius: 5px 0 0 5px;
-    /* border-left: 1px solid black; */
-    /* padding: 1px; */
+    flex-direction: column;
+    flex-grow: 1;
 }
-
-
-
-
-/* .group-items--display {} */
 .group-item {
     border: 2px solid grey;
     border-radius: 15px;
     text-align: center;
     background-color: white;
-}
-.group-del-btn {
-    /* width: 22px;
-    height: 22px; */
-    /* background-color: white; */
-    /* border: 1px solid black; */
-    /* border-radius: 15px; */
-    /* position: absolute; */
-    color: red;
-    /* margin-top: -45px; */
-    /* margin-left: 65px; */
 }

@@ -1,0 +1,28 @@
+.results-section {
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex: 1 1 auto;
+}
+
+.results-section-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(191, 210, 191);
+}
+.results-header-caption {
+    font-size: x-large;
+    padding: 10px;
+}
+.results-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* flex-grow: 1; */
+    padding: 20px;
+}

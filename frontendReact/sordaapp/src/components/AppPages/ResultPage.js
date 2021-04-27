@@ -9,10 +9,11 @@ export default class ResultsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Example Title'
+      // aGroupObject: props.location.state
     }
+    
     this.saveProject = this.saveProject.bind(this);
-    console.log(props.location.state);
+    // console.log(this.state.aGroupObject.getProjectName());
 
   }
 
@@ -25,7 +26,7 @@ export default class ResultsPage extends Component {
         <div className="page-wrapper">
           <header>
             <Nav />
-            <ResultsTitle title={this.state.title}/>
+            <ResultsTitle title={this.state.aGroupObject.projectName}/>
           </header>
           <main id="entry-container">
             <ResultDisplay />

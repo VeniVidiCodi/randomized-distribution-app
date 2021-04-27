@@ -1,4 +1,4 @@
-export default class Group {
+class Group {
   constructor() {
     this.projectName = "";
     this.groupNames = [];
@@ -67,3 +67,5 @@ var myJSON = JSON.stringify(groups);
 
 //console.log(myJSON);
 console.log(JSON.stringify(JSON.parse(myJSON), null, 2));
+
+export {Group, Person}

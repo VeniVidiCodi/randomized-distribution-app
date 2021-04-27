@@ -2,16 +2,31 @@ import React, { useState } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
+import {Group, Person} from '../../groupClass.js';
+
+
 
 
 function LandingPage() {
-  const [ifFetchSuccess, setifFetchSuccess] = useState(false);
+  let GroupObject = new Group();
+  const [aGroupObject, setGroupObject] = useState(GroupObject);
+  const [ifFetchSuccess, setIfFetchSuccess] = useState(false);
   const [idNum, setIdNum] = useState("");
+  /*
   const [group, setGroup] = useState({
     projectName: "",
     groupNames: [],
     persons: []
   });
+  */
+  //console.log(GroupObject);
+
+  let func = ()=> {
+    let tempGroup = aGroupObject;
+    tempGroup.addPerson(new Person("Kenly", null));
+    setGroupObject(tempGroup);
+    console.log(aGroupObject);
+  }
 
 
   async function getGroup() {
@@ -20,7 +35,7 @@ function LandingPage() {
       .then(json => {
         if(json !== null) {
           console.log(json);
-          setifFetchSuccess(true);
+          setIfFetchSuccess(true);
         }
         else {
           console.log("No Project returned; Object:null");
@@ -44,7 +59,7 @@ function LandingPage() {
   }
 
   if(ifFetchSuccess) {
-    return <Redirect push to={{pathname: '/results', state: {group}}}/>;
+    return <Redirect push to={{pathname: '/results', state: {aGroupObject}}}/>;
   }
 
 

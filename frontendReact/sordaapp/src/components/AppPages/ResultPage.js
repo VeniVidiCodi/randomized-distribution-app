@@ -11,6 +11,7 @@ export default class ResultsPage extends Component {
     this.state = {
       title: 'Example Title'
     }
+    console.log(props.location.state);
 
   }
 

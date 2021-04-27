@@ -28,6 +28,15 @@ function LandingPage() {
     console.log(aGroupObject);
   }
 
+  function setGroupFromCall(json){
+    let tempGroup = aGroupObject;
+    tempGroup.person = json.persons;
+    tempGroup.groupNames = json.groupNames;
+    tempGroup.projectName = json.projectName;
+    setGroupObject(tempGroup);
+    console.log(aGroupObject);
+  }
+
 
   async function getGroup() {
     await fetch(`http://localhost:3050/group/${idNum}`)
@@ -36,6 +45,7 @@ function LandingPage() {
         if(json !== null) {
           console.log(json);
           setIfFetchSuccess(true);
+          setGroupFromCall(json)
         }
         else {
           console.log("No Project returned; Object:null");

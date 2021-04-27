@@ -2,7 +2,7 @@ class Group {
   constructor() {
     this.projectName = "";
     this.groupNames = [];
-    this.person = [];
+    this.persons = [];
   }
 
   getProjectName() {
@@ -26,15 +26,15 @@ class Group {
   }
 
   getPerson() {
-    return this.person;
+    return this.persons;
   }
 
   addPerson(person) {
-    this.person.push(person);
+    this.persons.push(person);
   }
 
   removePerson(person) {
-    this.person.pop(person);
+    this.persons.pop(person);
   }
 }
 
@@ -47,7 +47,13 @@ class Person {
 }
 
 
-  const groups = new Group();
+export {Group, Person}
+
+
+//Testing the class to check if the class works correctly
+//and how to stringify the Object
+/*
+const groups = new Group();
 
 groups.setProjectName("Grouper");
 groups.addPerson(new Person("Kenly", 1));
@@ -67,5 +73,4 @@ var myJSON = JSON.stringify(groups);
 
 //console.log(myJSON);
 console.log(JSON.stringify(JSON.parse(myJSON), null, 2));
-
-export {Group, Person}
+*/

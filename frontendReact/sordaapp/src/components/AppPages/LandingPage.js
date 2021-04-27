@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
@@ -12,29 +12,15 @@ function LandingPage() {
   const [aGroupObject, setGroupObject] = useState(GroupObject);
   const [ifFetchSuccess, setIfFetchSuccess] = useState(false);
   const [idNum, setIdNum] = useState("");
-  /*
-  const [group, setGroup] = useState({
-    projectName: "",
-    groupNames: [],
-    persons: []
-  });
-  */
-  //console.log(GroupObject);
 
-  let func = ()=> {
-    let tempGroup = aGroupObject;
-    tempGroup.addPerson(new Person("Kenly", null));
-    setGroupObject(tempGroup);
-    console.log(aGroupObject);
-  }
 
   function setGroupFromCall(json){
     let tempGroup = aGroupObject;
-    tempGroup.person = json.persons;
+    tempGroup.persons = json.persons;
     tempGroup.groupNames = json.groupNames;
     tempGroup.projectName = json.projectName;
     setGroupObject(tempGroup);
-    console.log(aGroupObject);
+    console.log(aGroupObject.projectName);
   }
 
 
@@ -44,8 +30,8 @@ function LandingPage() {
       .then(json => {
         if(json !== null) {
           console.log(json);
+          setGroupFromCall(json);
           setIfFetchSuccess(true);
-          setGroupFromCall(json)
         }
         else {
           console.log("No Project returned; Object:null");

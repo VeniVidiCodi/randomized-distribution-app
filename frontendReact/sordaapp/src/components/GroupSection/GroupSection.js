@@ -11,7 +11,7 @@ export default class GroupSection extends Component {
         this.state = {
             max: 8,
             min: 2,
-            projectName: "",
+            projectName: this.props.state.projectName,
             groups: []
         }
 

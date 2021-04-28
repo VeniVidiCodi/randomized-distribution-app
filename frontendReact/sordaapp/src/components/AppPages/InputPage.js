@@ -5,28 +5,32 @@ import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 
+
 class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ''
+      projectName: this.props.location.state.projectName,
+      groups: this.props.location.state.groups,
+      persons: this.props.location.state.persons
     }
     this.shuffleData = this.shuffleData.bind(this);
-    this.setProjectTitle = this.setProjectTitle.bind(this);
+    // this.setProjectTitle = this.setProjectTitle.bind(this);
   }
 
   shuffleData() {
     console.log("SHUFFLING...");
     // Shuffle Roster Items randomly
     // Assign each roster item a group #
-    let groups = this.state;
-    console.log(groups);
+    let projectName = this.state.projectName;
+    console.log(projectName);
   }
  
 
-  setProjectTitle(e) {
-    this.setState({title: e.target.value});
-  }
+  // setProjectTitle(e) {
+  //   console.log("Setting new title >>>", e.target.value);
+  //   // this.setState({projectName: e.target.value});
+  // }
 
 
   render(){
@@ -34,10 +38,11 @@ class Input extends Component {
         <div>
           <header className="App-header">
             <Nav />
-            <TitleBar/>
+            <TitleBar/> 
+            {this.state.projectName}
           </header>
           <main id="entry-container">
-            <GroupSection state={this.props.state} />
+            <GroupSection state={this.state} />
             <RosterSection />
           </main>
           <Footer 

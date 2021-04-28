@@ -21,12 +21,12 @@ function LandingPage() {
   */
   //console.log(GroupObject);
 
-  let func = ()=> {
-    let tempGroup = aGroupObject;
-    tempGroup.addPerson(new Person("Kenly", null));
-    setGroupObject(tempGroup);
-    console.log(aGroupObject);
-  }
+  // let func = ()=> {
+  //   let tempGroup = aGroupObject;
+  //   tempGroup.addPerson(new Person("Kenly", null));
+  //   setGroupObject(tempGroup);
+  //   console.log(aGroupObject);
+  // }
 
   function setGroupFromCall(json){
     let tempGroup = aGroupObject;
@@ -81,8 +81,20 @@ function LandingPage() {
 
       <div className="bottomSection">
         <div className="buttonChild">
-          <Link to="/grouper">
-            <button type="submit" value="Submit" id="btn-start">Create Group</button>
+          {/* <Link to="/grouper">
+            <button type="submit" value="Submit" id="btn-start" >Create Group</button>
+          </Link> */}
+          {/* Passes Group object instance to input page as prop */}
+          <Link to={{ 
+            pathname: "/grouper",
+            state: {
+              projectName: 'GroupObject.projectName',
+              groups: GroupObject.groupNames,
+              persons: GroupObject.persons
+
+            } 
+          }}>
+            <button type="submit" value="Submit" id="btn-start" >Create Group</button>
           </Link>
         </div>
 

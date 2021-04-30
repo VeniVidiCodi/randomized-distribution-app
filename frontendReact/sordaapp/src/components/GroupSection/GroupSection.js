@@ -3,6 +3,7 @@ import './GroupSection.css';
 import NewGroupButton from '../NewGroupButton/NewGroupButton';
 import GroupCard from '../GroupCard/GroupCard';
 import { nanoid } from 'nanoid';
+import {Group} from '../../groupClass.js';
 
 
 export default class GroupSection extends Component {
@@ -11,13 +12,16 @@ export default class GroupSection extends Component {
         this.state = {
             max: 8,
             min: 2,
-            projectName: this.props.state.projectName,
+            GroupObject: {},
             groups: []
+            // GroupObject: this.props.GroupObject,
+            // groups: this.props.GroupObject.groupNames
+            // addGroup: this.props.addGroup
         }
 
         this.createNewGroup = this.createNewGroup.bind(this);
         this.addGroup = this.addGroup.bind(this);
-        this.generateGroups = this.generateGroups.bind(this);
+        // this.generateGroups = this.generateGroups.bind(this);
     }    
 
     //  LIFECYCLE -------------------------------------------------
@@ -25,20 +29,36 @@ export default class GroupSection extends Component {
         // this.renderGroupMenuButtons();
     }
 
+    // TRIAL CLASS FUNCTIONS ---------------------------------------------
+    // createNewGroup() { 
+        // let length = this.state.groups.length;
+        // console.log(length);
+    // }
+
+    // addGroup() {
+    //     let length = this.state.groups.length;
+    //     console.log(length)
+    //     let newGroupArr = addGroupNames('Group ' + (length + 1));
+    //     this.setState({groups: newGroupArr});
+    // }
+    // addGroup() {
+        
+    // }
+
     // EVENT HANDLERS ---------------------------------------------
     createNewGroup() {
         console.log("CREATING NEW GROUP...");
         const groups = this.state.groups;
         const length  = groups.length;
-        const id = length;
+        // const id = length;
         const groupName = "Group " + (length + 1);
-        const key = nanoid();
+        // const key = nanoid();
         const group = { 
             groupName: groupName,
-            key: key
+            // key: key
         }
         console.log('NEW GROUP:', group);
-        return group;
+        return groupName;
     }
 
     // Add entry to state's group array
@@ -52,23 +72,23 @@ export default class GroupSection extends Component {
     }
 
     // Add multiple entries to group array from MODAL INPUT
-    generateGroups(e) {
-        console.log("Generating multiple groups...");
-        let qty = e.target.innerText;
-        // let groups = this.state.groups;
-        // let showAddButton = this.state.showAddButton;
-        // showAddButton = false;
+    // generateGroups(e) {
+    //     console.log("Generating multiple groups...");
+    //     let qty = e.target.innerText;
+    //     // let groups = this.state.groups;
+    //     // let showAddButton = this.state.showAddButton;
+    //     // showAddButton = false;
 
-        // Populate the groups array with chosen number of entries
-        for (let i=0; i<qty; i++) {
-            this.addGroup();
-        }
+    //     // Populate the groups array with chosen number of entries
+    //     for (let i=0; i<qty; i++) {
+    //         this.addGroup();
+    //     }
 
-        // this.setState({
-        //     groups: groups,
-        //     showGroupMenu: showGroupMenu
-        // });
-    }
+    //     // this.setState({
+    //     //     groups: groups,
+    //     //     showGroupMenu: showGroupMenu
+    //     // });
+    // }
 
     removeGroup = index => {
         console.log("Removing Group...");
@@ -96,6 +116,7 @@ export default class GroupSection extends Component {
     }
 
     render() {
+        console.log(this.state.GroupObject)
         return (
             <div className="group-section">
 
@@ -111,8 +132,9 @@ export default class GroupSection extends Component {
                     <div id="groups-display-wrapper">
                         {this.state.groups.map((group, index) => 
                             <GroupCard 
-                                key={group.key} 
-                                title={group.groupName}
+                                // key={group.key} 
+                                key={nanoid()} 
+                                title={group}
                                 handleChange={() => this.changeName(group)}
                                 delete={() => this.removeGroup(index)} />
                         )}

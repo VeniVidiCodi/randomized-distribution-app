@@ -5,13 +5,25 @@ import './LandingPage.css';
 import {Group, Person} from '../../groupClass.js';
 
 
-
+// 7JWHR5
 
 function LandingPage() {
   let GroupObject = new Group();
   const [aGroupObject, setGroupObject] = useState(GroupObject);
   const [ifFetchSuccess, setIfFetchSuccess] = useState(false);
   const [idNum, setIdNum] = useState("");
+
+// Testing data transfer to TitleBar component
+  GroupObject.setProjectName('QuackQuack');
+  GroupObject.addGroupNames('A');
+  GroupObject.addGroupNames('B');
+  GroupObject.addGroupNames('C');
+  // GroupObject.addGroupNames(['D', 'E']);   * DOESN'T WORK
+  // GroupObject.addGroupNames('D', 'E');     * DOESN'T WORK
+
+  console.log(GroupObject);
+  console.log(aGroupObject.projectName);
+  console.log(aGroupObject.groupNames);
   /*
   const [group, setGroup] = useState({
     projectName: "",
@@ -84,14 +96,15 @@ function LandingPage() {
           {/* <Link to="/grouper">
             <button type="submit" value="Submit" id="btn-start" >Create Group</button>
           </Link> */}
+
           {/* Passes Group object instance to input page as prop */}
           <Link to={{ 
             pathname: "/grouper",
             state: {
-              projectName: 'GroupObject.projectName',
-              groups: GroupObject.groupNames,
-              persons: GroupObject.persons
-
+              GroupObject: GroupObject
+              // projectName: 'GroupObject.projectName',
+              // groups: GroupObject.groupNames,
+              // persons: GroupObject.persons
             } 
           }}>
             <button type="submit" value="Submit" id="btn-start" >Create Group</button>

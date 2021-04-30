@@ -17,6 +17,7 @@ class TitleBar extends Component {
   handleChange(event) {
     this.setState({title: event.target.value});
   }
+  
   handleSubmit(event) {
     // alert('A title was submitted: ' + this.state.title);
     event.preventDefault();

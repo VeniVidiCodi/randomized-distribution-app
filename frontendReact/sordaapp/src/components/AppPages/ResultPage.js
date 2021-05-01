@@ -52,7 +52,7 @@ function ResultsPage(props) {
         </main>
           <Footer
             value="Save"
-            isTrue={false}
+            isTrue={fromLandingPage}
             onClickEdit={handleOnClickEdit}
             onClickSave={handleOnClickSave}/>
       </div>

@@ -2,25 +2,18 @@ import React, { Component } from 'react';
 // import ResultItem from '../ResultItem/ResultItem';
 import ResultCard from '../ResultCard/ResultCard.js';
 import './ResultDisplay.css';
+import { nanoid } from 'nanoid';
 
 export default class ResultDisplay extends Component {
   constructor(props) {
     super(props);
+    console.log(props.grpObject);
     this.state = {
-            projectName: 'My Great Project',
-            uniqueID: '894Z411TL1893',
-            accessPassword:'KDF00NX3Z3',
-            groupNames: ['Food', 'Drinks', 'Cleanup Crew', 'Music'],
-            persons: [
-                {name:'Gary', groupNumber: 0}, 
-                {name: 'Karen', groupNumber: 1},
-                {name: 'Shanondra', groupNumber: 2},
-                {name: 'Kim', groupNumber: 3},
-                {name: 'Kenly', groupNumber: 1},
-            ]
+      aGroupObject: props.grpObject
     }
-
+    console.log(this.state.aGroupObject.getProjectName());
   }
+
 
   render(){
     return (
@@ -31,15 +24,15 @@ export default class ResultDisplay extends Component {
             </header>
 
             <div className="results-items-container">
-                    {this.state.groupNames.map((group, index) => 
-                        <ResultCard 
-                            key={group} 
-                            title={group}
+                    {this.state.aGroupObject.getGroupNames().map((group, index) =>
+                        <ResultCard
+                            key={nanoid()}
+                            title={group.name}
                             groupNumber={index}
-                            persons={this.state.persons} />
+                            persons={this.state.aGroupObject.persons} />
                     )}
-            </div>   
-                
+            </div>
+
         </div>
         );
     }

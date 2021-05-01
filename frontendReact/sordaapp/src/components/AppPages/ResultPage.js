@@ -30,8 +30,14 @@ function ResultsPage(props) {
    const [aJson, setAjson] = useState(props.location.json);
 
 
-  function saveProject() {
+  function handleOnClickSave() {
     console.log("SAVE BUTTON CLICKED...");
+    //save to db by using utility component
+  }
+
+  function handleOnClickEdit(){
+    console.log("EDIT BUTTON CLICKED...");
+    //send redirect to inputPage
   }
 
 
@@ -46,8 +52,9 @@ function ResultsPage(props) {
         </main>
           <Footer
             value="Save"
-            text="Save"
-            onClick={saveProject}/>
+            isTrue={false}
+            onClickEdit={handleOnClickEdit}
+            onClickSave={handleOnClickSave}/>
       </div>
   );
 

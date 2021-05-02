@@ -19,7 +19,7 @@ class TitleBar extends Component {
   }
   
   handleSubmit(event) {
-    // alert('A title was submitted: ' + this.state.title);
+    console.log('Submit title: ' + this.state.title);
     event.preventDefault();
     this.toggleTitle();
   }

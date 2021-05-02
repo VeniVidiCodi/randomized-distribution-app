@@ -13,31 +13,26 @@ function InputPage () {
   let GroupObject = new Group();
   const [aInput, setInput] = useState(GroupObject);
   const [aProjectName, setAProjectName] = useState("My Project");
+  const [aGroupNames, setAGroupNames] = useState([]);
   
-  console.log("GroupObject:", GroupObject);
-  console.log("aInput:", aInput);
+  // console.log("GroupObject:", GroupObject);
+  // console.log("aInput:", aInput);
 
   useEffect(() => {
     console.log("useEffect...");
-    // let tempInput = aInput;
-    // console.log(tempInput);
-    // tempInput.projectName = aProjectName;
-    // setInput(tempInput);
-    // console.log(aInput);
-  })
+    let tempInput = aInput;
+    console.log(tempInput);
+
+    tempInput.projectName = aProjectName;
+    tempInput.aGroupNames = aGroupNames;
+    setInput(tempInput);
+    console.log(aInput);
+
+  }, [aInput, aProjectName, aGroupNames])
     
-  // function setGroupFromCall(json){
-  //     let tempGroup = aGroupObject;
-  //     tempGroup.person = json.persons;
-  //     tempGroup.groupNames = json.groupNames;
-  //     tempGroup.projectName = json.projectName;
-  //     setGroupObject(tempGroup);
-  //     console.log(aGroupObject);
-  //   }
 
   let shuffleData = () => {
     console.log("shuffle clicked...");
-    console.log("aInput:", aInput);
 
     // Shuffle Roster Items randomly
     // Assign each roster item a group #
@@ -55,13 +50,13 @@ function InputPage () {
           </header>
           <main id="entry-container">
             <GroupSection 
-              // GroupObject={}
-              // addGroup={this.state.GroupObject.addGroupNames} 
+              groupNames={aGroupNames}
+              setGroupNames={(group) => setAGroupNames(group)}
               />
             <RosterSection />
           </main>
           <Footer 
-            // state={}
+            GroupObject={{aInput}}
             value="Shuffle" 
             text="Shuffle"
             onClick={shuffleData} />

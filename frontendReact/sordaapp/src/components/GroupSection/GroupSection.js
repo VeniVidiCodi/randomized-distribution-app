@@ -1,75 +1,68 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './GroupSection.css';
 import NewGroupButton from '../NewGroupButton/NewGroupButton';
 import GroupCard from '../GroupCard/GroupCard';
 import { nanoid } from 'nanoid';
-import {Group} from '../../groupClass.js';
+import { Group } from '../../groupClass.js';
 
 
-export default class GroupSection extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            max: 8,
-            min: 2,
-            GroupObject: {},
-            groups: []
-            // GroupObject: this.props.GroupObject,
-            // groups: this.props.GroupObject.groupNames
-            // addGroup: this.props.addGroup
-        }
+function GroupSection({groupNames, setGroupNames}) {
+    console.log("GroupNames transfer test:", groupNames);
+    
+    const max = 8;
+    const min = 2;
+    let groups = new Group();
 
-        this.createNewGroup = this.createNewGroup.bind(this);
-        this.addGroup = this.addGroup.bind(this);
-        // this.generateGroups = this.generateGroups.bind(this);
-    }    
+    // useEffect(() => {
+    //     console.log("GroupSection useEffect...");
+    //     setGroupNames(aGroupNames);
+    // }, [groupNames, aGroupNames])
 
-    //  LIFECYCLE -------------------------------------------------
-    componentDidMount() {
-        // this.renderGroupMenuButtons();
+    let createNewGroup = () => { 
+        let length = aGroupNames.length;
+        let name = "Group" + (length + 1);
+        return name;
     }
 
-    // TRIAL CLASS FUNCTIONS ---------------------------------------------
-    // createNewGroup() { 
-        // let length = this.state.groups.length;
-        // console.log(length);
-    // }
+    let addGroup = () => {
+        console.log("addGroup clicked...");
 
-    // addGroup() {
-    //     let length = this.state.groups.length;
-    //     console.log(length)
-    //     let newGroupArr = addGroupNames('Group ' + (length + 1));
-    //     this.setState({groups: newGroupArr});
-    // }
-    // addGroup() {
-        
-    // }
+        let tempGroups = aGroupNames;
+        console.log(tempGroups);
+        const newGroup = createNewGroup();
+        tempGroups.push(newGroup);
+        console.log(tempGroups);
+
+        setGroupNames(tempGroups);
+    }
+
 
     // EVENT HANDLERS ---------------------------------------------
-    createNewGroup() {
-        console.log("CREATING NEW GROUP...");
-        const groups = this.state.groups;
-        const length  = groups.length;
-        // const id = length;
-        const groupName = "Group " + (length + 1);
-        // const key = nanoid();
-        const group = { 
-            groupName: groupName,
-            // key: key
-        }
-        console.log('NEW GROUP:', group);
-        return groupName;
-    }
+    // createNewGroup() {
+    //     console.log("CREATING NEW GROUP...");
+    //     const groups = this.state.groups;
+    //     const length  = groups.length;
+    //     // const id = length;
+    //     const groupName = "Group " + (length + 1);
+    //     // const key = nanoid();
+    //     const group = { 
+    //         groupName: groupName,
+    //         // key: key
+    //     }
+    //     console.log('NEW GROUP:', group);
+    //     return groupName;
+    // }
 
     // Add entry to state's group array
-    addGroup() {
-        console.log("ADDING NEW GROUP...");
-        const groups = this.state.groups;
-        const group = this.createNewGroup();
-        groups.push(group);
-        console.log('GROUPS ARRAY:', groups);
-        this.setState({groups: groups});
-    }
+    // addGroup() {
+    //     console.log("ADDING NEW GROUP...");
+    //     const groups = this.state.groups;
+    //     const group = this.createNewGroup();
+    //     groups.push(group);
+    //     console.log('GROUPS ARRAY:', groups);
+    //     this.setState({groups: groups});
+    // }
 
     // Add multiple entries to group array from MODAL INPUT
     // generateGroups(e) {
@@ -90,53 +83,53 @@ export default class GroupSection extends Component {
     //     // });
     // }
 
-    removeGroup = index => {
-        console.log("Removing Group...");
-        console.log("Index:", index);
+    // removeGroup = index => {
+    //     console.log("Removing Group...");
+    //     console.log("Index:", index);
 
-        // Targeting element
-        const groups = this.state.groups;
-        // console.log("ID:", groups[e]);
-        const target = groups[index];
-        console.log("TARGET:", target);
+    //     // Targeting element
+    //     const groups = this.state.groups;
+    //     // console.log("ID:", groups[e]);
+    //     const target = groups[index];
+    //     console.log("TARGET:", target);
 
-        groups.splice(index, 1);
-        console.log(groups);
+    //     groups.splice(index, 1);
+    //     console.log(groups);
 
-        this.setState({groups: groups});
-    }
+    //     this.setState({groups: groups});
+    // }
 
-    changeName = group => {
-        console.log('changing name...');
-        const name = group.groupName;
-        console.log(name);
-        const groups = this.state.groups;
-        console.log('current groups:', groups);
-        // this.setState({groups: groups})
-    }
+    // let changeName = group => {
+    //     console.log('changing name...');
+    //     const name = group.groupName;
+    //     console.log(name);
+    //     const groups = this.state.groups;
+    //     console.log('current groups:', groups);
+    //     // this.setState({groups: groups})
+    // }
 
-    render() {
-        console.log(this.state.GroupObject)
+        // console.log(this.state.GroupObject);
         return (
             <div className="group-section">
 
                 <header className="group-section-header">
                     <div className="group-header-caption">Groups</div>
-                    {this.state.groups.length < this.state.max ? 
-                            <NewGroupButton onClick={this.addGroup} /> 
+                    {aGroupNames.length < max ? 
+                            <NewGroupButton onClick={addGroup} /> 
                             : <div></div>
-                        }
+                    }
                 </header>
 
                 <div className="group-items-container">
                     <div id="groups-display-wrapper">
-                        {this.state.groups.map((group, index) => 
+                        {aGroupNames.map((group, index) => 
                             <GroupCard 
                                 // key={group.key} 
                                 key={nanoid()} 
                                 title={group}
-                                handleChange={() => this.changeName(group)}
-                                delete={() => this.removeGroup(index)} />
+                                // handleChange={() => this.changeName(group)}
+                                // delete={() => this.removeGroup(index)} 
+                            />
                         )}
                     </div>
                 </div>   
@@ -144,4 +137,5 @@ export default class GroupSection extends Component {
             </div>
         );
     }
-}
+
+export default GroupSection;

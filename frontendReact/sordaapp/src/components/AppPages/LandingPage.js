@@ -5,7 +5,7 @@ import './LandingPage.css';
 import {Group, Person} from '../../groupClass.js';
 
 
-// 7JWHR5
+// DB fetch entry with password: 7JWHR5 
 
 function LandingPage() {
   let GroupObject = new Group();
@@ -13,17 +13,9 @@ function LandingPage() {
   const [ifFetchSuccess, setIfFetchSuccess] = useState(false);
   const [idNum, setIdNum] = useState("");
 
-// Testing data transfer to TitleBar component
-  GroupObject.setProjectName('QuackQuack');
-  GroupObject.addGroupNames('A');
-  GroupObject.addGroupNames('B');
-  GroupObject.addGroupNames('C');
-  // GroupObject.addGroupNames(['D', 'E']);   * DOESN'T WORK
-  // GroupObject.addGroupNames('D', 'E');     * DOESN'T WORK
-
-  console.log(GroupObject);
-  console.log(aGroupObject.projectName);
-  console.log(aGroupObject.groupNames);
+  // console.log(GroupObject);
+  // console.log(aGroupObject.projectName);
+  // console.log(aGroupObject.groupNames);
   /*
   const [group, setGroup] = useState({
     projectName: "",

@@ -30,6 +30,7 @@ router.route("/add").post((req, res) => {
 
   newGroup.save()
     .then(() => res.json("Added Part"))
+    //.then(group => res.json(newGroup))
     .catch(err => res.status(400).json("Error: " + err));
 });
 

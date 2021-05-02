@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
+import {getRequest, postRequest} from "../../utils/queries.js";
 
 
 
@@ -13,28 +14,20 @@ function LandingPage() {
 
 
   async function getGroup() {
-    await fetch(`http://localhost:3050/group/${idNum}`)
-      .then(res => res.json())
-      .then(json => {
-        if(json !== null) {
-          console.log(json);
-          setAjson(json);
-          setIfFetchSuccess(true);
-        }
-        else {
-          console.log("No Project returned; Object:null");
-        }
-      })
-      .catch(e => {
-        console.log("Error");
-      })
+     const json = await getRequest(idNum);  //call the API to get the
+      if(json !== null) {
+        console.log(json);
+        setAjson(json);
+        setIfFetchSuccess(true);
+      } else {
+        console.log("No Project returned; Object:null");
+      }
   }
 
 
   function handleSubmit(event) {
     getGroup();
     event.preventDefault();
-
   }
 
 
@@ -85,3 +78,26 @@ function LandingPage() {
 
 
 export default LandingPage;
+
+
+
+
+/*
+  async function getGroup() {
+    await fetch(`http://localhost:3050/group/${idNum}`)
+      .then(res => res.json())
+      .then(json => {
+        if(json !== null) {
+          console.log(json);
+          setAjson(json);
+          setIfFetchSuccess(true);
+        }
+        else {
+          console.log("No Project returned; Object:null");
+        }
+      })
+      .catch(e => {
+        console.log("Error");
+      })
+  }
+*/

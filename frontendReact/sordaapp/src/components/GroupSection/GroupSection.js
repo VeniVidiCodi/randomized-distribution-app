@@ -12,15 +12,18 @@ function GroupSection({groupNames, setGroupNames}) {
     
     const max = 8;
     const min = 2;
-    let groups = new Group();
+    // let groups = new Group();
+    // let groupNames = groups.groupNames;
+    // console.log(groups.groupNames);
 
     // useEffect(() => {
     //     console.log("GroupSection useEffect...");
-    //     setGroupNames(aGroupNames);
-    // }, [groupNames, aGroupNames])
+    //     setGroupNames(groups);
+    // }, [groupNames, groups])
+    
 
     let createNewGroup = () => { 
-        let length = aGroupNames.length;
+        let length = groups.length;
         let name = "Group" + (length + 1);
         return name;
     }
@@ -28,7 +31,7 @@ function GroupSection({groupNames, setGroupNames}) {
     let addGroup = () => {
         console.log("addGroup clicked...");
 
-        let tempGroups = aGroupNames;
+        let tempGroups = groups;
         console.log(tempGroups);
         const newGroup = createNewGroup();
         tempGroups.push(newGroup);
@@ -114,7 +117,7 @@ function GroupSection({groupNames, setGroupNames}) {
 
                 <header className="group-section-header">
                     <div className="group-header-caption">Groups</div>
-                    {aGroupNames.length < max ? 
+                    {groupNames.length < max ? 
                             <NewGroupButton onClick={addGroup} /> 
                             : <div></div>
                     }
@@ -122,7 +125,7 @@ function GroupSection({groupNames, setGroupNames}) {
 
                 <div className="group-items-container">
                     <div id="groups-display-wrapper">
-                        {aGroupNames.map((group, index) => 
+                        {groupNames.map((group, index) => 
                             <GroupCard 
                                 // key={group.key} 
                                 key={nanoid()} 

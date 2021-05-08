@@ -14,9 +14,9 @@ function TitleBar(props) {
               <form className="input-wrapper">
               {/* <form className="input-wrapper" onSubmit={props.handleSubmit}> */}
                 <label>
-                  <input id="project-title--input" type="text" name="name" placeholder={props.tempTitle} onChange={props.handleChange} value={props.tempTitle} />
+                  <input id="project-title--input" type="text" name="name" placeholder={props.title} onChange={props.handleChange} value={props.title} />
                 </label>
-                <input className="title-submit-button" onClick={props.handleSubmit} type="button" value="✓" />
+                <input className="title-submit-button" onClick={props.handleSubmit} type="submit" value="✓" />
               </form>
             }
           </section>

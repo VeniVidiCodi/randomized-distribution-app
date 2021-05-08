@@ -9,16 +9,19 @@ import { Group } from '../../groupClass';
 
 function InputPage () {
   let GroupObject = new Group();
+  GroupObject.projectName = "my Project";
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
-  const [aProjectName, setAProjectName] = useState("My Project");
+  const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
   const [aGroupNames, setAGroupNames] = useState(GroupObject.groupNames);
   
   const [showTitle, setShowTitle] = useState(true);
-  const [aTempTitle, setATempTitle] = useState(aProjectName);
+  // const [aTempTitle, setATempTitle] = useState("My Project");
+
   // Emulate componentDidMount lifecycle
-  useEffect(() => {
-    console.log("use effect group state");
-  }, [aGroupObject])
+  
+  // useEffect(() => {
+  //   console.log("use effect group state");
+  // }, [aGroupObject])
 
   useEffect(() => {
     console.log("use effect group names");
@@ -34,13 +37,12 @@ function InputPage () {
   let handleChange = (event) => {
     console.log('Handling Change: ' + event.target.value);
     // this.setState({title: event.target.value});
-    setATempTitle(event.target.value);
+    setAProjectName(event.target.value);
   }
   
   let handleSubmit = (event) => {
     console.log('Submitting title: ' + event.target.value);
     // event.preventDefault();
-    setAProjectName(aTempTitle);
     // props.setTitle
     toggleTitle();
   }
@@ -100,8 +102,8 @@ function InputPage () {
             <Nav />
             <TitleBar 
               title={aProjectName} 
-              tempTitle={aTempTitle}
               setTitle={setAProjectName}
+              // tempTitle={aTempTitle}
               handleChange={handleChange}
               handleSubmit={handleSubmit}
               showTitle={showTitle}

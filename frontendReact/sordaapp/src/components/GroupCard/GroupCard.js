@@ -1,55 +1,46 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './GroupCard.css';
 // import GroupListItem from '../GroupListItem/GroupListItem';
 
-export default class GroupCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: props.title,
-            showTitle: true,
-            setTitle: this.props.setTitle
-        }
-    }
+function GroupCard(props) {
+    let [display, setDisplay] = useState(true);
 
-    changeTitle = (e) => {
-        this.toggleTitle();
+    let changeTitle = (e) => {
+        setDisplay(e.target.value);
+        toggleTitle();
     }
     
-    toggleTitle = () => {
+    let toggleTitle = () => {
         console.log("Toggling Title");
-        // this.props.handleChange();
 
-        if (this.state.showTitle) {
+        if (display) {
             console.log("T -> F");
-            this.setState({showTitle: false})
+            setDisplay(false);
         } else {
             console.log("F -> T");
-            this.setState({showTitle: true})
+            setDisplay(true);
         };
     }
 
-    handleChange = (event) => {
-        this.setState({title: event.target.value});
-    }
+    
 
-    handleSubmit = (event) => {
+    let handleSubmit = (event) => {
         event.preventDefault();
         this.toggleTitle();
     }
 
-render() {
+
     return(
         <div className="group-container">
             <div className="group-card--header">
-                { this.state.showTitle ?
-                    <div className="group-title" onClick={this.changeTitle}>{this.state.title}</div>
+                { display ?
+                    <div className="group-title" onClick={setDisplay}>{props.title}</div>
                     :
-                    <form className="input-wrapper" onSubmit={this.handleSubmit}>
+                    <form className="input-wrapper" onSubmit={props.submitTitle}>
                     <label>
-                        <input id="project-title--input" type="text" name="name" placeholder="ADD GROUP TITLE" onChange={this.handleChange} value={this.state.title} />
+                        <input id="project-title--input" type="text" name="name" placeholder="ADD GROUP TITLE" onChange={changeTitle} value={props.title} />
                     </label>
-                    <input className="title-submit-button" onClick={this.state.setTitle} type="submit" value="✓" />
+                    <input className="title-submit-button" onClick={props.submitTitle} type="submit" value="✓" />
                     </form>
                 }
 
@@ -66,5 +57,6 @@ render() {
             {/* <div className="group-del-btn2">x</div> */}
         </div>
     );
-    }
 }
+
+export default GroupCard;

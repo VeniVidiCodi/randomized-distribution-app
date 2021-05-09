@@ -7,10 +7,9 @@ import { nanoid } from 'nanoid';
 import { Group } from '../../groupClass.js';
 
 
-function GroupSection(props) {
+function GroupSection ({groupNames, addGroup, handleChange}) {
     const max = 8;
     const min = 2;
-
 
     // let changeName = group => {
     //     console.log('changing name...');
@@ -21,34 +20,37 @@ function GroupSection(props) {
     //     // this.setState({groups: groups})
     // }
 
+    let submitTitle = () => {console.log('Submitting GroupCard Title...')}
+
         // console.log(this.state.GroupObject);
-        return (
-            <div className="group-section">
+    return (
+        <div className="group-section">
 
-                <header className="group-section-header">
-                    <div className="group-header-caption">Groups</div>
-                    {props.groupNames.length < max ? 
-                            <NewGroupButton onClick={props.addGroup} /> 
-                            : <div></div>
-                    }
-                </header>
+            <header className="group-section-header">
+                <div className="group-header-caption">Groups</div>
+                {groupNames.length < max ? 
+                        <NewGroupButton onClick={addGroup} /> 
+                        : <div></div>
+                }
+            </header>
 
-                <div className="group-items-container">
-                    <div id="groups-display-wrapper">
-                        {props.groupNames.map((group, index) => 
-                            <GroupCard 
-                                // key={group.key} 
-                                key={nanoid()} 
-                                title={group}
-                                // handleChange={() => this.changeName(group)}
-                                // delete={() => this.removeGroup(index)} 
-                            />
-                        )}
-                    </div>
-                </div>   
-                    
-            </div>
-        );
-    }
+            <div className="group-items-container">
+                <div id="groups-display-wrapper">
+                    {groupNames.map((group, index) => 
+                        <GroupCard 
+                            // key={group.key} 
+                            key={nanoid()} 
+                            title={group}
+                            handleChange={handleChange}
+                            submitTitle={submitTitle}
+                            // delete={() => this.removeGroup(index)} 
+                        />
+                    )}
+                </div>
+            </div>   
+                
+        </div>
+    );
+}
 
 export default GroupSection;

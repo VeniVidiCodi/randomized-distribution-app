@@ -10,18 +10,20 @@ import { Group } from '../../groupClass';
 function InputPage () {
   let GroupObject = new Group();
   GroupObject.projectName = "my Project";
+
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
   const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
   const [aGroupNames, setAGroupNames] = useState(GroupObject.groupNames);
+  // const [aPersons, setAPersons] = useState(GroupObject.persons);
   
   const [showTitle, setShowTitle] = useState(true);
-  // const [aTempTitle, setATempTitle] = useState("My Project");
 
-  // Emulate componentDidMount lifecycle
+
+  // Emulate componentDidMount lifecycle(s)  = = = = = = = = = = = = = = = = = = = = =
   
-  // useEffect(() => {
-  //   console.log("use effect group state");
-  // }, [aGroupObject])
+  useEffect(() => {
+    console.log("use effect group state");
+  }, [aGroupObject])
 
   useEffect(() => {
     console.log("use effect group names");
@@ -32,93 +34,116 @@ function InputPage () {
   }, [aProjectName])
    
 
-  // Title Behavior  = = = = = = = = = = = = = = = = = = = = =
+  // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  let handleChange = (event) => {
-    console.log('Handling Change: ' + event.target.value);
-    // this.setState({title: event.target.value});
-    setAProjectName(event.target.value);
-  }
+  // let handleChange = (event) => {
+  //   console.log('Handling Change: ' + event.target.value);
+  //   // this.setState({title: event.target.value});
+  //   setAProjectName(event.target.value);
+  // }
   
-  let handleSubmit = (event) => {
-    console.log('Submitting title: ' + event.target.value);
-    // event.preventDefault();
-    // props.setTitle
-    toggleTitle();
+  // let handleSubmit = (event) => {
+  //   console.log('Submitting title: ' + event.target.value);
+  //   // event.preventDefault();
+  //   // props.setTitle
+  //   toggleTitle();
+  // }
+
+  // let toggleTitle = () => {
+  //   console.log("Toggling Title" );
+  //   if (showTitle) {
+  //       console.log("T -> F");
+  //       setShowTitle(false);
+  //       // this.setState({showTitle: false})
+  //     } else {
+  //       console.log("F -> T");
+  //       setShowTitle(true);
+  //       // this.setState({showTitle: true})
+  //     };
+  // }
+
+
+  // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+  let handleGroupChange = (event) => {
+    console.log('workkk');
+    // this.setState({title: event.target.value});
   }
-
-  let toggleTitle = () => {
-    console.log("Toggling Title" );
-    if (showTitle) {
-        console.log("T -> F");
-        setShowTitle(false);
-        // this.setState({showTitle: false})
-      } else {
-        console.log("F -> T");
-        setShowTitle(true);
-        // this.setState({showTitle: true})
-      };
-  }
-
-
-  // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = =
 
   let createNewGroup = () => { 
     let length = aGroupNames.length;
-    let name = "Group" + (length + 1);
+    let name = "Group " + (length + 1);
     console.log(name);
     return name;
   }
 
   let addGroup = () => {
     console.log("addGroup clicked...");
-    let tempGroupObject = aGroupObject;
-    // let tempGroups = aGroupObject.groupNames;
-    // console.log(tempGroups);
-    const newGroup = createNewGroup();
-    tempGroupObject.groupNames.push(newGroup);
-    // tempGroups.push(newGroup);
 
-    console.log(tempGroupObject);
+    let tempGroupNames = aGroupNames;
+    let newGroup = createNewGroup();
+    tempGroupNames.push(newGroup);
+    console.log(tempGroupNames);
 
-    setAGroupObject(tempGroupObject);
+    setAGroupNames(tempGroupNames);
   }
 
 
-  // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = =
+  // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
   
   let shuffleData = () => {
     console.log("shuffle clicked...");
     // Shuffle Roster Items randomly
+    
     // Assign each roster item a group #
-    // Save shuffle data
-
+    
+    // Save shuffled data as new group object
+    // saveProject();
+    
     // return <Redirect push to={{ pathname: '/results', groupObject: aProjectState, fromInput=true }} />
+  }
+
+  let saveProject = () => {
+    console.log('saving shuffled project...');
+    let tempGroupObject = aGroupObject;
+
+    tempGroupObject.projectName = aProjectName;
+    tempGroupObject.groupNames = aGroupNames;
+    // tempGroupObject.persons = aPersons;
+
+    console.log('new object to save:', tempGroupObject);
+    setAGroupObject(tempGroupObject);
   }
 
     return (
         <div>
           <header className="App-header">
             <Nav />
+
             <TitleBar 
               title={aProjectName} 
               setTitle={setAProjectName}
-              // tempTitle={aTempTitle}
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              showTitle={showTitle}
-              toggleTitle={toggleTitle} /> 
-            
+              // handleChange={handleChange}
+              // handleSubmit={handleSubmit}
+              // showTitle={showTitle}
+              // toggleTitle={toggleTitle} 
+              /> 
+
           </header>
+
           <main id="entry-container">
             <GroupSection 
               groupNames={aGroupNames}
-              // setGroupNames={(group) => setAGroupNames(group)}
               addGroup={addGroup}
-              
+              handleChange={handleGroupChange}
+              setGroupNames={setAGroupNames}
+              // setGroupNames={(group) => setAGroupNames(group)} 
               />
+              
             <RosterSection />
+            
           </main>
+
           <Footer 
             GroupObject={{GroupObject}}
             value="Shuffle" 

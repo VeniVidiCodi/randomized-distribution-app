@@ -4,7 +4,7 @@ import logo from '../../mallard.svg';
 import './LandingPage.css';
 import {getRequest, postRequest} from "../../utils/queries.js";
 
-// DB fetch entry with password: 7JWHR5 
+// DB fetch entry with password: 7JWHR5
 
 function LandingPage() {
 
@@ -44,49 +44,36 @@ function LandingPage() {
 //return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, isTrue: false}}/>;  //use in input page
 
 
-  return (
-    <div className="wrapper">
-      <div className="topSection">
-        <img src={logo} alt="duck logo" />
-      </div>
-
-      <div className="bottomSection">
-        <div className="buttonChild">
-          {/* <Link to="/grouper">
-            <button type="submit" value="Submit" id="btn-start" >Create Group</button>
-          </Link> */}
-
-          {/* Passes Group object instance to input page as prop */}
-          <Link to={{ 
-            pathname: "/grouper",
-            state: {
-              GroupObject: GroupObject
-              // projectName: 'GroupObject.projectName',
-              // groups: GroupObject.groupNames,
-              // persons: GroupObject.persons
-            } 
-          }}>
-            <button type="submit" value="Submit" id="btn-start" >Create Group</button>
-          </Link>
+    return (
+      <div className="wrapper">
+        <div className="topSection">
+          <img src={logo} alt="duck logo" />
         </div>
 
-        <div className="inputChild">
-          <form onSubmit={handleSubmit}>
-            <input
-              value={idNum}
-              onChange={handleChange}
-              type="text"
-              name="AccessID"
-              placeholder="Enter ID"
-              className="textField"
-              maxLength="7" />
-            <button type="submit" name="getResultsPage" className="submit">GO</button>
-          </form>
-        </div>
+        <div className="bottomSection">
+          <div className="buttonChild">
+            <Link to="/grouper">
+              <button type="submit" value="Submit" id="btn-start">Create Group</button>
+            </Link>
+          </div>
 
+          <div className="inputChild">
+            <form onSubmit={handleSubmit}>
+              <input
+                value={idNum}
+                onChange={handleChange}
+                type="text"
+                name="AccessID"
+                placeholder="Enter ID"
+                className="textField"
+                maxLength="7" />
+              <button type="submit" name="getResultsPage" className="submit">GO</button>
+            </form>
+          </div>
+
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 

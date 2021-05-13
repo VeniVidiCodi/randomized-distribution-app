@@ -39,6 +39,7 @@ function ResultsPage(props) {
   function handleOnClickSave() {
     console.log("SAVE BUTTON CLICKED...");
     //save to db by using utility component
+
     const groups = new Group();
 
     groups.setProjectName("Project Safari");
@@ -46,7 +47,7 @@ function ResultsPage(props) {
     groups.addPerson(new Person("Elephant", 2));
     groups.addGroupNames(new GroupName("Section Danger"));
     groups.addGroupNames(new GroupName("Section Safe"));
-    var myJSON = JSON.stringify(groups);
+    var myJSON = JSON.stringify(groups);  //aGroupObject
 
     console.log(myJSON);
     console.log(JSON.stringify(JSON.parse(myJSON), null, 2));

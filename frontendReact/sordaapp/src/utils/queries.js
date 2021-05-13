@@ -14,20 +14,8 @@ async function getRequest(idNum) {
     return aJson;
 }
 
-//Post to write to db
-/*
 function postRequest(json) {
-  fetch('http://localhost:3050/group/add', {
-    method:'POST',
-    body: json
-  })
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-}
-*/
-function postRequest(json) {
-  
+
   let aJson;
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -55,3 +43,19 @@ function postRequest(json) {
 
 
 export {getRequest, postRequest}
+
+
+
+
+//Post to write to db
+/*
+function postRequest(json) {
+  fetch('http://localhost:3050/group/add', {
+    method:'POST',
+    body: json
+  })
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
+*/

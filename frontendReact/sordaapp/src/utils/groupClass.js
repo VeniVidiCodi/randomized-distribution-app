@@ -38,6 +38,11 @@ class Group {
   }
 }
 
+class GroupName {
+  constructor(name) {
+    this.name = name;
+  }
+}
 
 class Person {
   constructor(name, groupNum) {
@@ -47,7 +52,7 @@ class Person {
 }
 
 
-export {Group, Person}
+export {Group, Person, GroupName}
 
 
 //Testing the class to check if the class works correctly

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './ResultCard.css';
+import { nanoid } from 'nanoid';
 
 class ResultCard extends Component {
     render() {
@@ -9,8 +10,8 @@ class ResultCard extends Component {
                     { <div className="group-title">{this.props.groupNumber + 1}. {this.props.title}</div> }
                 </div>
                 <div className="group-items--display">
-                    { <div> { this.props.persons.map((person, index) => 
-                            (person.groupNumber === this.props.groupNumber) ? <p>{person.name}</p> : <p></p>
+                    { <div> { this.props.persons.map((person, index) =>
+                            (person.groupNum === this.props.groupNumber + 1) ? <p key={nanoid()}>{person.name}</p> : <p key={nanoid()}></p>
                         )}
                     </div> }
                 </div>

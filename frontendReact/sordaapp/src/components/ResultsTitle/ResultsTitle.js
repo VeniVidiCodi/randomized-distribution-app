@@ -4,8 +4,8 @@ import './ResultsTitle.css';
 function ResultsTitle(props) {
     return (
             <section className="titlebar project-title-container">
-                <h3>Project Name:</h3>
-                <h2 className="result-title-display">{props.title}</h2> 
+                <h3>Project Name:</h3> 
+                <h2 className="result-title-display">{props.title}</h2>
             </section>
     );
   }

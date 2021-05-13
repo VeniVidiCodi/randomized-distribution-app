@@ -2,69 +2,34 @@ import React, { useState } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
-import {Group, Person} from '../../groupClass.js';
-
+import {getRequest, postRequest} from "../../utils/queries.js";
 
 // DB fetch entry with password: 7JWHR5 
 
 function LandingPage() {
-  let GroupObject = new Group();
-  const [aGroupObject, setGroupObject] = useState(GroupObject);
+
+  const [aJson, setAjson] = useState(null);
   const [ifFetchSuccess, setIfFetchSuccess] = useState(false);
   const [idNum, setIdNum] = useState("");
 
-  // console.log(GroupObject);
-  // console.log(aGroupObject.projectName);
-  // console.log(aGroupObject.groupNames);
-  /*
-  const [group, setGroup] = useState({
-    projectName: "",
-    groupNames: [],
-    persons: []
-  });
-  */
-  //console.log(GroupObject);
-
-  // let func = ()=> {
-  //   let tempGroup = aGroupObject;
-  //   tempGroup.addPerson(new Person("Kenly", null));
-  //   setGroupObject(tempGroup);
-  //   console.log(aGroupObject);
-  // }
-
-  function setGroupFromCall(json){
-    let tempGroup = aGroupObject;
-    tempGroup.person = json.persons;
-    tempGroup.groupNames = json.groupNames;
-    tempGroup.projectName = json.projectName;
-    setGroupObject(tempGroup);
-    console.log(aGroupObject);
-  }
-
 
   async function getGroup() {
-    await fetch(`http://localhost:3050/group/${idNum}`)
-      .then(res => res.json())
-      .then(json => {
-        if(json !== null) {
-          console.log(json);
-          setIfFetchSuccess(true);
-          setGroupFromCall(json)
-        }
-        else {
-          console.log("No Project returned; Object:null");
-        }
-      })
-      .catch(e => {
-        console.log("Error");
-      })
+     const json = await getRequest(idNum);  //call the API to get the
+      if(json !== null) {
+        console.log(json);
+        setAjson(json);
+        setIfFetchSuccess(true);
+      } else {
+        console.log("No Project returned; Object:null");
+      }
   }
+
 
   function handleSubmit(event) {
     getGroup();
     event.preventDefault();
-
   }
+
 
   function handleChange(event) {
     const tempIdNum = event.target.value;
@@ -72,9 +37,11 @@ function LandingPage() {
     event.preventDefault();
   }
 
+
   if(ifFetchSuccess) {
-    return <Redirect push to={{pathname: '/results', state: {aGroupObject}}}/>;
+    return <Redirect push to={{pathname: '/results', json: aJson, isTrue: true}}/>;
   }
+//return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, isTrue: false}}/>;  //use in input page
 
 
   return (
@@ -124,3 +91,26 @@ function LandingPage() {
 
 
 export default LandingPage;
+
+
+
+
+/*
+  async function getGroup() {
+    await fetch(`http://localhost:3050/group/${idNum}`)
+      .then(res => res.json())
+      .then(json => {
+        if(json !== null) {
+          console.log(json);
+          setAjson(json);
+          setIfFetchSuccess(true);
+        }
+        else {
+          console.log("No Project returned; Object:null");
+        }
+      })
+      .catch(e => {
+        console.log("Error");
+      })
+  }
+*/

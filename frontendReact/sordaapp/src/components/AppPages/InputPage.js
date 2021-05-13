@@ -4,7 +4,7 @@ import TitleBar from '../TitleBar/TitleBar';
 import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
-import { Group } from '../../groupClass';
+import { Group, GroupName, Person} from '../../groupClass';
 
 
 function InputPage () {
@@ -92,8 +92,11 @@ function InputPage () {
 
     let addGroup = () => {
         console.log("addGroup clicked...");
-        let newGroup = "Group " + (aGroupNames.length + 1);
-        setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
+        let tempGroupObj = aGroupObject;
+        let newGroup = "Group " + (aGroupNames.length + 1); 
+        tempGroupObj.addGroupNames(new GroupName(newGroup) )
+        // setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
+        setAGroupObject(tempGroupObj);
     }
 
 

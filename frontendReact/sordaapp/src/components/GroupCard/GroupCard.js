@@ -36,15 +36,15 @@ function GroupCard(props) {
                 { display ?
                     <div className="group-title" onClick={setDisplay}>{props.title}</div>
                     :
-                    <form className="input-wrapper" onSubmit={props.submitTitle}>
+                    <form className="input-wrapper" /*onSubmit={props.submitTitle}*/>
                     <label>
                         <input id="project-title--input" type="text" name="name" placeholder="ADD GROUP TITLE" onChange={changeTitle} value={props.title} />
                     </label>
-                    <input className="title-submit-button" onClick={props.submitTitle} type="submit" value="✓" />
+                    {/* <input className="title-submit-button" onClick={props.submitTitle} type="submit" value="✓" /> */}
                     </form>
                 }
 
-                <button className="group-del-btn" onClick={this.props.delete}>x</button>
+                {/* <button className="group-del-btn" onClick={props.delete}>x</button> */}
             </div>
             <div className="group-items--display">
                 {/* Render Groups for ResultPage */}

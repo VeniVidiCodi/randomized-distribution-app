@@ -9,31 +9,32 @@ import { Group } from '../../groupClass';
 
 function InputPage () {
   let GroupObject = new Group();
-  GroupObject.projectName = "my Project";
+  GroupObject.projectName = "My Project";
+  // GroupObject.groupNames = ['food', 'music', 'decor'];
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
   const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
   const [aGroupNames, setAGroupNames] = useState(GroupObject.groupNames);
   // const [aPersons, setAPersons] = useState(GroupObject.persons);
   
-  const [showTitle, setShowTitle] = useState(true);
+  // const [showTitle, setShowTitle] = useState(true);
 
 
   // Emulate componentDidMount lifecycle(s)  = = = = = = = = = = = = = = = = = = = = =
   
-  useEffect(() => {
-    console.log("use effect group state");
-  }, [aGroupObject])
+  // useEffect(() => {
+  //   console.log("use effect group state");
+  // }, [aGroupObject])
 
-  useEffect(() => {
-    console.log("use effect group names");
-  }, [aGroupNames])
+  // useEffect(() => {
+  //   console.log("use effect project name");
+  // }, [aProjectName])
 
-  useEffect(() => {
-    console.log("use effect project name");
-  }, [aProjectName])
+  // useEffect(() => {
+  //   console.log("use effect group names");
+  // }, [aGroupNames])
+ 
    
-
   // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
   // let handleChange = (event) => {
@@ -65,28 +66,35 @@ function InputPage () {
 
   // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  let handleGroupChange = (event) => {
-    console.log('workkk');
-    // this.setState({title: event.target.value});
-  }
+  // let handleGroupsChange = newGroupsArr => {
+  //   console.log('setNewGroupsArr:', newGroupsArr);
+  //   setAGroupNames(newGroupsArr); 
+  // }
 
-  let createNewGroup = () => { 
-    let length = aGroupNames.length;
-    let name = "Group " + (length + 1);
-    console.log(name);
-    return name;
-  }
+  // let createNewGroup = () => { 
+  //   let length = aGroupNames.length;
+  //   let name = "Group " + (length + 1);
+  //   console.log(name);
+  //   return name;
+  // }
 
-  let addGroup = () => {
-    console.log("addGroup clicked...");
+  // let addGroup = () => {
+  //   console.log("addGroup clicked...");
 
-    let tempGroupNames = aGroupNames;
-    let newGroup = createNewGroup();
-    tempGroupNames.push(newGroup);
-    console.log(tempGroupNames);
+  //   let tempGroupNames = aGroupNames;
+  //   let newGroup = createNewGroup();
+  //   tempGroupNames.push(newGroup);
+  //   console.log(tempGroupNames);
 
-    setAGroupNames(tempGroupNames);
-  }
+  //   setAGroupNames(tempGroupNames);
+  // }
+
+
+    let addGroup = () => {
+        console.log("addGroup clicked...");
+        let newGroup = "Group " + (aGroupNames.length + 1);
+        setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
+    }
 
 
   // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -98,21 +106,21 @@ function InputPage () {
     // Assign each roster item a group #
     
     // Save shuffled data as new group object
-    // saveProject();
+    saveProject();
     
     // return <Redirect push to={{ pathname: '/results', groupObject: aProjectState, fromInput=true }} />
   }
 
   let saveProject = () => {
     console.log('saving shuffled project...');
-    let tempGroupObject = aGroupObject;
+    // let tempGroupObject = aGroupObject;
 
-    tempGroupObject.projectName = aProjectName;
-    tempGroupObject.groupNames = aGroupNames;
-    // tempGroupObject.persons = aPersons;
+    // tempGroupObject.projectName = aProjectName;
+    // tempGroupObject.groupNames = aGroupNames;
+    // // tempGroupObject.persons = aPersons;
 
-    console.log('new object to save:', tempGroupObject);
-    setAGroupObject(tempGroupObject);
+    // console.log('new object to save:', tempGroupObject);
+    // setAGroupObject(tempGroupObject);
   }
 
     return (
@@ -134,9 +142,9 @@ function InputPage () {
           <main id="entry-container">
             <GroupSection 
               groupNames={aGroupNames}
-              addGroup={addGroup}
-              handleChange={handleGroupChange}
               setGroupNames={setAGroupNames}
+              addGroup={addGroup}
+              // handleChange={handleGroupChange}
               // setGroupNames={(group) => setAGroupNames(group)} 
               />
               
@@ -145,7 +153,7 @@ function InputPage () {
           </main>
 
           <Footer 
-            GroupObject={{GroupObject}}
+            GroupObject={GroupObject}
             value="Shuffle" 
             text="Shuffle"
             onClick={shuffleData} />

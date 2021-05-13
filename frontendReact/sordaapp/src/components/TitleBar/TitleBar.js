@@ -10,10 +10,10 @@ function TitleBar(props) {
     props.setTitle(event.target.value);
   }
 
-  let handleSubmit = (event) => {
-    console.log('Submitting title: ' + event.target.value);
-    toggleTitle();
-  }
+  // let handleSubmit = (event) => {
+  //   console.log('Submitting title: ' + event.target.value);
+  //   toggleTitle();
+  // }
 
   let toggleTitle = () => {
     console.log("Toggling Title" );
@@ -38,7 +38,7 @@ function TitleBar(props) {
                 <label>
                   <input id="project-title--input" type="text" name="name" placeholder={props.title} onChange={handleChange} value={props.title} />
                 </label>
-                <input className="title-submit-button" onClick={handleSubmit} type="submit" value="✓" />
+                <input className="title-submit-button" onClick={toggleTitle} type="submit" value="✓" />
               </form>
             }
           </section>

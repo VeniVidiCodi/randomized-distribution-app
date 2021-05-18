@@ -5,6 +5,7 @@ import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 import { Group, GroupName, Person} from '../../utils/groupClass';
+import e from 'cors';
 
 
 function InputPage () {
@@ -116,10 +117,19 @@ function InputPage () {
         let newGroupNames = tempGroupObject.groupNames
         console.log(newGroupNames);
 
-        // setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
         setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
     }
+    let deleteGroup = e => {
+      let index = e.target.value;
+      console.log("Deleting Group... ", index);
+      let tempGroupObject = aGroupObject;
+      let newGroupNames = tempGroupObject.groupNames;
+      console.log(newGroupNames);
+      newGroupNames.splice(index, 1);
+      console.log(tempGroupObject.groupNames);
 
+      setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
+    }
 
   // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
   
@@ -164,6 +174,7 @@ function InputPage () {
               groupNames={aGroupNames}
               setGroupNames={setAGroupNames}
               addGroup={addGroup}
+              deleteGroup={deleteGroup}
               // handleChange={handleGroupChange}
               // setGroupNames={(group) => setAGroupNames(group)} 
               />

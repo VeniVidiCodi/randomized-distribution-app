@@ -44,7 +44,7 @@ function GroupCard(props) {
                     </form>
                 }
 
-                {/* <button className="group-del-btn" onClick={props.delete}>x</button> */}
+                <button className="group-del-btn" onClick={props.deleteGroup} value={props.index}>x</button>
             </div>
             <div className="group-items--display">
                 {/* Render Groups for ResultPage */}

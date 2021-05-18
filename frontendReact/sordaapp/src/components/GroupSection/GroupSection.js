@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 
 function GroupSection (props) {
     const max = 8;
+    // console.log(props.groupNames.length);
     // const min = 2;
 
     // EXAMPLE

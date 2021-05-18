@@ -4,16 +4,16 @@ import TitleBar from '../TitleBar/TitleBar';
 import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
-import { Group, GroupName, Person} from '../../groupClass';
+import { Group, GroupName, Person} from '../../utils/groupClass';
 
 
 function InputPage () {
   let GroupObject = new Group();
-  GroupObject.projectName = "My Project";
+  GroupObject.setProjectName("My Project");
   // GroupObject.groupNames = ['food', 'music', 'decor'];
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
-  const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
+  // const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
   const [aGroupNames, setAGroupNames] = useState(GroupObject.groupNames);
   // const [aPersons, setAPersons] = useState(GroupObject.persons);
   
@@ -23,8 +23,12 @@ function InputPage () {
   // Emulate componentDidMount lifecycle(s)  = = = = = = = = = = = = = = = = = = = = =
   
   // useEffect(() => {
-  //   console.log("use effect group state");
-  // }, [aGroupObject])
+  //     console.log("use effect group state");
+  //     // updateTitle("My Project");
+  
+  //   // aGroupObject.setProjectName("bbb");
+    
+  // })
 
   // useEffect(() => {
   //   console.log("use effect project name");
@@ -63,6 +67,17 @@ function InputPage () {
   //     };
   // }
 
+  let updateTitle = title => {
+    console.log('Updating Project Name: ' + title);
+    let tempGroupObj = aGroupObject;
+
+    tempGroupObj.projectName = title;   // This is replacing title value constantly. should be adding
+    console.log(tempGroupObj.projectName);
+
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName:title}));
+  }
+  
+
 
   // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -94,7 +109,7 @@ function InputPage () {
         console.log("addGroup clicked...");
         let tempGroupObj = aGroupObject;
         let newGroup = "Group " + (aGroupNames.length + 1); 
-        tempGroupObj.addGroupNames(new GroupName(newGroup) )
+        tempGroupObj.addGroupNames(new GroupName(newGroup));
         // setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
         setAGroupObject(tempGroupObj);
     }
@@ -132,13 +147,9 @@ function InputPage () {
             <Nav />
 
             <TitleBar 
-              title={aProjectName} 
-              setTitle={setAProjectName}
-              // handleChange={handleChange}
-              // handleSubmit={handleSubmit}
-              // showTitle={showTitle}
-              // toggleTitle={toggleTitle} 
-              /> 
+              title={aGroupObject.projectName} 
+              updateTitle={updateTitle}
+            /> 
 
           </header>
 
@@ -156,7 +167,7 @@ function InputPage () {
           </main>
 
           <Footer 
-            GroupObject={GroupObject}
+            GroupObject={aGroupObject}
             value="Shuffle" 
             text="Shuffle"
             onClick={shuffleData} />

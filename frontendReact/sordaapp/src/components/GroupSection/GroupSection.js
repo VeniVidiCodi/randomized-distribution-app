@@ -61,7 +61,7 @@ function GroupSection (props) {
                     {props.groupNames.map((group, index) => 
                         <GroupCard 
                             key={nanoid()} 
-                            title={group}
+                            title={group.name}
                             // submitTitle={submitTitle}
                             // handleChange={handleChange}
                             // delete={(index) => console.log(index)} 

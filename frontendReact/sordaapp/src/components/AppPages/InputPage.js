@@ -69,12 +69,12 @@ function InputPage () {
 
   let updateTitle = title => {
     console.log('Updating Project Name: ' + title);
-    let tempGroupObj = aGroupObject;
+    // let tempGroupObj = aGroupObject;
 
-    tempGroupObj.projectName = title;   // This is replacing title value constantly. should be adding
-    console.log(tempGroupObj.projectName);
+    // tempGroupObj.projectName = title;  
+    // console.log(tempGroupObj.projectName);
 
-    setAGroupObject(aGroupObject => ({...aGroupObject, projectName:title}));
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title}));  //This is finally working 
   }
   
 
@@ -107,11 +107,17 @@ function InputPage () {
 
     let addGroup = () => {
         console.log("addGroup clicked...");
-        let tempGroupObj = aGroupObject;
-        let newGroup = "Group " + (aGroupNames.length + 1); 
-        tempGroupObj.addGroupNames(new GroupName(newGroup));
+
+        let tempGroupObject = aGroupObject;
+        let newName = "Group " + (aGroupNames.length + 1); 
+        let newGroupName = new GroupName(newName)
+
+        tempGroupObject.groupNames.push(newGroupName);    // the class Group method 'addGroupNames' doesn't work here and seems to be redundant
+        let newGroupNames = tempGroupObject.groupNames
+        console.log(newGroupNames);
+
         // setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
-        setAGroupObject(tempGroupObj);
+        setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
     }
 
 

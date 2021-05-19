@@ -7,44 +7,12 @@ import { nanoid } from 'nanoid';
 
 function GroupSection (props) {
     const max = 8;
-    // console.log(props.groupNames.length);
     // const min = 2;
 
-    // EXAMPLE
-    // let handleChange = (event) => {
-    //     console.log('Handling Change: ' + event.target.value);
-    //     props.setTitle(event.target.value);
-    // }
-
-    // let createNewGroup = () => { 
-    //     console.log("creating new group...");
-
-    //     let length = props.groupNames.length;
-    //     console.log("groups length:", length);
-    //     let group = "Group " + (length + 1);
-    //     console.log(group);
-    //     return group;
-    // }
-
-    // let addGroup = () => {
-    //     console.log("addGroup clicked...");
-
-    //     let tempGroupNames = props.groupNames;
-    //     console.log(tempGroupNames);
-    //     let newGroup = "Group " + (tempGroupNames.length + 1);
-
-    //     tempGroupNames.push(newGroup);
-    //     console.log(tempGroupNames);
-
-    //     props.setGroupNames(tempGroupNames);
-    // }
-
-    // console.log(this.state.GroupObject);
-
-    // let submitTitle = () => {
-    //     console.log('Submitting GroupCard Title...');
-    //  
-
+    // useEffect(() => {
+    //     console.log("GROUP SECTION mounted");
+    // })
+    
     return (
         <div className="group-section">
 
@@ -63,8 +31,7 @@ function GroupSection (props) {
                             key={nanoid()} 
                             title={group.name}
                             index={index}
-                            // submitTitle={submitTitle}
-                            // handleChange={handleChange}
+                            updateGroupTitle={props.updateGroupTitle}
                             deleteGroup={props.deleteGroup} 
                         />
                     )}

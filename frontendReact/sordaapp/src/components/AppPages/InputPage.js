@@ -11,125 +11,57 @@ import e from 'cors';
 function InputPage () {
   let GroupObject = new Group();
   GroupObject.setProjectName("My Project");
-  // GroupObject.groupNames = ['food', 'music', 'decor'];
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
-  // const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
-  const [aGroupNames, setAGroupNames] = useState(GroupObject.groupNames);
-  // const [aPersons, setAPersons] = useState(GroupObject.persons);
-  
-  // const [showTitle, setShowTitle] = useState(true);
 
 
-  // Emulate componentDidMount lifecycle(s)  = = = = = = = = = = = = = = = = = = = = =
-  
   // useEffect(() => {
-  //     console.log("use effect group state");
-  //     // updateTitle("My Project");
-  
-  //   // aGroupObject.setProjectName("bbb");
-    
+  //   console.log("INPUT PAGE mounted");
   // })
 
-  // useEffect(() => {
-  //   console.log("use effect project name");
-  // }, [aProjectName])
-
-  // useEffect(() => {
-  //   console.log("use effect group names");
-  // }, [aGroupNames])
  
-   
   // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  // let handleChange = (event) => {
-  //   console.log('Handling Change: ' + event.target.value);
-  //   // this.setState({title: event.target.value});
-  //   setAProjectName(event.target.value);
-  // }
-  
-  // let handleSubmit = (event) => {
-  //   console.log('Submitting title: ' + event.target.value);
-  //   // event.preventDefault();
-  //   // props.setTitle
-  //   toggleTitle();
-  // }
-
-  // let toggleTitle = () => {
-  //   console.log("Toggling Title" );
-  //   if (showTitle) {
-  //       console.log("T -> F");
-  //       setShowTitle(false);
-  //       // this.setState({showTitle: false})
-  //     } else {
-  //       console.log("F -> T");
-  //       setShowTitle(true);
-  //       // this.setState({showTitle: true})
-  //     };
-  // }
-
-  let updateTitle = title => {
+  let updateProjectName = title => {
     console.log('Updating Project Name: ' + title);
-    // let tempGroupObj = aGroupObject;
-
-    // tempGroupObj.projectName = title;  
-    // console.log(tempGroupObj.projectName);
-
-    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title}));  //This is finally working 
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
   }
   
 
-
   // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  // let handleGroupsChange = newGroupsArr => {
-  //   console.log('setNewGroupsArr:', newGroupsArr);
-  //   setAGroupNames(newGroupsArr); 
-  // }
+  let addGroup = () => {
+      console.log("addGroup clicked...");
 
-  // let createNewGroup = () => { 
-  //   let length = aGroupNames.length;
-  //   let name = "Group " + (length + 1);
-  //   console.log(name);
-  //   return name;
-  // }
-
-  // let addGroup = () => {
-  //   console.log("addGroup clicked...");
-
-  //   let tempGroupNames = aGroupNames;
-  //   let newGroup = createNewGroup();
-  //   tempGroupNames.push(newGroup);
-  //   console.log(tempGroupNames);
-
-  //   setAGroupNames(tempGroupNames);
-  // }
-
-
-    let addGroup = () => {
-        console.log("addGroup clicked...");
-
-        let tempGroupObject = aGroupObject;
-        let newName = "Group " + (aGroupNames.length + 1); 
-        let newGroupName = new GroupName(newName)
-
-        tempGroupObject.groupNames.push(newGroupName);    // the class Group method 'addGroupNames' doesn't work here and seems to be redundant
-        let newGroupNames = tempGroupObject.groupNames
-        console.log(newGroupNames);
-
-        setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
-    }
-    let deleteGroup = e => {
-      let index = e.target.value;
-      console.log("Deleting Group... ", index);
       let tempGroupObject = aGroupObject;
-      let newGroupNames = tempGroupObject.groupNames;
-      console.log(newGroupNames);
-      newGroupNames.splice(index, 1);
-      console.log(tempGroupObject.groupNames);
+      let tempGroupNames = tempGroupObject.groupNames;
+      let newName = "Group " + (tempGroupNames.length + 1); 
+      let newGroupName = new GroupName(newName);
 
-      setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
-    }
+      tempGroupNames.push(newGroupName);   
+      console.log(tempGroupNames);
+
+      setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
+  }
+
+  let deleteGroup = e => {
+    let index = e.target.value;
+    console.log("Deleting Group... ", index);
+    let tempGroupObject = aGroupObject;
+    let newGroupNames = tempGroupObject.groupNames;
+
+    newGroupNames.splice(index, 1);
+    setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
+  }
+
+  let updateGroupTitle = (title, index) => {
+    console.log("Upade Group Title:: \nIndex:", index, "\nValue:", title);
+
+    let newGroupNames = aGroupObject.groupNames;
+    newGroupNames[index].name = title;
+
+    setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
+  }
 
   // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
   
@@ -164,17 +96,18 @@ function InputPage () {
 
             <TitleBar 
               title={aGroupObject.projectName} 
-              updateTitle={updateTitle}
+              updateTitle={updateProjectName}
             /> 
 
           </header>
 
           <main id="entry-container">
             <GroupSection 
-              groupNames={aGroupNames}
-              setGroupNames={setAGroupNames}
+              groupNames={aGroupObject.groupNames}
               addGroup={addGroup}
               deleteGroup={deleteGroup}
+              updateGroupTitle={updateGroupTitle}
+              // setGroupNames={setAGroupNames}
               // handleChange={handleGroupChange}
               // setGroupNames={(group) => setAGroupNames(group)} 
               />

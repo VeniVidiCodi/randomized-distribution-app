@@ -36,7 +36,7 @@ function InputPage () {
       let tempGroupObject = aGroupObject;
       let tempGroupNames = tempGroupObject.groupNames;
       let newName = "Group " + (tempGroupNames.length + 1); 
-      let newGroupName = new GroupName(newName);
+      let newGroupName = new GroupName(newName, null);
 
       tempGroupNames.push(newGroupName);   
       console.log(tempGroupNames);
@@ -62,6 +62,43 @@ function InputPage () {
 
     setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
   }
+
+
+  // Roster Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+  let addItem = () => {
+      console.log("addItem clicked...");
+
+      // let tempGroupObject = aGroupObject;
+      let tempItemList = aGroupObject.persons;
+      let newItemName = "item " + (tempItemList.length + 1); 
+      let newItem = new Person(newItemName, null);
+
+      tempItemList.push(newItem);   
+      console.log(tempItemList);
+
+      setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
+  }
+
+  let deleteItem = e => {
+    let index = e.target.value;
+    console.log("Deleting Roster Item... ", index);
+    let tempGroupObject = aGroupObject;
+    let newItemsList = tempGroupObject.persons;
+
+    newItemsList.splice(index, 1);
+    setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
+  }
+
+  let updateItemName = (title, index) => {
+    console.log("Update Roster Name:: \nIndex:", index, "\nValue:", title);
+
+    let newItemsList = aGroupObject.persons;
+    newItemsList[index].name = title;
+
+    setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
+  }
+
 
   // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
   
@@ -93,12 +130,9 @@ function InputPage () {
         <div>
           <header className="App-header">
             <Nav />
-
             <TitleBar 
               title={aGroupObject.projectName} 
-              updateTitle={updateProjectName}
-            /> 
-
+              updateTitle={updateProjectName} /> 
           </header>
 
           <main id="entry-container">
@@ -106,14 +140,12 @@ function InputPage () {
               groupNames={aGroupObject.groupNames}
               addGroup={addGroup}
               deleteGroup={deleteGroup}
-              updateGroupTitle={updateGroupTitle}
-              // setGroupNames={setAGroupNames}
-              // handleChange={handleGroupChange}
-              // setGroupNames={(group) => setAGroupNames(group)} 
-              />
-              
-            <RosterSection />
-            
+              updateGroupTitle={updateGroupTitle} />
+            <RosterSection 
+              rosterItems={aGroupObject.persons}
+              addItem={addItem}
+              deleteItem={deleteItem}
+              updateItemName={updateItemName} />
           </main>
 
           <Footer 

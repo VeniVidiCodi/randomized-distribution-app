@@ -57,6 +57,7 @@ function GroupCard(props) {
                                 onChange={handleChange} 
                                 onKeyPress={handleKeypress} 
                                 value={title} 
+                                autoFocus
                             />
                         </label>
                         <input className="title-submit-button" onClick={handleSubmit} type="submit" value="✓" />
@@ -66,6 +67,7 @@ function GroupCard(props) {
 
                 <button className="group-del-btn" onClick={props.deleteGroup} value={props.index}>x</button>
             </div>
+            
             <div className="group-items--display">
                 {/* Render Groups for ResultPage */}
                 {/* <ResultItem entry={entries[0]} /> */}

@@ -7,7 +7,6 @@ import { nanoid } from 'nanoid';
 
 function GroupSection (props) {
     const max = 8;
-    // const min = 2;
 
     // useEffect(() => {
     //     console.log("GROUP SECTION mounted");

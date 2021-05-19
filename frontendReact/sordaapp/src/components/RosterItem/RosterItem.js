@@ -1,69 +1,70 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './RosterItem.css';
-// import RosterListItem from '../GroupListItem/GroupListItem';
-
-class RosterItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            description: props.description,
-            showDescription: true,
-            setDescription: this.props.setDescription
-        }
-    }    
 
 
-    changeDescription = (e) => {
-        this.toggleDescription();
+function RosterItem (props) {
+    const [showTitle, setShowTitle] = useState(true);
+    const [title, setTitle] = useState(props.title);
+
+
+    // useEffect(() => {
+    //     console.log("ROSTER CARD mounted");
+    // })
+
+    const handleChange = e => {
+        console.log(e.target.value);
+        setTitle(e.target.value);
     }
-    
-    toggleDescription = () => {
-        console.log("Toggling Roster Item Description");
-        // this.props.handleChange();
 
-        if (this.state.showDescription) {
+    const handleSubmit = e => {
+        e.preventDefault();
+        toggleTitle();
+        props.updateItemName(title, props.index);
+    }
+
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key
+        if (e.keyCode === 13) {
+        handleSubmit(e, props.index);
+        }
+    };
+    
+    const toggleTitle = () => {
+        if (showTitle) {
             console.log("T -> F");
-            this.setState({showDescription: false})
+            setShowTitle(false);
         } else {
             console.log("F -> T");
-            this.setState({showDescription: true})
+            setShowTitle(true);
         };
     }
 
-    handleChange = (event) => {
-        console.log(event);
-        this.setState({description: event.target.value});
-    }
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.toggleDescription();
-    }
 
-    
-    render() {
-    // let name = this.props.name;
-    // let key = this.props.key;
-    // let group = this.props.group;
+    return(
+        <div className="roster-item-container">
+            { showTitle ?
+                <div className="roster-item-text" onClick={toggleTitle}>{title}</div>
+                :
+                <form className="input-wrapper">
+                <label>
+                    <input 
+                        id="project-title--input" 
+                        type="text" 
+                        name="name" 
+                        placeholder={title} 
+                        onChange={handleChange} 
+                        onKeyPress={handleKeypress} 
+                        value={title}  
+                    />
+                </label>
+                <input className="title-submit-button" onClick={handleSubmit} type="submit" value="✓" />
+                </form>
+            }
 
-        return(
-            <div className="roster-item-container">
-                {/* <div className="roster-item-text"> */}
-                    { this.state.showDescription ?
-                        <div className="roster-item-text" onClick={this.changeDescription}>{this.state.description}</div>
-                        :
-                        <form className="input-wrapper" onSubmit={this.handleSubmit}>
-                        <label>
-                            <input id="project-title--input" type="text" name="name" placeholder="ADD ROSTER TITLE" onChange={this.handleChange} value={this.state.description} />
-                        </label>
-                        <input className="title-submit-button" onClick={this.state.setDescription} type="submit" value="✓" />
-                        </form>
-                    }
-
-                    <button className="roster-del-btn" onClick={this.props.delete}>x</button>
-                {/* </div> */}
-            </div>
-        );
-    }
+            <button className="roster-del-btn" onClick={props.deleteItem} value={props.index}>x</button>
+        </div>
+    );
 }
+
 
 export default RosterItem;

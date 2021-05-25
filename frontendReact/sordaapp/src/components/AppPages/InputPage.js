@@ -143,17 +143,18 @@ function InputPage () {
 
     do {
       console.log("PERSON COUNTDOWN:", count);
-      count--; 
 
-      for (let i=0; i<numOfGroups; i++) {
-        let person = persons[count];
-        console.log("PERSON:", person);
-        let groupIndex = i;
-        console.log("GROUP CYCLE");
-        console.log("GROUP:", groups[groupIndex], "\nindex:", groupIndex);
+      // for (let i=0; i<numOfGroups; i++) {
+        let person = persons[count - 1];
+        // console.log("PERSON:", person);
+        // // let groupIndex = i;
 
-        person.groupNum = groupIndex;
-      }
+        // console.log("GROUP CYCLE");
+        // console.log("GROUP:", groups[groupIndex], "\nindex:", groupIndex);
+
+        person.groupNum = count % (numOfGroups) + 1;  // 2, 1, 3 
+        count--; 
+      // }
     } while (count > 0)
     // console.log(persons);
     tempGroupObject.persons = persons;
@@ -170,7 +171,7 @@ function InputPage () {
     console.log('saving ...');
     let assignedResults = shuffleProject();
     console.log('RESULTS:', assignedResults);
-    // setSaveClick(true);
+    setSaveClick(true);
     // let tempGroupObject = aGroupObject;
 
     // tempGroupObject.projectName = aProjectName;

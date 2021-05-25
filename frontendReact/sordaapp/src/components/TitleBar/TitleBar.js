@@ -1,28 +1,22 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import './TitleBar.css';
 
 
 function TitleBar(props) {
   let [showTitle, setShowTitle] = useState(true);
 
-  useEffect(() => {
-    console.log("TITLE BAR mounted");
-  })
-
   let handleChange = e => {
-    console.log('Handling Change: ' + e.target.value);
+    // console.log('Handling Change: ' + e.target.value);
     props.updateTitle(e.target.value);
   }
 
 
   let toggleTitle = () => {
-    console.log("Toggling Title" );
-
     if (showTitle) {
-      console.log("T -> F");
+      // console.log("T -> F");
       setShowTitle(false);
     } else {
-      console.log("F -> T");
+      // console.log("F -> T");
       setShowTitle(true);
     };
   }

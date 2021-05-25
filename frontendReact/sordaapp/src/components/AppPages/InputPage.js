@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import {Redirect} from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import TitleBar from '../TitleBar/TitleBar';
 import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
-import { Group, GroupName, Person} from '../../utils/groupClass';
+import { Group, GroupName, Person } from '../../utils/groupClass';
 import e from 'cors';
 
 
@@ -13,17 +14,13 @@ function InputPage () {
   GroupObject.setProjectName("My Project");
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
+  const [saveClick, setSaveClick] = useState(false);
 
 
-  // useEffect(() => {
-  //   console.log("INPUT PAGE mounted");
-  // })
-
- 
   // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
   let updateProjectName = title => {
-    console.log('Updating Project Name: ' + title);
+    // console.log('Updating Project Name: ' + title);
     setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
   }
   
@@ -31,7 +28,7 @@ function InputPage () {
   // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
   let addGroup = () => {
-      console.log("addGroup clicked...");
+      // console.log("addGroup clicked...");
 
       let tempGroupObject = aGroupObject;
       let tempGroupNames = tempGroupObject.groupNames;
@@ -39,14 +36,14 @@ function InputPage () {
       let newGroupName = new GroupName(newName, null);
 
       tempGroupNames.push(newGroupName);   
-      console.log(tempGroupNames);
+      // console.log(tempGroupNames);
 
       setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
   }
 
   let deleteGroup = e => {
     let index = e.target.value;
-    console.log("Deleting Group... ", index);
+    // console.log("Deleting Group... ", index);
     let tempGroupObject = aGroupObject;
     let newGroupNames = tempGroupObject.groupNames;
 
@@ -55,7 +52,7 @@ function InputPage () {
   }
 
   let updateGroupTitle = (title, index) => {
-    console.log("Upade Group Title:: \nIndex:", index, "\nValue:", title);
+    // console.log("Upade Group Title:: \nIndex:", index, "\nValue:", title);
 
     let newGroupNames = aGroupObject.groupNames;
     newGroupNames[index].name = title;
@@ -67,7 +64,7 @@ function InputPage () {
   // Roster Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
   let addItem = () => {
-      console.log("addItem clicked...");
+      // console.log("addItem clicked...");
 
       // let tempGroupObject = aGroupObject;
       let tempItemList = aGroupObject.persons;
@@ -82,7 +79,7 @@ function InputPage () {
 
   let deleteItem = e => {
     let index = e.target.value;
-    console.log("Deleting Roster Item... ", index);
+    // console.log("Deleting Roster Item... ", index);
     let tempGroupObject = aGroupObject;
     let newItemsList = tempGroupObject.persons;
 
@@ -91,7 +88,7 @@ function InputPage () {
   }
 
   let updateItemName = (title, index) => {
-    console.log("Update Roster Name:: \nIndex:", index, "\nValue:", title);
+    // console.log("Update Roster Name:: \nIndex:", index, "\nValue:", title);
 
     let newItemsList = aGroupObject.persons;
     newItemsList[index].name = title;
@@ -103,19 +100,26 @@ function InputPage () {
   // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
   
   let shuffleData = () => {
-    console.log("shuffle clicked...");
-    // Shuffle Roster Items randomly
-    
+    console.log("shuffle clicked ...");
+    // Check that qty of groups < qty of persons
+    let numOfGroups = aGroupObject.groupNames.length;
+    let numOfPersons = aGroupObject.persons.length;
+    console.log("groups:", numOfGroups);
+    console.log("persons:", numOfPersons);
+    // Find how many rounds can be 
+    // for (item in )
     // Assign each roster item a group #
     
     // Save shuffled data as new group object
-    saveProject();
+    // saveProject();
     
     // return <Redirect push to={{ pathname: '/results', groupObject: aProjectState, fromInput=true }} />
   }
 
   let saveProject = () => {
-    console.log('saving shuffled project...');
+    console.log('saving ...');
+    shuffleData();
+    // setSaveClick(true);
     // let tempGroupObject = aGroupObject;
 
     // tempGroupObject.projectName = aProjectName;
@@ -126,34 +130,42 @@ function InputPage () {
     // setAGroupObject(tempGroupObject);
   }
 
-    return (
-        <div>
-          <header className="App-header">
-            <Nav />
-            <TitleBar 
-              title={aGroupObject.projectName} 
-              updateTitle={updateProjectName} /> 
-          </header>
+  let editProject = () => {
+    console.log('editProject clicked ...');
+    
+  }
 
-          <main id="entry-container">
-            <GroupSection 
-              groupNames={aGroupObject.groupNames}
-              addGroup={addGroup}
-              deleteGroup={deleteGroup}
-              updateGroupTitle={updateGroupTitle} />
-            <RosterSection 
-              rosterItems={aGroupObject.persons}
-              addItem={addItem}
-              deleteItem={deleteItem}
-              updateItemName={updateItemName} />
-          </main>
+  if (saveClick) {
+    return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, isTrue: false}}/>;
+  }
 
+  return (
+      <div>
+        <header className="App-header">
+          <Nav />
+          <TitleBar 
+            title={aGroupObject.projectName} 
+            updateTitle={updateProjectName} /> 
+        </header>
+        <main id="entry-container">
+          <GroupSection 
+            groupNames={aGroupObject.groupNames}
+            addGroup={addGroup}
+            deleteGroup={deleteGroup}
+            updateGroupTitle={updateGroupTitle} />
+          <RosterSection 
+            rosterItems={aGroupObject.persons}
+            addItem={addItem}
+            deleteItem={deleteItem}
+            updateItemName={updateItemName} />
+        </main>
           <Footer 
             GroupObject={aGroupObject}
-            value="Shuffle" 
-            text="Shuffle"
-            onClick={shuffleData} />
-        </div>
+            onClickShuffle={shuffleData}
+            onClickSave={saveProject}
+            onClickEdit={editProject}
+            />
+      </div>
     );
   }
 

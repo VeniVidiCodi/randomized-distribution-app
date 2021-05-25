@@ -24,7 +24,8 @@ function ResultsPage(props) {
        return tempGroup;
      }
    } else {
-     GroupObject = props.state.GroupObject;
+    //  GroupObject = props.state.GroupObject;
+     GroupObject = props.location.GroupObject;
    }
 
    // –––––––

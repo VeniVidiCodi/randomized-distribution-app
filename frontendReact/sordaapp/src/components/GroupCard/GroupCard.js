@@ -1,5 +1,5 @@
 import e from 'cors';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './GroupCard.css';
 
 
@@ -7,13 +7,8 @@ function GroupCard(props) {
     const [showTitle, setShowTitle] = useState(true);
     const [title, setTitle] = useState(props.title);
 
-    
-    // useEffect(() => {
-    //     console.log("GROUP CARD mounted");
-    // })
-
     const handleChange = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setTitle(e.target.value);
     }
 
@@ -32,10 +27,10 @@ function GroupCard(props) {
     
     const toggleTitle = () => {
         if (showTitle) {
-            console.log("T -> F");
+            // console.log("T -> F");
             setShowTitle(false);
         } else {
-            console.log("F -> T");
+            // console.log("F -> T");
             setShowTitle(true);
         };
     }

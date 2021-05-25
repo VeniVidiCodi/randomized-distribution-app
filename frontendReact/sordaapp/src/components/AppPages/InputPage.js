@@ -19,7 +19,7 @@ function InputPage () {
 
   // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  let updateProjectName = title => {
+  const updateProjectName = title => {
     // console.log('Updating Project Name: ' + title);
     setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
   }
@@ -27,9 +27,8 @@ function InputPage () {
 
   // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  let addGroup = () => {
+  const addGroup = () => {
       // console.log("addGroup clicked...");
-
       let tempGroupObject = aGroupObject;
       let tempGroupNames = tempGroupObject.groupNames;
       let newName = "Group " + (tempGroupNames.length + 1); 
@@ -41,7 +40,7 @@ function InputPage () {
       setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
   }
 
-  let deleteGroup = e => {
+  const deleteGroup = e => {
     let index = e.target.value;
     // console.log("Deleting Group... ", index);
     let tempGroupObject = aGroupObject;
@@ -51,7 +50,7 @@ function InputPage () {
     setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
   }
 
-  let updateGroupTitle = (title, index) => {
+  const updateGroupTitle = (title, index) => {
     // console.log("Upade Group Title:: \nIndex:", index, "\nValue:", title);
 
     let newGroupNames = aGroupObject.groupNames;
@@ -63,7 +62,7 @@ function InputPage () {
 
   // Roster Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  let addItem = () => {
+  const addItem = () => {
       // console.log("addItem clicked...");
 
       // let tempGroupObject = aGroupObject;
@@ -72,12 +71,12 @@ function InputPage () {
       let newItem = new Person(newItemName, null);
 
       tempItemList.push(newItem);   
-      console.log(tempItemList);
+      // console.log(tempItemList);
 
       setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
   }
 
-  let deleteItem = e => {
+  const deleteItem = e => {
     let index = e.target.value;
     // console.log("Deleting Roster Item... ", index);
     let tempGroupObject = aGroupObject;
@@ -87,7 +86,7 @@ function InputPage () {
     setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
   }
 
-  let updateItemName = (title, index) => {
+  const updateItemName = (title, index) => {
     // console.log("Update Roster Name:: \nIndex:", index, "\nValue:", title);
 
     let newItemsList = aGroupObject.persons;
@@ -97,28 +96,80 @@ function InputPage () {
   }
 
 
-  // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  // Footer Button Handler Functions  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+  const shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      // console.log('CYCLE', i);
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    // console.log(array);  // shuffled results
+  }
   
-  let shuffleData = () => {
+
+  const shuffleProject = () => {
     console.log("shuffle clicked ...");
     // Check that qty of groups < qty of persons
-    let numOfGroups = aGroupObject.groupNames.length;
-    let numOfPersons = aGroupObject.persons.length;
-    console.log("groups:", numOfGroups);
-    console.log("persons:", numOfPersons);
-    // Find how many rounds can be 
-    // for (item in )
-    // Assign each roster item a group #
+    let tempGroupObject = aGroupObject;
+    let groups = aGroupObject.groupNames;
+    let persons = aGroupObject.persons;
+    // let assignedPersons = persons;  // copy of persons array
+    let numOfGroups = groups.length;
+    let numOfPersons = persons.length;
+    // console.log("groups:", numOfGroups);
+    // console.log("persons:", numOfPersons);
+
+    // Initial input submission validity checks
+    if (numOfGroups === 0) {
+      alert("Shuffle cannot be performed with no groups. Please add more groups.");
+      return;
+    }
+    if (numOfPersons === 0) {
+      alert("Shuffle cannot be performed with no roster items. Please add more roster items.");
+      return;
+    }
+    if (numOfGroups > numOfPersons) {
+      alert("There must be more groups than roster items.");
+      return;
+    } else {
+      // console.log("ok");
+      shuffleArray(persons);
+    }
+
+    let count = numOfPersons;
+
+    do {
+      console.log("PERSON COUNTDOWN:", count);
+      count--; 
+
+      for (let i=0; i<numOfGroups; i++) {
+        let person = persons[count];
+        console.log("PERSON:", person);
+        let groupIndex = i;
+        console.log("GROUP CYCLE");
+        console.log("GROUP:", groups[groupIndex], "\nindex:", groupIndex);
+
+        person.groupNum = groupIndex;
+      }
+    } while (count > 0)
+    // console.log(persons);
+    tempGroupObject.persons = persons;
+    return tempGroupObject;
     
-    // Save shuffled data as new group object
+    // SAVE SHUFFLED DATA AS NEW GROUP OBJECT
     // saveProject();
     
+    // PASS STATE TO  AND LOAD THE RESULTS PAGE
     // return <Redirect push to={{ pathname: '/results', groupObject: aProjectState, fromInput=true }} />
   }
 
-  let saveProject = () => {
+  const saveProject = () => {
     console.log('saving ...');
-    shuffleData();
+    let assignedResults = shuffleProject();
+    console.log('RESULTS:', assignedResults);
     // setSaveClick(true);
     // let tempGroupObject = aGroupObject;
 
@@ -130,7 +181,7 @@ function InputPage () {
     // setAGroupObject(tempGroupObject);
   }
 
-  let editProject = () => {
+  const editProject = () => {
     console.log('editProject clicked ...');
     
   }
@@ -161,7 +212,7 @@ function InputPage () {
         </main>
           <Footer 
             GroupObject={aGroupObject}
-            onClickShuffle={shuffleData}
+            onClickShuffle={shuffleProject}
             onClickSave={saveProject}
             onClickEdit={editProject}
             />

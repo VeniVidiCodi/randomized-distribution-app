@@ -12,7 +12,6 @@ import {getRequest, postRequest} from "../../utils/queries.js";
 
 function ResultsPage(props) {
 
-
   let GroupObject = new Group();
   if (props.location.isTrue) {
     GroupObject = () => {
@@ -70,7 +69,7 @@ function ResultsPage(props) {
     if (fromLandingPage)
        return <Redirect to={{pathname: '/grouper', GroupObject: aGroupObject, isTrue: fromLandingPage}}/>;
 
-    return <Redirect to={{pathname: '/grouper', json: aJson, isTrue: !fromLandingPage}}/>;
+    return <Redirect to={{pathname: '/grouper', json: aJson, isTrue: !fromLandingPage, fromResultPage: true}}/>;
   }
 
 

@@ -9,9 +9,27 @@ import { Group, GroupName, Person } from '../../utils/groupClass';
 import e from 'cors';
 
 
-function InputPage () {
+function InputPage (props) {
+
   let GroupObject = new Group();
-  GroupObject.setProjectName("My Project");
+
+  if (props.location.fromResultPage) {
+    GroupObject = () => {
+       let tempGroup = new Group();
+       tempGroup.persons = props.location.json.persons;
+       tempGroup.groupNames = props.location.json.groupNames;
+       tempGroup.setProjectName(props.location.json.projectName);
+
+       return tempGroup;
+     }
+   } else {
+     GroupObject.setProjectName("My Project");
+   }
+  
+
+   // –––––––
+   //  State
+   // –––––––
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
   const [saveClick, setSaveClick] = useState(false);

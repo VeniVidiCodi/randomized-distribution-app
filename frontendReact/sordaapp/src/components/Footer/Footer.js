@@ -5,20 +5,21 @@ import './Footer.css';
 
 function Footer(props){
 
-    //returns if the ResultsPage is coming from LandingPage
-    if (props.isTrue) {
+    //returns if not from the input page (is on the input page)
+    if (!props.fromInputPage) {
+      // console.log('ON input page...');
       return (
         <footer id="app-footer">
           <Link to="/grouper">
             <FooterButton
                 value={props.value}
-                text="Edit"
-                onClick={props.onClickEdit} />
+                text="Shuffle"
+                onClick={props.onClickShuffle} />
           </Link>
         </footer>
       )
     } else {
-      //returns if the ResultsPage is coming from InputPage
+      // console.log('FROM input page...');
       return(
           <footer id="app-footer">
               <FooterButton

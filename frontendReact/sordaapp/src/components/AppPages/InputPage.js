@@ -14,53 +14,63 @@ function InputPage (props) {
   let GroupObject = new Group();
 
   if (props.location.fromResultPage) {
-    GroupObject = () => {
-       let tempGroup = new Group();
-       tempGroup.persons = props.location.json.persons;
-       tempGroup.groupNames = props.location.json.groupNames;
-       tempGroup.setProjectName(props.location.json.projectName);
+    console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
 
-       return tempGroup;
-     }
-   } else {
-     GroupObject.setProjectName("My Project");
-   }
-  
+    if (typeof props.location.GroupObject !== 'undefined') {
+      console.log('do groupobj');
+      GroupObject = props.location.GroupObject;
+    } else {
+      console.log('do json');
+      GroupObject = () => {
+        let tempGroup = new Group();
+        tempGroup.persons = props.location.json.persons;
+        tempGroup.groupNames = props.location.json.groupNames;
+        tempGroup.setProjectName(props.location.json.projectName);
 
-   // –––––––
-   //  State
-   // –––––––
-
-  const [aGroupObject, setAGroupObject] = useState(GroupObject);
-  const [saveClick, setSaveClick] = useState(false);
-
-
-  // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-  const updateProjectName = title => {
-    // console.log('Updating Project Name: ' + title);
-    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
+        return tempGroup;
+      }
+    }
+  } else {
+    GroupObject.setProjectName("My Project");
   }
   
 
-  // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  // –––––––
+  //  State
+  // –––––––
+
+  const [aGroupObject, setAGroupObject] = useState(GroupObject);
+  const [shuffleClick, setShuffleClick] = useState(false);
+  const [fromLandingPage, setFromLandingPage] = useState(props.location.fromLandingPage);
+  const [fromResultPage, setFromResultPage] = useState(props.location.fromResultPage);
+ // check console to see from which page is being received
+  console.log("FROM LANDING:", fromLandingPage);
+  console.log("FROM RESULTS:", fromResultPage);
+  
+  // –––––––
+  // Title Behavior 
+  // –––––––
+
+  const updateProjectName = title => {
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
+  }
+  
+  // –––––––
+  // Group Section Behavior
+  // –––––––
 
   const addGroup = () => {
-      // console.log("addGroup clicked...");
       let tempGroupObject = aGroupObject;
       let tempGroupNames = tempGroupObject.groupNames;
       let newName = "Group " + (tempGroupNames.length + 1); 
       let newGroupName = new GroupName(newName, null);
 
       tempGroupNames.push(newGroupName);   
-      // console.log(tempGroupNames);
-
       setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
   }
 
   const deleteGroup = e => {
     let index = e.target.value;
-    // console.log("Deleting Group... ", index);
     let tempGroupObject = aGroupObject;
     let newGroupNames = tempGroupObject.groupNames;
 
@@ -69,34 +79,27 @@ function InputPage (props) {
   }
 
   const updateGroupTitle = (title, index) => {
-    // console.log("Upade Group Title:: \nIndex:", index, "\nValue:", title);
-
     let newGroupNames = aGroupObject.groupNames;
     newGroupNames[index].name = title;
 
     setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
   }
 
-
-  // Roster Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  // –––––––
+  // Roster Section Behavior
+  // –––––––
 
   const addItem = () => {
-      // console.log("addItem clicked...");
-
-      // let tempGroupObject = aGroupObject;
       let tempItemList = aGroupObject.persons;
       let newItemName = "item " + (tempItemList.length + 1); 
       let newItem = new Person(newItemName, null);
 
       tempItemList.push(newItem);   
-      // console.log(tempItemList);
-
       setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
   }
 
   const deleteItem = e => {
     let index = e.target.value;
-    // console.log("Deleting Roster Item... ", index);
     let tempGroupObject = aGroupObject;
     let newItemsList = tempGroupObject.persons;
 
@@ -105,78 +108,62 @@ function InputPage (props) {
   }
 
   const updateItemName = (title, index) => {
-    // console.log("Update Roster Name:: \nIndex:", index, "\nValue:", title);
-
     let newItemsList = aGroupObject.persons;
     newItemsList[index].name = title;
 
     setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
   }
 
-
-  // Footer Button Handler Functions  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  // –––––––
+  // Footer Button Handler Functions
+  // –––––––
 
   const shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
-      // console.log('CYCLE', i);
       const j = Math.floor(Math.random() * (i + 1));
       const temp = array[i];
       array[i] = array[j];
       array[j] = temp;
     }
-    // console.log(array);  // shuffled results
   }
   
 
   const shuffleProject = () => {
     console.log("shuffle clicked ...");
-    // Check that qty of groups < qty of persons
+
     let tempGroupObject = aGroupObject;
     let groups = aGroupObject.groupNames;
     let persons = aGroupObject.persons;
-    // let assignedPersons = persons;  // copy of persons array
     let numOfGroups = groups.length;
     let numOfPersons = persons.length;
-    // console.log("groups:", numOfGroups);
-    // console.log("persons:", numOfPersons);
 
-    // Initial input submission validity checks
+    // Input validity checks
     if (numOfGroups === 0) {
       alert("Shuffle cannot be performed with no groups. Please add more groups.");
-      return;
+      return false;
     }
     if (numOfPersons === 0) {
       alert("Shuffle cannot be performed with no roster items. Please add more roster items.");
-      return;
+      return false;
     }
     if (numOfGroups > numOfPersons) {
       alert("There must be more groups than roster items.");
-      return;
+      return false;
     } else {
-      // console.log("ok");
       shuffleArray(persons);
-    }
+      let count = numOfPersons;
 
-    let count = numOfPersons;
-
-    do {
-      console.log("PERSON COUNTDOWN:", count);
-
-      // for (let i=0; i<numOfGroups; i++) {
+      do {
+        console.log("PERSON COUNTDOWN:", count);
         let person = persons[count - 1];
-        // console.log("PERSON:", person);
-        // // let groupIndex = i;
-
-        // console.log("GROUP CYCLE");
-        // console.log("GROUP:", groups[groupIndex], "\nindex:", groupIndex);
-
-        person.groupNum = count % (numOfGroups) + 1;  // 2, 1, 3 
+        person.groupNum = count % (numOfGroups) + 1;
         count--; 
-      // }
-    } while (count > 0)
-    // console.log(persons);
-    tempGroupObject.persons = persons;
-    return tempGroupObject;
+      } while (count > 0)
+
+      setShuffleClick(true);
+      tempGroupObject.persons = persons;
+      return tempGroupObject;
+    }
     
     // SAVE SHUFFLED DATA AS NEW GROUP OBJECT
     // saveProject();
@@ -186,18 +173,10 @@ function InputPage (props) {
   }
 
   const saveProject = () => {
-    console.log('saving ...');
-    let assignedResults = shuffleProject();
-    console.log('RESULTS:', assignedResults);
-    setSaveClick(true);
-    // let tempGroupObject = aGroupObject;
+    console.log('saveProject ...');
 
-    // tempGroupObject.projectName = aProjectName;
-    // tempGroupObject.groupNames = aGroupNames;
-    // // tempGroupObject.persons = aPersons;
-
-    // console.log('new object to save:', tempGroupObject);
-    // setAGroupObject(tempGroupObject);
+    // let assignedResults = shuffleProject();
+    // console.log('RESULTS:', assignedResults);
   }
 
   const editProject = () => {
@@ -205,8 +184,8 @@ function InputPage (props) {
     
   }
 
-  if (saveClick) {
-    return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, isTrue: false}}/>;
+  if (shuffleClick) {
+    return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, fromInputPage: true, fromLandingPage: false}}/>;
   }
 
   return (
@@ -234,6 +213,8 @@ function InputPage (props) {
             onClickShuffle={shuffleProject}
             onClickSave={saveProject}
             onClickEdit={editProject}
+            fromResultPage={fromResultPage}
+            fromLandingPage={fromLandingPage}
             />
       </div>
     );

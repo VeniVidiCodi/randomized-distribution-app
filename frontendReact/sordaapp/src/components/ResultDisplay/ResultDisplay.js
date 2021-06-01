@@ -5,7 +5,7 @@ import './ResultDisplay.css';
 import { nanoid } from 'nanoid';
 
 export default function ResultDisplay (props) {
-  console.log(props.grpObject);
+  console.log(props.groupObject);
 
   return (
       <div className="results-section">
@@ -16,12 +16,12 @@ export default function ResultDisplay (props) {
 
           <div className="results-items-container">
                   {/* {this.state.aGroupObject.getGroupNames().map((group, index) => */}
-                  {props.grpObject.groupNames.map((group, index) =>
+                  {props.groupObject.groupNames.map((group, index) =>
                       <ResultCard
                           key={nanoid()}
                           title={group.name}
                           groupNumber={index}
-                          persons={props.grpObject.persons} 
+                          persons={props.groupObject.persons} 
                           // persons={this.state.aGroupObject.persons} 
                       />
                   )}

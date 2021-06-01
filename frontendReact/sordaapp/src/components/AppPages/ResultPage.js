@@ -13,7 +13,8 @@ import {getRequest, postRequest} from "../../utils/queries.js";
 function ResultsPage(props) {
 
   let GroupObject = new Group();
-  if (props.location.isTrue) {
+
+  if (props.location.fromLandingPage) {
     GroupObject = () => {
        let tempGroup = new Group();
        tempGroup.persons = props.location.json.persons;
@@ -23,18 +24,20 @@ function ResultsPage(props) {
        return tempGroup;
      }
    } else {
-    //  GroupObject = props.state.GroupObject;
      GroupObject = props.location.GroupObject;
    }
 
    // –––––––
    //  State
    // –––––––
-   const [aGroupObject, setGroupObject] = useState(GroupObject);
-   const [fromLandingPage, setFromLandinPage] = useState(props.location.isTrue);
-   const [aJson, setAjson] = useState(props.location.json);
-   const [editButtonClicked, setEditButtonClicked] = useState(false)
-
+  const [aGroupObject, setGroupObject] = useState(GroupObject);
+  const [fromLandingPage, setFromLandingPage] = useState(props.location.fromLandingPage);
+  const [fromInputPage, setFromInputPage] = useState(props.location.fromInputPage);
+  const [aJson, setAjson] = useState(props.location.json);
+  const [editButtonClicked, setEditButtonClicked] = useState(false);
+  // check console to see from which page is being received
+  console.log("FROM LANDING:", fromLandingPage);
+  console.log("FROM INPUT:", fromInputPage);
 
   function handleOnClickSave() {
     console.log("SAVE BUTTON CLICKED...");
@@ -66,10 +69,11 @@ function ResultsPage(props) {
 
   //checks to see if the the edit button is clicked and will redirect the page to inputPage and send state with it.
   if (editButtonClicked){
-    if (fromLandingPage)
-       return <Redirect to={{pathname: '/grouper', GroupObject: aGroupObject, isTrue: fromLandingPage}}/>;
-
-    return <Redirect to={{pathname: '/grouper', json: aJson, isTrue: !fromLandingPage, fromResultPage: true}}/>;
+    if (fromLandingPage) {
+      return <Redirect to={{pathname: '/grouper', json: aJson, fromResultPage: true, fromLandingPage: false, fromInputPage: false}}/>;
+    } else {
+      return <Redirect to={{pathname: '/grouper', GroupObject: aGroupObject, fromResultPage: true, fromLandingPage: false, fromInputPage: false}}/>;
+    }
   }
 
 
@@ -80,11 +84,12 @@ function ResultsPage(props) {
           <ResultsTitle title={aGroupObject.projectName}/>
         </header>
         <main id="entry-container">
-          <ResultDisplay grpObject={aGroupObject}/>
+          <ResultDisplay groupObject={aGroupObject}/>
         </main>
           <Footer
-            value="Save"
-            isTrue={false}  /* need fromLandingPage boolean */
+            // value="Save"
+            fromInputPage={fromInputPage}  /* need fromLandingPage boolean */
+            fromLandingPage={fromLandingPage}
             onClickEdit={handleOnClickEdit}
             onClickSave={handleOnClickSave}/>
       </div>

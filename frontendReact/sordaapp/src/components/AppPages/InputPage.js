@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import TitleBar from '../TitleBar/TitleBar';
 import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 import { Group, GroupName, Person } from '../../utils/groupClass';
-import e from 'cors';
+// import e from 'cors';
 
 
 function InputPage (props) {
@@ -14,13 +14,13 @@ function InputPage (props) {
   let GroupObject = new Group();
 
   if (props.location.fromResultPage) {
-    console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
+    // console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
 
     if (typeof props.location.GroupObject !== 'undefined') {
-      console.log('do groupobj');
+      // console.log('do groupObj');
       GroupObject = props.location.GroupObject;
     } else {
-      console.log('do json');
+      // console.log('do json');
       GroupObject = () => {
         let tempGroup = new Group();
         tempGroup.persons = props.location.json.persons;
@@ -41,11 +41,13 @@ function InputPage (props) {
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
   const [shuffleClick, setShuffleClick] = useState(false);
-  const [fromLandingPage, setFromLandingPage] = useState(props.location.fromLandingPage);
-  const [fromResultPage, setFromResultPage] = useState(props.location.fromResultPage);
- // check console to see from which page is being received
-  console.log("FROM LANDING:", fromLandingPage);
-  console.log("FROM RESULTS:", fromResultPage);
+  // const [fromLandingPage, setFromLandingPage] = useState(props.location.fromLandingPage);
+  // const [fromResultPage, setFromResultPage] = useState(props.location.fromResultPage);
+
+  // Check console to see from which page is being received
+  // console.log("FROM LANDING:", fromLandingPage);
+  // console.log("FROM RESULTS:", fromResultPage);
+  
   
   // –––––––
   // Title Behavior 
@@ -129,7 +131,7 @@ function InputPage (props) {
   
 
   const shuffleProject = () => {
-    console.log("shuffle clicked ...");
+    // console.log("shuffle clicked ...");
 
     let tempGroupObject = aGroupObject;
     let groups = aGroupObject.groupNames;
@@ -154,7 +156,7 @@ function InputPage (props) {
       let count = numOfPersons;
 
       do {
-        console.log("PERSON COUNTDOWN:", count);
+        // console.log("PERSON COUNTDOWN:", count);
         let person = persons[count - 1];
         person.groupNum = count % (numOfGroups) + 1;
         count--; 
@@ -164,25 +166,8 @@ function InputPage (props) {
       tempGroupObject.persons = persons;
       return tempGroupObject;
     }
-    
-    // SAVE SHUFFLED DATA AS NEW GROUP OBJECT
-    // saveProject();
-    
-    // PASS STATE TO  AND LOAD THE RESULTS PAGE
-    // return <Redirect push to={{ pathname: '/results', groupObject: aProjectState, fromInput=true }} />
   }
 
-  const saveProject = () => {
-    console.log('saveProject ...');
-
-    // let assignedResults = shuffleProject();
-    // console.log('RESULTS:', assignedResults);
-  }
-
-  const editProject = () => {
-    console.log('editProject clicked ...');
-    
-  }
 
   if (shuffleClick) {
     return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, fromInputPage: true, fromLandingPage: false}}/>;
@@ -211,10 +196,8 @@ function InputPage (props) {
           <Footer 
             GroupObject={aGroupObject}
             onClickShuffle={shuffleProject}
-            onClickSave={saveProject}
-            onClickEdit={editProject}
-            fromResultPage={fromResultPage}
-            fromLandingPage={fromLandingPage}
+            fromResultPage={props.location.fromResultPage}
+            fromLandingPage={props.location.fromLandingPage}
             />
       </div>
     );

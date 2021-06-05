@@ -5,7 +5,7 @@ import './ResultDisplay.css';
 import { nanoid } from 'nanoid';
 
 export default function ResultDisplay (props) {
-  console.log(props.groupObject);
+//   console.log(props.groupObject);
 
   return (
       <div className="results-section">

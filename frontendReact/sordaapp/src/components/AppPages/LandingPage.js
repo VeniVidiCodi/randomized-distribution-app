@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
-import {getRequest, postRequest} from "../../utils/queries.js";
+import { getRequest } from "../../utils/queries.js";
 
-// DB fetch entry with password: 7JWHR5
+// DB Try to fetch an example entry with password: 7JWHR5
 
 function LandingPage() {
 

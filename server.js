@@ -38,6 +38,7 @@ app.listen(PORT, () => {
 
 
 /*
+
 //sends root page to client
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/views/index.html");
@@ -58,5 +59,6 @@ app.post("/resultsPage", function(req, res){
 
 const id = require("./uniqueID.js")
 
-console.log(id());
+console.log("ID:", id());
+
 */

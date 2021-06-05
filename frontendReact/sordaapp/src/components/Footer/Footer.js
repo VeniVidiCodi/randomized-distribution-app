@@ -1,9 +1,9 @@
-import  React, { Component } from 'react';
-import {Link} from 'react-router-dom';   //may or may not need
+// import  React, { Component } from 'react';
+import { Link } from 'react-router-dom';   //may or may not need
 import FooterButton from '../FooterButton/FooterButton';
 import './Footer.css';
 
-function Footer(props){
+function Footer (props) {
 
     //returns if not from the input page (is on the input page)
     if (!props.fromInputPage) {

@@ -7,43 +7,11 @@ import { nanoid } from 'nanoid';
 
 function GroupSection (props) {
     const max = 8;
-    // const min = 2;
 
-    // EXAMPLE
-    // let handleChange = (event) => {
-    //     console.log('Handling Change: ' + event.target.value);
-    //     props.setTitle(event.target.value);
-    // }
-
-    // let createNewGroup = () => { 
-    //     console.log("creating new group...");
-
-    //     let length = props.groupNames.length;
-    //     console.log("groups length:", length);
-    //     let group = "Group " + (length + 1);
-    //     console.log(group);
-    //     return group;
-    // }
-
-    // let addGroup = () => {
-    //     console.log("addGroup clicked...");
-
-    //     let tempGroupNames = props.groupNames;
-    //     console.log(tempGroupNames);
-    //     let newGroup = "Group " + (tempGroupNames.length + 1);
-
-    //     tempGroupNames.push(newGroup);
-    //     console.log(tempGroupNames);
-
-    //     props.setGroupNames(tempGroupNames);
-    // }
-
-    // console.log(this.state.GroupObject);
-
-    // let submitTitle = () => {
-    //     console.log('Submitting GroupCard Title...');
-    //  
-
+    // useEffect(() => {
+    //     console.log("GROUP SECTION mounted");
+    // })
+    
     return (
         <div className="group-section">
 
@@ -60,10 +28,10 @@ function GroupSection (props) {
                     {props.groupNames.map((group, index) => 
                         <GroupCard 
                             key={nanoid()} 
-                            title={group}
-                            // submitTitle={submitTitle}
-                            // handleChange={handleChange}
-                            // delete={(index) => console.log(index)} 
+                            title={group.name}
+                            index={index}
+                            updateGroupTitle={props.updateGroupTitle}
+                            deleteGroup={props.deleteGroup} 
                         />
                     )}
                 </div>

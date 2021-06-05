@@ -1,51 +1,68 @@
+import e from 'cors';
 import React, { useState } from 'react';
 import './GroupCard.css';
-// import GroupListItem from '../GroupListItem/GroupListItem';
+
 
 function GroupCard(props) {
-    let [display, setDisplay] = useState(true);
+    const [showTitle, setShowTitle] = useState(true);
+    const [title, setTitle] = useState(props.title);
 
-    let changeTitle = (e) => {
-        setDisplay(e.target.value);
+    const handleChange = e => {
+        // console.log(e.target.value);
+        setTitle(e.target.value);
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
         toggleTitle();
+        props.updateGroupTitle(title, props.index);
     }
-    
-    let toggleTitle = () => {
-        console.log("Toggling Title");
 
-        if (display) {
-            console.log("T -> F");
-            setDisplay(false);
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key
+        if (e.keyCode === 13) {
+        handleSubmit(e, props.index);
+        }
+    };
+    
+    const toggleTitle = () => {
+        if (showTitle) {
+            // console.log("T -> F");
+            setShowTitle(false);
         } else {
-            console.log("F -> T");
-            setDisplay(true);
+            // console.log("F -> T");
+            setShowTitle(true);
         };
-    }
-
-    
-
-    let handleSubmit = (event) => {
-        event.preventDefault();
-        this.toggleTitle();
     }
 
 
     return(
         <div className="group-container">
             <div className="group-card--header">
-                { display ?
-                    <div className="group-title" onClick={setDisplay}>{props.title}</div>
+                { showTitle ?
+                    <div className="group-title" onClick={toggleTitle}>{title}</div>
                     :
-                    <form className="input-wrapper" /*onSubmit={props.submitTitle}*/>
-                    <label>
-                        <input id="project-title--input" type="text" name="name" placeholder="ADD GROUP TITLE" onChange={changeTitle} value={props.title} />
-                    </label>
-                    {/* <input className="title-submit-button" onClick={props.submitTitle} type="submit" value="✓" /> */}
+                    <form className="input-wrapper" >
+                        <label>
+                            <input 
+                                id="project-title--input" 
+                                type="text" 
+                                name="name" 
+                                placeholder={title} 
+                                onChange={handleChange} 
+                                onKeyPress={handleKeypress} 
+                                value={title} 
+                                autoFocus
+                            />
+                        </label>
+                        <input className="title-submit-button" onClick={handleSubmit} type="submit" value="✓" />
+                        {/* <input className="title-submit-button" onClick={toggleTitle} type="submit" value="✓" /> */}
                     </form>
                 }
 
-                {/* <button className="group-del-btn" onClick={props.delete}>x</button> */}
+                <button className="group-del-btn" onClick={props.deleteGroup} value={props.index}>x</button>
             </div>
+            
             <div className="group-items--display">
                 {/* Render Groups for ResultPage */}
                 {/* <ResultItem entry={entries[0]} /> */}

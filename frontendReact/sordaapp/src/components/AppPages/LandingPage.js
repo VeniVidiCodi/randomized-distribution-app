@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import logo from '../../mallard.svg';
 import './LandingPage.css';
-import {getRequest, postRequest} from "../../utils/queries.js";
+import { getRequest } from "../../utils/queries.js";
 
-// DB fetch entry with password: 7JWHR5
+// DB Try to fetch an example entry with password: 7JWHR5
 
 function LandingPage() {
 
@@ -14,7 +14,7 @@ function LandingPage() {
 
 
   async function getGroup() {
-     const json = await getRequest(idNum);  //call the API to get the
+     const json = await getRequest(idNum);  //call the API to get the user data
       if(json !== null) {
         console.log(json);
         setAjson(json);
@@ -39,7 +39,8 @@ function LandingPage() {
 
 
   if(ifFetchSuccess) {
-    return <Redirect push to={{pathname: '/results', json: aJson, isTrue: true}}/>;
+    return <Redirect push to={{pathname: '/results', json: aJson, fromLandingPage: true, fromInputPage: false}}/>;
+    // return <Redirect push to={{pathname: '/results', json: aJson, isTrue: true}}/>;
   }
 //return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, isTrue: false}}/>;  //use in input page
 
@@ -52,7 +53,7 @@ function LandingPage() {
 
         <div className="bottomSection">
           <div className="buttonChild">
-            <Link to="/grouper">
+            <Link to={{pathname: '/grouper', fromLandingPage: true, fromInputPage: false}}>
               <button type="submit" value="Submit" id="btn-start">Create Group</button>
             </Link>
           </div>

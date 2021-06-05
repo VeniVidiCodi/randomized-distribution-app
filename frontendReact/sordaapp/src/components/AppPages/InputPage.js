@@ -1,166 +1,205 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import TitleBar from '../TitleBar/TitleBar';
 import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
-import { Group, GroupName, Person} from '../../groupClass';
+import { Group, GroupName, Person } from '../../utils/groupClass';
+// import e from 'cors';
 
 
-function InputPage () {
+function InputPage (props) {
+
   let GroupObject = new Group();
-  GroupObject.projectName = "My Project";
-  // GroupObject.groupNames = ['food', 'music', 'decor'];
+
+  if (props.location.fromResultPage) {
+    // console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
+
+    if (typeof props.location.GroupObject !== 'undefined') {
+      // console.log('do groupObj');
+      GroupObject = props.location.GroupObject;
+    } else {
+      // console.log('do json');
+      GroupObject = () => {
+        let tempGroup = new Group();
+        tempGroup.persons = props.location.json.persons;
+        tempGroup.groupNames = props.location.json.groupNames;
+        tempGroup.setProjectName(props.location.json.projectName);
+
+        return tempGroup;
+      }
+    }
+  } else {
+    GroupObject.setProjectName("My Project");
+  }
+  
+
+  // –––––––
+  //  State
+  // –––––––
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
-  const [aProjectName, setAProjectName] = useState(GroupObject.projectName);
-  const [aGroupNames, setAGroupNames] = useState(GroupObject.groupNames);
-  // const [aPersons, setAPersons] = useState(GroupObject.persons);
+  const [shuffleClick, setShuffleClick] = useState(false);
+  // const [fromLandingPage, setFromLandingPage] = useState(props.location.fromLandingPage);
+  // const [fromResultPage, setFromResultPage] = useState(props.location.fromResultPage);
+
+  // Check console to see from which page is being received
+  // console.log("FROM LANDING:", fromLandingPage);
+  // console.log("FROM RESULTS:", fromResultPage);
   
-  // const [showTitle, setShowTitle] = useState(true);
-
-
-  // Emulate componentDidMount lifecycle(s)  = = = = = = = = = = = = = = = = = = = = =
   
-  // useEffect(() => {
-  //   console.log("use effect group state");
-  // }, [aGroupObject])
+  // –––––––
+  // Title Behavior 
+  // –––––––
 
-  // useEffect(() => {
-  //   console.log("use effect project name");
-  // }, [aProjectName])
-
-  // useEffect(() => {
-  //   console.log("use effect group names");
-  // }, [aGroupNames])
- 
-   
-  // Title Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-  // let handleChange = (event) => {
-  //   console.log('Handling Change: ' + event.target.value);
-  //   // this.setState({title: event.target.value});
-  //   setAProjectName(event.target.value);
-  // }
+  const updateProjectName = title => {
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
+  }
   
-  // let handleSubmit = (event) => {
-  //   console.log('Submitting title: ' + event.target.value);
-  //   // event.preventDefault();
-  //   // props.setTitle
-  //   toggleTitle();
-  // }
+  // –––––––
+  // Group Section Behavior
+  // –––––––
 
-  // let toggleTitle = () => {
-  //   console.log("Toggling Title" );
-  //   if (showTitle) {
-  //       console.log("T -> F");
-  //       setShowTitle(false);
-  //       // this.setState({showTitle: false})
-  //     } else {
-  //       console.log("F -> T");
-  //       setShowTitle(true);
-  //       // this.setState({showTitle: true})
-  //     };
-  // }
+  const addGroup = () => {
+      let tempGroupObject = aGroupObject;
+      let tempGroupNames = tempGroupObject.groupNames;
+      let newName = "Group " + (tempGroupNames.length + 1); 
+      let newGroupName = new GroupName(newName, null);
 
+      tempGroupNames.push(newGroupName);   
+      setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
+  }
 
-  // Group Section Behavior  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  const deleteGroup = e => {
+    let index = e.target.value;
+    let tempGroupObject = aGroupObject;
+    let newGroupNames = tempGroupObject.groupNames;
 
-  // let handleGroupsChange = newGroupsArr => {
-  //   console.log('setNewGroupsArr:', newGroupsArr);
-  //   setAGroupNames(newGroupsArr); 
-  // }
+    newGroupNames.splice(index, 1);
+    setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
+  }
 
-  // let createNewGroup = () => { 
-  //   let length = aGroupNames.length;
-  //   let name = "Group " + (length + 1);
-  //   console.log(name);
-  //   return name;
-  // }
+  const updateGroupTitle = (title, index) => {
+    let newGroupNames = aGroupObject.groupNames;
+    newGroupNames[index].name = title;
 
-  // let addGroup = () => {
-  //   console.log("addGroup clicked...");
+    setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
+  }
 
-  //   let tempGroupNames = aGroupNames;
-  //   let newGroup = createNewGroup();
-  //   tempGroupNames.push(newGroup);
-  //   console.log(tempGroupNames);
+  // –––––––
+  // Roster Section Behavior
+  // –––––––
 
-  //   setAGroupNames(tempGroupNames);
-  // }
+  const addItem = () => {
+      let tempItemList = aGroupObject.persons;
+      let newItemName = "item " + (tempItemList.length + 1); 
+      let newItem = new Person(newItemName, null);
 
+      tempItemList.push(newItem);   
+      setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
+  }
 
-    let addGroup = () => {
-        console.log("addGroup clicked...");
-        let tempGroupObj = aGroupObject;
-        let newGroup = "Group " + (aGroupNames.length + 1); 
-        tempGroupObj.addGroupNames(new GroupName(newGroup) )
-        // setAGroupNames(aGroupNames => [...aGroupNames, newGroup]);
-        setAGroupObject(tempGroupObj);
+  const deleteItem = e => {
+    let index = e.target.value;
+    let tempGroupObject = aGroupObject;
+    let newItemsList = tempGroupObject.persons;
+
+    newItemsList.splice(index, 1);
+    setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
+  }
+
+  const updateItemName = (title, index) => {
+    let newItemsList = aGroupObject.persons;
+    newItemsList[index].name = title;
+
+    setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
+  }
+
+  // –––––––
+  // Footer Button Handler Functions
+  // –––––––
+
+  const shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
     }
-
-
-  // Footer Button Handler  = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  }
   
-  let shuffleData = () => {
-    console.log("shuffle clicked...");
-    // Shuffle Roster Items randomly
-    
-    // Assign each roster item a group #
-    
-    // Save shuffled data as new group object
-    saveProject();
-    
-    // return <Redirect push to={{ pathname: '/results', groupObject: aProjectState, fromInput=true }} />
+
+  const shuffleProject = () => {
+    // console.log("shuffle clicked ...");
+
+    let tempGroupObject = aGroupObject;
+    let groups = aGroupObject.groupNames;
+    let persons = aGroupObject.persons;
+    let numOfGroups = groups.length;
+    let numOfPersons = persons.length;
+
+    // Input validity checks
+    if (numOfGroups === 0) {
+      alert("Shuffle cannot be performed with no groups. Please add more groups.");
+      return false;
+    }
+    if (numOfPersons === 0) {
+      alert("Shuffle cannot be performed with no roster items. Please add more roster items.");
+      return false;
+    }
+    if (numOfGroups > numOfPersons) {
+      alert("There must be more groups than roster items.");
+      return false;
+    } else {
+      shuffleArray(persons);
+      let count = numOfPersons;
+
+      do {
+        // console.log("PERSON COUNTDOWN:", count);
+        let person = persons[count - 1];
+        person.groupNum = count % (numOfGroups) + 1;
+        count--; 
+      } while (count > 0)
+
+      setShuffleClick(true);
+      tempGroupObject.persons = persons;
+      return tempGroupObject;
+    }
   }
 
-  let saveProject = () => {
-    console.log('saving shuffled project...');
-    // let tempGroupObject = aGroupObject;
 
-    // tempGroupObject.projectName = aProjectName;
-    // tempGroupObject.groupNames = aGroupNames;
-    // // tempGroupObject.persons = aPersons;
-
-    // console.log('new object to save:', tempGroupObject);
-    // setAGroupObject(tempGroupObject);
+  if (shuffleClick) {
+    return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, fromInputPage: true, fromLandingPage: false}}/>;
   }
 
-    return (
-        <div>
-          <header className="App-header">
-            <Nav />
-
-            <TitleBar 
-              title={aProjectName} 
-              setTitle={setAProjectName}
-              // handleChange={handleChange}
-              // handleSubmit={handleSubmit}
-              // showTitle={showTitle}
-              // toggleTitle={toggleTitle} 
-              /> 
-
-          </header>
-
-          <main id="entry-container">
-            <GroupSection 
-              groupNames={aGroupNames}
-              setGroupNames={setAGroupNames}
-              addGroup={addGroup}
-              // handleChange={handleGroupChange}
-              // setGroupNames={(group) => setAGroupNames(group)} 
-              />
-              
-            <RosterSection />
-            
-          </main>
-
+  return (
+      <div>
+        <header className="App-header">
+          <Nav />
+          <TitleBar 
+            title={aGroupObject.projectName} 
+            updateTitle={updateProjectName} /> 
+        </header>
+        <main id="entry-container">
+          <GroupSection 
+            groupNames={aGroupObject.groupNames}
+            addGroup={addGroup}
+            deleteGroup={deleteGroup}
+            updateGroupTitle={updateGroupTitle} />
+          <RosterSection 
+            rosterItems={aGroupObject.persons}
+            addItem={addItem}
+            deleteItem={deleteItem}
+            updateItemName={updateItemName} />
+        </main>
           <Footer 
-            GroupObject={GroupObject}
-            value="Shuffle" 
-            text="Shuffle"
-            onClick={shuffleData} />
-        </div>
+            GroupObject={aGroupObject}
+            onClickShuffle={shuffleProject}
+            fromResultPage={props.location.fromResultPage}
+            fromLandingPage={props.location.fromLandingPage}
+            />
+      </div>
     );
   }
 

@@ -5,6 +5,7 @@ import './LandingPage.css';
 import { getRequest } from "../../utils/queries.js";
 
 // DB Try to fetch an example entry with password: 7JWHR5
+// 3QQOG3  retreives data
 
 function LandingPage() {
 

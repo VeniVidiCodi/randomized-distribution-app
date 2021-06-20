@@ -64,6 +64,7 @@ function ResultsPage(props) {
 
     console.log(JSON.stringify(JSON.parse(myJSON), null, 2));
     const json = postRequest(myJSON);
+    console.log(myJSON);
     setAjson(json);
 
   }

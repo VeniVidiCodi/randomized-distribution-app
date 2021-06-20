@@ -34,8 +34,10 @@ function postRequest(json) {
     .then(result => {
       console.log(result);
       aJson = result;
+      // console.log(aJson);
     })
     .catch(error => console.log('error', error));
+    // console.log(aJson);
 
   return aJson;
   }

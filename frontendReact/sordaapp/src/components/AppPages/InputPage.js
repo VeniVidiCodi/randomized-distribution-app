@@ -10,16 +10,17 @@ import { Group, GroupName, Person } from '../../utils/groupClass';
 
 
 function InputPage (props) {
-
+  console.log('Input Page', props);
   let GroupObject = new Group();
 
   if (props.location.fromResultPage) {
-    // console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
+    console.log('FROM RESULT PAGE');
+    console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
 
     if (typeof props.location.GroupObject !== 'undefined') {
       // console.log('do groupObj');
-      GroupObject = props.location.GroupObject;
-    } else {
+    //   GroupObject = props.location.GroupObject;
+    // } else {
       // console.log('do json');
       GroupObject = () => {
         let tempGroup = new Group();
@@ -27,7 +28,9 @@ function InputPage (props) {
         tempGroup.groupNames = props.location.json.groupNames;
         tempGroup.setProjectName(props.location.json.projectName);
 
-        return tempGroup;
+        // return tempGroup;
+        GroupObject = tempGroup;
+        return GroupObject;
       }
     }
   } else {

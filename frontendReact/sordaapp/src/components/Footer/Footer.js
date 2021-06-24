@@ -8,7 +8,6 @@ function Footer (props) {
     if (props.fromInputPage) {
       return(
           <footer id="app-footer">
-            <Link to="/grouper">
               <FooterButton
                   value={props.value}
                   text="Save"
@@ -17,19 +16,16 @@ function Footer (props) {
                   value={props.value}
                   text="Edit"
                   onClick={props.onClickEdit} />
-            </Link>
           </footer>
       )
     } else if (props.fromLandingPage) {
       // console.log('ON input page...');
       return (
         <footer id="app-footer">
-          <Link to="/grouper">
             <FooterButton
                 value={props.value}
                 text="Edit"
                 onClick={props.onClickEdit} />
-          </Link>
         </footer>
       )
     } else {
@@ -39,7 +35,7 @@ function Footer (props) {
             <FooterButton
                 value={props.value}
                 text="Shuffle"
-                onClick={props.onClickEdit} />
+                onClick={props.onClickShuffle} />
           </Link>
         </footer>
       )

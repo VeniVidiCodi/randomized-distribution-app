@@ -10,17 +10,16 @@ import { Group, GroupName, Person } from '../../utils/groupClass';
 
 
 function InputPage (props) {
-  console.log('Input Page', props);
+
   let GroupObject = new Group();
 
   if (props.location.fromResultPage) {
-    console.log('FROM RESULT PAGE');
-    console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
+    // console.log('json/grpObj', typeof(props.location.json), '/', typeof(props.location.GroupObject));
 
     if (typeof props.location.GroupObject !== 'undefined') {
       // console.log('do groupObj');
-    //   GroupObject = props.location.GroupObject;
-    // } else {
+      GroupObject = props.location.GroupObject;
+    } else {
       // console.log('do json');
       GroupObject = () => {
         let tempGroup = new Group();
@@ -28,15 +27,13 @@ function InputPage (props) {
         tempGroup.groupNames = props.location.json.groupNames;
         tempGroup.setProjectName(props.location.json.projectName);
 
-        // return tempGroup;
-        GroupObject = tempGroup;
-        return GroupObject;
+        return tempGroup;
       }
     }
   } else {
     GroupObject.setProjectName("My Project");
   }
-  
+
 
   // –––––––
   //  State
@@ -50,16 +47,16 @@ function InputPage (props) {
   // Check console to see from which page is being received
   // console.log("FROM LANDING:", fromLandingPage);
   // console.log("FROM RESULTS:", fromResultPage);
-  
-  
+
+
   // –––––––
-  // Title Behavior 
+  // Title Behavior
   // –––––––
 
   const updateProjectName = title => {
-    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title}));
   }
-  
+
   // –––––––
   // Group Section Behavior
   // –––––––
@@ -67,10 +64,10 @@ function InputPage (props) {
   const addGroup = () => {
       let tempGroupObject = aGroupObject;
       let tempGroupNames = tempGroupObject.groupNames;
-      let newName = "Group " + (tempGroupNames.length + 1); 
+      let newName = "Group " + (tempGroupNames.length + 1);
       let newGroupName = new GroupName(newName, null);
 
-      tempGroupNames.push(newGroupName);   
+      tempGroupNames.push(newGroupName);
       setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
   }
 
@@ -96,10 +93,10 @@ function InputPage (props) {
 
   const addItem = () => {
       let tempItemList = aGroupObject.persons;
-      let newItemName = "item " + (tempItemList.length + 1); 
+      let newItemName = "item " + (tempItemList.length + 1);
       let newItem = new Person(newItemName, null);
 
-      tempItemList.push(newItem);   
+      tempItemList.push(newItem);
       setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
   }
 
@@ -131,7 +128,7 @@ function InputPage (props) {
       array[j] = temp;
     }
   }
-  
+
 
   const shuffleProject = () => {
     // console.log("shuffle clicked ...");
@@ -162,7 +159,7 @@ function InputPage (props) {
         // console.log("PERSON COUNTDOWN:", count);
         let person = persons[count - 1];
         person.groupNum = count % (numOfGroups) + 1;
-        count--; 
+        count--;
       } while (count > 0)
 
       setShuffleClick(true);
@@ -180,27 +177,27 @@ function InputPage (props) {
       <div>
         <header className="App-header">
           <Nav />
-          <TitleBar 
-            title={aGroupObject.projectName} 
-            updateTitle={updateProjectName} /> 
+          <TitleBar
+            title={aGroupObject.projectName}
+            updateTitle={updateProjectName} />
         </header>
         <main id="entry-container">
-          <GroupSection 
+          <GroupSection
             groupNames={aGroupObject.groupNames}
             addGroup={addGroup}
             deleteGroup={deleteGroup}
             updateGroupTitle={updateGroupTitle} />
-          <RosterSection 
+          <RosterSection
             rosterItems={aGroupObject.persons}
             addItem={addItem}
             deleteItem={deleteItem}
             updateItemName={updateItemName} />
         </main>
-          <Footer 
+          <Footer
             GroupObject={aGroupObject}
             onClickShuffle={shuffleProject}
             fromResultPage={props.location.fromResultPage}
-            fromLandingPage={props.location.fromLandingPage}
+            /*fromLandingPage={props.location.fromLandingPage}*/
             />
       </div>
     );

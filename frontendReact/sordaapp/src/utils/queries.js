@@ -14,7 +14,7 @@ async function getRequest(idNum) {
     return aJson;
 }
 
-function postRequest(json) {
+async function postRequest(json) {
 
   let aJson;
   var myHeaders = new Headers();
@@ -29,18 +29,20 @@ function postRequest(json) {
   };
 
 
-  fetch("http://localhost:3050/group/add", requestOptions)
-    .then(response => response.text())
+  await fetch("http://localhost:3050/group/add", requestOptions)
+    .then(response => response.json())
     .then(result => {
       console.log(result);
       aJson = result;
-      // console.log(aJson);
+      console.log(aJson);
     })
     .catch(error => console.log('error', error));
     // console.log(aJson);
 
+  console.log(aJson);
+
   return aJson;
-  }
+}
 
 
 

@@ -5,7 +5,17 @@ import './Footer.css';
 
 function Footer (props) {
     // If from the Input Page, user is on Result Page
-    if (props.fromInputPage) {
+   if (props.fromLandingPage  || props.saveButtonClicked) {
+     // console.log('ON input page...');
+     return (
+       <footer id="app-footer">
+           <FooterButton
+               value={props.value}
+               text="Edit"
+               onClick={props.onClickEdit} />
+       </footer>
+     )
+   } else if (props.fromInputPage) {
       return(
           <footer id="app-footer">
               <FooterButton
@@ -17,16 +27,6 @@ function Footer (props) {
                   text="Edit"
                   onClick={props.onClickEdit} />
           </footer>
-      )
-    } else if (props.fromLandingPage) {
-      // console.log('ON input page...');
-      return (
-        <footer id="app-footer">
-            <FooterButton
-                value={props.value}
-                text="Edit"
-                onClick={props.onClickEdit} />
-        </footer>
       )
     } else {
       return (

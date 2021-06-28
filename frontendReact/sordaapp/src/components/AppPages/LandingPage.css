@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    box-shadow: inset 5px 5px 0px 0px rgb(231, 246, 231, .5), inset -5px -5px 0px 0px rgba(89, 109, 89, 0.5);
 }
 
 .topSection {
@@ -14,4 +15,26 @@
 }
 .bottomSection {
     margin-top: 30px;
+}
+
+.createButton {
+    border-radius: 50px;
+    padding: 5px 20px;
+    /* margin-bottom: 10px; */
+    /* background-color: #FFFCB5; */
+    /* background-color: #7CB48B; */
+}
+
+img { filter: saturate(150%); }
+p { color: #5f4842; }
+
+input {
+    border-radius: 50px 0 0 50px;
+    padding: 5px 20px;
+}
+
+.submit {
+    border-radius: 0 50px 50px 0;
+    padding: 5px 10px;
+    border-left: none;
 }

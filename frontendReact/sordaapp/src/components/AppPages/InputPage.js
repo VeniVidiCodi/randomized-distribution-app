@@ -6,7 +6,7 @@ import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 import { Group, GroupName, Person } from '../../utils/groupClass';
-// import e from 'cors';
+import SetupModal from '../ModalInput/ModalInput';
 
 
 function InputPage (props) {
@@ -35,9 +35,9 @@ function InputPage (props) {
   }
 
 
-  // –––––––
+  // ––––––––––––––––––––––––
   //  State
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
   const [shuffleClick, setShuffleClick] = useState(false);
@@ -49,17 +49,17 @@ function InputPage (props) {
   // console.log("FROM RESULTS:", fromResultPage);
 
 
-  // –––––––
+  // ––––––––––––––––––––––––
   // Title Behavior
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const updateProjectName = title => {
     setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title}));
   }
 
-  // –––––––
+  // ––––––––––––––––––––––––
   // Group Section Behavior
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const addGroup = () => {
       let tempGroupObject = aGroupObject;
@@ -87,9 +87,9 @@ function InputPage (props) {
     setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
   }
 
-  // –––––––
+  // ––––––––––––––––––––––––
   // Roster Section Behavior
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const addItem = () => {
       let tempItemList = aGroupObject.persons;
@@ -116,9 +116,9 @@ function InputPage (props) {
     setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
   }
 
-  // –––––––
+  // ––––––––––––––––––––––––
   // Footer Button Handler Functions
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -168,6 +168,16 @@ function InputPage (props) {
     }
   }
 
+  // ––––––––––––––––––––––––
+  // Modal Behavior Functions
+  // ––––––––––––––––––––––––
+  function handleButtonSubmit(numOfGroups, numOfRoster) {
+    for (let i = 0; i < numOfGroups; i++)
+      addGroup();
+
+    for (let i = 0; i < numOfRoster; i++)
+      addItem();
+  }
 
   if (shuffleClick) {
     return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, fromInputPage: true, fromLandingPage: false}}/>;
@@ -199,6 +209,7 @@ function InputPage (props) {
             fromResultPage={props.location.fromResultPage}
             /*fromLandingPage={props.location.fromLandingPage}*/
             />
+            {props.location.fromLandingPage && <SetupModal handleBtnSubmit={handleButtonSubmit}/>}
       </div>
     );
   }

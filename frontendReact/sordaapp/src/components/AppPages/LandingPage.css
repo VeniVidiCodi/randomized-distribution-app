@@ -4,7 +4,11 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    box-shadow: inset 5px 5px 0px 0px rgb(231, 246, 231, .5), inset -5px -5px 0px 0px rgba(89, 109, 89, 0.5);
+    border-radius: 15px;
+    border: 5px solid rgb(231, 246, 231, .6);
+    background-color: #bcb;
+    background: rgb(187,204,187);
+    background: radial-gradient(circle, rgba(187,204,187,1) 40%, rgba(141,196,151,1) 91%, rgb(128, 196, 146) 100%);
 }
 
 .topSection {
@@ -19,10 +23,11 @@
 
 .createButton {
     border-radius: 50px;
-    padding: 5px 20px;
-    /* margin-bottom: 10px; */
-    /* background-color: #FFFCB5; */
-    /* background-color: #7CB48B; */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: 4px solid #4d9661;
+    background-color: #68BB7E;
 }
 
 img { 
@@ -30,15 +35,27 @@ img {
     max-width: 400px;
 }
 
-p { color: #5f4842; }
+p { 
+    font-size: 16px;
+    color: #5f4842;
+}
 
 input {
     border-radius: 50px 0 0 50px;
-    padding: 5px 20px;
+    border: 4px solid #1da8c8;
+    border-right: none;
+    padding: 10px 20px;
+    font-size: 16px;
 }
+
+
+
 
 .submit {
     border-radius: 0 50px 50px 0;
-    padding: 5px 10px;
+    border: 4px solid #1da8c8;
+    background-color: #1ED4FC;
+    padding: 10px 12px;
     border-left: none;
+    font-size: 16px;
 }

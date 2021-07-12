@@ -25,7 +25,11 @@
     /* background-color: #7CB48B; */
 }
 
-img { filter: saturate(150%); }
+img { 
+    filter: saturate(150%);
+    max-width: 400px;
+}
+
 p { color: #5f4842; }
 
 input {

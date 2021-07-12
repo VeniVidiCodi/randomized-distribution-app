@@ -1,17 +1,21 @@
 
 /* --- GROUP SECTION --- */
 .group-section {
-    background-color: rgb(248, 244, 236);
     width: 100%;
-    height: auto;
-    margin-right: 5px;
+    /* height: 100%; */
+    border-radius: 25px;
+    /* border: 2px solid green; */
     display: flex;
     flex-direction: column;
-    /* flex-grow: 2; */
+    /* background-color: rgb(248, 244, 236); */
 }
 .group-section-header {
     display: inline-flex;
     background-color: rgb(191, 210, 191);
+    /* background-color: green; */
+    border-radius: 25px  ;
+    border: 2px solid green;
+    flex-shrink: 0;
 }
 .group-header-caption {
     flex: 1;
@@ -19,16 +23,23 @@
     padding: 10px;
 }
 
-
-
 .group-items-container {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 1 0 auto;
+    width: 100%;
+    width: auto;
 }
-.group-item {
+
+/* #groups-display-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+} */
+
+/* .group-item {
     border: 2px solid grey;
     border-radius: 15px;
     text-align: center;
     background-color: white;
-}
+} */

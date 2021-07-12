@@ -1,34 +1,18 @@
-/* SINGLE GROUP CARD */
-.group-items-container {
-    /* border: 3px solid red; */
-    /* padding: 30px; */
-    /* margin: 20px; */
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-}
-#groups-display-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-
-
 .group-container {
     border-radius: 18px;
     border: 2px solid black; 
     background-color: rgb(206, 204, 204);
-    min-height: 112px;
-    min-width: 240px;
-    max-width: 260px;
-    margin: 30px;
+    min-height: 70px;
+    /* min-width: 240px; */
+    /* max-width: 260px; */
+    /* margin: 30px; */
     display: flex;
     flex-direction: column;
 }
 .group-card--header {
-    display: inline-flex;
-    /* justify-content: center;
-    text-align: center; */
+    display: flex;
+    justify-content: flex-end;
+    /* text-align: center; */
     /* align-items: center; */
     /* font-size: large; */
     font-weight: bold;
@@ -37,23 +21,88 @@
     /* padding: 15px 25px; */
     /* height: 40px; */
     background-color: rgb(233, 223, 213);
-
+    /* box-shadow: 0px 5px 5px grey; */
 }
 .group-title {
     flex: 1;
     font-size: large;
     padding: 10px;
 }
+.title-submit-button {
+    color: red;
+    background-color: white;
+    background-color: rgba(241, 238, 234, 0);
+    border: none;   
+}
+.title-submit-button:hover {
+    background-color: lightgreen;
+    border: 0;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+}
+.input-wrapper {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+#project-title--input {
+    border: 0px;
+    border-radius: 25px;
+    width: 100%;
+    padding-right: 0;
+}
+
+.card-header--buttons {
+    border-bottom: 1px solid blue;
+    border-left: 1px solid blue;
+    display: flex;
+}
+.edit-btn {
+    transform: scale(-1, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: red;
+    background-color: rgb(241, 238, 234);
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    width: 40px;
+    /* height: 40px; */
+    /* background-image: url('https://www.freepik.com/free-icon/trash-bin-symbol_695007.htm');
+    background-repeat: no-repeat; */
+
+}
 .group-del-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0 15px 0 0;
+    border: none;
     color: red;
-    background-color: rgb(241, 238, 234);
+    background-color: rgba(241, 238, 234);
+    /* background-color: rgba(241, 238, 234, 0); */
     width: 40px;
+    font-size: 26px;
 }
+.edit-btn:hover, .group-del-btn:hover {
+    background-color: lightgreen;
+    /* color: white; */
+}
+
 .group-items--display {
-    background-color: rgb(222, 216, 216);
-    border-radius: 0 0 15px 15px;
+    background-color: rgb(201, 199, 198);
+    /* background-color: red; */
+    border-radius: 0 0 18px 18px;
+    /* border: 2px solid red; */
+    box-shadow: inset 0px -3px 3px grey;
+
+    display: flex; 
+    flex-direction: column;
+    flex: 1;
+}
+
+*:focus {
+    outline: none;
 }

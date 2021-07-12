@@ -6,6 +6,7 @@ import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 import { Group, GroupName, Person } from '../../utils/groupClass';
+import './InputPage.css';
 // import e from 'cors';
 
 
@@ -174,31 +175,33 @@ function InputPage (props) {
   }
 
   return (
-      <div>
-        <header className="App-header">
-          <Nav />
-          <TitleBar
-            title={aGroupObject.projectName}
-            updateTitle={updateProjectName} />
-        </header>
-        <main id="entry-container">
-          <GroupSection
-            groupNames={aGroupObject.groupNames}
-            addGroup={addGroup}
-            deleteGroup={deleteGroup}
-            updateGroupTitle={updateGroupTitle} />
-          <RosterSection
-            rosterItems={aGroupObject.persons}
-            addItem={addItem}
-            deleteItem={deleteItem}
-            updateItemName={updateItemName} />
-        </main>
-          <Footer
-            GroupObject={aGroupObject}
-            onClickShuffle={shuffleProject}
-            fromResultPage={props.location.fromResultPage}
-            /*fromLandingPage={props.location.fromLandingPage}*/
-            />
+      <div className="main-wrapper">
+        <div className="content">
+          <header className="app-header">
+            <Nav />
+            <TitleBar
+              title={aGroupObject.projectName}
+              updateTitle={updateProjectName} />
+          </header>
+          <main id="entry-container">
+            <GroupSection
+              groupNames={aGroupObject.groupNames}
+              addGroup={addGroup}
+              deleteGroup={deleteGroup}
+              updateGroupTitle={updateGroupTitle} />
+            <RosterSection
+              rosterItems={aGroupObject.persons}
+              addItem={addItem}
+              deleteItem={deleteItem}
+              updateItemName={updateItemName} />
+          </main>
+        </div>
+        <Footer
+          GroupObject={aGroupObject}
+          onClickShuffle={shuffleProject}
+          fromResultPage={props.location.fromResultPage}
+          /*fromLandingPage={props.location.fromLandingPage}*/
+          />
       </div>
     );
   }

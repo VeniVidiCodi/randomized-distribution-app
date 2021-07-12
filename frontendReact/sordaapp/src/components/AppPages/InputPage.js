@@ -32,7 +32,7 @@ function InputPage (props) {
       }
     }
   } else {
-    GroupObject.setProjectName("My Project");
+    GroupObject.setProjectName("My Project Name");
   }
 
 

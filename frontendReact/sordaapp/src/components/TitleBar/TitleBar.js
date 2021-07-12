@@ -23,7 +23,7 @@ function TitleBar(props) {
 
   return (
           <section className="titlebar project-title-container">
-            <h3>Project Name:</h3>
+            {/* <h3>Project Name:</h3> */}
 
             { showTitle ?
               <h2 className="title-display" onClick={toggleTitle} >{props.title}</h2> 
@@ -32,7 +32,7 @@ function TitleBar(props) {
                 <label>
                   <input id="project-title--input" type="text" name="name" placeholder={props.title} onChange={handleChange} value={props.title} />  
                 </label>
-                <input className="title-submit-button" onClick={toggleTitle} type="submit" value="✓" />
+                <input className="titlebar-submit-button" onClick={toggleTitle} type="submit" value="✓" />
               </form>
             }
           </section>

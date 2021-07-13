@@ -38,12 +38,12 @@ function RosterItem (props) {
     return(
         <div className="roster-item-container">
             { showTitle ?
-                <div className="roster-item-text" onClick={toggleTitle}>{title}</div>
+                <div className="roster-item-title" onClick={toggleTitle}>{title}</div>
                 :
-                <form className="input-wrapper">
+                <form className="roster-input--wrapper">
                 <label>
                     <input 
-                        id="project-title--input" 
+                        id="roster-title--input" 
                         type="text" 
                         name="name" 
                         placeholder={title} 
@@ -52,7 +52,7 @@ function RosterItem (props) {
                         value={title}  
                     />
                 </label>
-                <input className="title-submit-button" onClick={handleSubmit} type="submit" value="✓" />
+                <input className="roster-title-submit-button" onClick={handleSubmit} type="submit" value="✓" />
                 </form>
             }
 

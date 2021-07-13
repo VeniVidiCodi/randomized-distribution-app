@@ -1,108 +1,83 @@
 .group-container {
-    border-radius: 18px;
-    border: 2px solid black; 
-    background-color: rgb(206, 204, 204);
-    min-height: 70px;
-    /* min-width: 240px; */
-    /* max-width: 260px; */
-    /* margin: 30px; */
     display: flex;
-    flex-direction: column;
-}
-.group-card--header {
-    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-    /* text-align: center; */
-    /* align-items: center; */
-    /* font-size: large; */
-    font-weight: bold;
-    border-bottom: 2px solid black;
-    border-radius: 15px 15px 0 0;
-    /* padding: 15px 25px; */
-    /* height: 40px; */
-    background-color: rgb(233, 223, 213);
-    /* box-shadow: 0px 5px 5px grey; */
-}
-.group-title {
-    flex: 1;
-    font-size: large;
-    padding: 10px;
-}
-.title-submit-button {
-    color: red;
-    background-color: white;
-    background-color: rgba(241, 238, 234, 0);
-    border: none;   
-}
-.title-submit-button:hover {
-    background-color: lightgreen;
-    border: 0;
-    width: 39px;
-    height: 39px;
-    border-radius: 50%;
-}
-.input-wrapper {
     align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-/* #project-title--input {
-    border: 0px;
+
+    border: 4px solid green;
+    border-radius: 30px;
     border-radius: 25px;
-    width: 100%;
-    padding-right: 0;
-} */
 
-.card-header--buttons {
-    border-bottom: 1px solid blue;
-    border-left: 1px solid blue;
-    display: flex;
+    font-size: 1.1em;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
 }
-.edit-btn {
-    transform: scale(-1, 1);
+
+.group-title {
     display: flex;
+    flex: 1 0 auto;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
-    color: red;
-    background-color: rgb(241, 238, 234);
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
-    width: 40px;
-    /* height: 40px; */
-    /* background-image: url('https://www.freepik.com/free-icon/trash-bin-symbol_695007.htm');
-    background-repeat: no-repeat; */
+    color: green;
+}
 
-}
-.group-del-btn {
+.group-input--wrapper {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    border-radius: 0 15px 0 0;
-    border: none;
-    color: red;
-    background-color: rgba(241, 238, 234);
-    /* background-color: rgba(241, 238, 234, 0); */
-    width: 40px;
-    font-size: 26px;
+    font-size: large;
+    
 }
-.edit-btn:hover, .group-del-btn:hover {
+
+#group-title--input{
+    /* color: brown; */
+    border: 0;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: Times;
+}
+
+.group-title-submit-button {
+    width: 46px;
+    height: 46px;
     background-color: lightgreen;
-    /* color: white; */
+    border-radius: 10px;
+    border-radius: 50% 0 0 50%;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;  
+}
+
+.group-del-btn {
+    width: 40px;
+    height: 40px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 50% 50% 0;
+    border: none;
+    color:  white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: pink;
+}
+
+.group-del-btn:hover {
+    background-color: brown;
 }
 
 .group-items--display {
-    background-color: rgb(201, 199, 198);
-    /* background-color: red; */
-    border-radius: 0 0 18px 18px;
-    /* border: 2px solid red; */
-    box-shadow: inset 0px -3px 3px grey;
-
-    display: flex; 
+    display: none; 
     flex-direction: column;
     flex: 1;
+    background-color: rgb(201, 199, 198);
+    border-radius: 0 0 18px 18px;
+    box-shadow: inset 0px -3px 3px grey;
 }
 
+/* This should probably be at the App top level */
 *:focus {
     outline: none;
 }

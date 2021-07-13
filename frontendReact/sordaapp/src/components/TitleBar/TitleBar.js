@@ -28,7 +28,7 @@ function TitleBar(props) {
             { showTitle ?
               <h2 className="title-display" onClick={toggleTitle} >{props.title}</h2> 
               : 
-              <form className="input-wrapper">
+              <form className="titlebar-input--wrapper">
                 <label>
                   <input id="project-title--input" type="text" name="name" placeholder={props.title} onChange={handleChange} value={props.title} />  
                 </label>

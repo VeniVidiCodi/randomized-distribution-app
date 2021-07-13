@@ -94,7 +94,7 @@ function InputPage (props) {
 
   const addItem = () => {
       let tempItemList = aGroupObject.persons;
-      let newItemName = "item " + (tempItemList.length + 1);
+      let newItemName = "Item " + (tempItemList.length + 1);
       let newItem = new Person(newItemName, null);
 
       tempItemList.push(newItem);

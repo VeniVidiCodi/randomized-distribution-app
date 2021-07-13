@@ -15,6 +15,7 @@
 .title-display {
     text-align: center;
     font-size: calc(10px + 2vmin);  
+    font-size: 24px;  
     /* color: white; */
     /* background-color: #beb; */
     background-color: #9bf0b2;
@@ -29,8 +30,8 @@
     background-color: lightgreen;
 }
 
-.input-wrapper {
-    /* display: flex; */
+.titlebar-input--wrapper {
+    display: flex;
     /* padding-right: 20px; */
     /* border: 2px solid green; */
     border: 4px solid green;
@@ -39,11 +40,14 @@
 }
 
 #project-title--input {
-    font-size: calc(10px + 2vmin);  
+    /* font-size: calc(10px + 2vmin);   */
+    /* font-size: 1.2em; */
+    font-size: 20px;  
     font-weight: bolder;
     font-family: Times; 
-    padding: 10px 40px;
+    padding: 11px 40px;
     border: 0px;
+    /* border: none; */
     border-radius: 25px 0 0 25px;
     
     /* from landing page */
@@ -51,7 +55,6 @@
     /* border: 4px solid green; */
     border-right: none;
     padding: 10px 20px;
-    font-size: 1.2em;
 }
 
 .titlebar-submit-button {
@@ -69,8 +72,8 @@
     /* background-color: #1ED4FC; */
     padding: 10px 12px;
     border-left: none;
-    font-size: 15px;
     font-size: 1.2em;
+    font-size: 20px;
 
 }
 .title-submit-button:hover {

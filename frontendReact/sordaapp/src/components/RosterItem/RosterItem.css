@@ -1,54 +1,74 @@
 .roster-item-container {
-    border: 2px solid brown;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.1em;
-
-    border: 2px solid black;
-    border-radius: 25px;
-    display: flex;
     align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
-    /* padding: 5px; */
+
+    border: 4px double brown;
+    border-radius: 30px;
+    border-radius: 25px;
+
+    font-size: 1.1em;
+    font-size: 20px;
+    font-weight: bold;
     background-color: white;
 }
 
-.roster-item-text {
-    color: black;
+.roster-item-title {
     display: flex;
-    margin: 5px auto;
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: center;
+    color: brown;
+}
+
+.roster-input--wrapper {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-content: center; */
+}
+label {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#roster-title--input{
+    /* color: brown; */
+    border: 0;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: Times;
+}
+.roster-title-submit-button {
+    /* color: black; */
+    width: 46px;
+    height: 46px;
+    background-color: lightgreen;
+    /* margin-right: 5px; */
+    border-radius: 10px;
+    border-radius: 50% 0 0 50%;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .roster-del-btn {
-    /* position: relative; */
-    /* z-index: 20; */
-    /* left: 3em; */
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    height: 46px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid blue; */
-    /* box-shadow: 0px 5px 5px lightgrey; */
-    background-color: pink;
+
     border-radius: 0 50% 50% 0;
-    font-weight: bold;
+    border: none;
+
     color:  white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: pink;
 }
 .roster-del-btn:hover {
     background-color: red;
-}
-
-#input-wrapper {
-    color: yellow;
-}
-.project-title--input{
-    color: red;
-}
-.title-submit-button {
-    color: blue;
 }

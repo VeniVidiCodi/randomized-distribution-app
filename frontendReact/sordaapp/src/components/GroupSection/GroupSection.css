@@ -1,34 +1,54 @@
 
 /* --- GROUP SECTION --- */
 .group-section {
-    background-color: whitesmoke;
+     /* background-color: rgb(248, 244, 236); */
     width: 100%;
-    height: auto;
-    margin-right: 5px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    /* flex-grow: 2; */
 }
+
 .group-section-header {
     display: inline-flex;
+    border-radius: 10px;
+    flex-shrink: 0; 
     background-color: rgb(191, 210, 191);
+    /* background-color: rgb(144, 172, 144); */
+    /* color: white; */
+    border: 2px solid grey;
 }
 .group-header-caption {
+    font-size: 24px;
     flex: 1;
-    font-size: x-large;
     padding: 10px;
+    text-transform: uppercase;
 }
-
-
 
 .group-items-container {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 1 0 auto;
+    width: 100%;
+    width: auto;
+    /* background-color: rgb(144, 172, 144); */
 }
-.group-item {
+/* .group-add--button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 30px;
+    font-weight: bold;
+    color:  brown;
+} */
+/* #groups-display-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+} */
+
+/* .group-item {
     border: 2px solid grey;
     border-radius: 15px;
     text-align: center;
     background-color: white;
-}
+} */

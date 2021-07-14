@@ -7,3 +7,7 @@
   color: red;  
   min-height: 100%;
 }
+
+.group-items--display {
+    display: flex;
+}

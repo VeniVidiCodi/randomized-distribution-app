@@ -4,6 +4,11 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    border-radius: 15px;
+    border: 5px solid rgb(231, 246, 231, .6);
+    background-color: #bcb;
+    background: rgb(187,204,187);
+    background: radial-gradient(circle, rgba(187,204,187,1) 40%, rgba(141,196,151,1) 91%, rgb(128, 196, 146) 100%);
 }
 
 .topSection {
@@ -14,4 +19,40 @@
 }
 .bottomSection {
     margin-top: 30px;
+}
+
+.createButton {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: 4px solid #4d9661;
+    background-color: #68BB7E;
+}
+
+img { 
+    filter: saturate(150%);
+    max-width: 400px;
+}
+
+p { 
+    font-size: 16px;
+    color: #5f4842;
+}
+
+.textField {
+    border-radius: 50px 0 0 50px;
+    border: 4px solid #1da8c8;
+    border-right: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.submit {
+    border-radius: 0 50px 50px 0;
+    border: 4px solid #1da8c8;
+    background-color: #1ED4FC;
+    padding: 10px 12px;
+    border-left: none;
+    font-size: 16px;
 }

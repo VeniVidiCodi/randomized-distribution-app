@@ -4,22 +4,18 @@ import FooterButton from '../FooterButton/FooterButton';
 import './Footer.css';
 
 function Footer (props) {
-
-    //returns if not from the input page (is on the input page)
-    if (!props.fromInputPage) {
-      // console.log('ON input page...');
-      return (
-        <footer id="app-footer">
-          <Link to="/grouper">
-            <FooterButton
-                value={props.value}
-                text="Shuffle"
-                onClick={props.onClickShuffle} />
-          </Link>
-        </footer>
-      )
-    } else {
-      // console.log('FROM input page...');
+    // If from the Input Page, user is on Result Page
+   if (props.fromLandingPage  || props.saveButtonClicked) {
+     // console.log('ON input page...');
+     return (
+       <footer id="app-footer">
+           <FooterButton
+               value={props.value}
+               text="Edit"
+               onClick={props.onClickEdit} />
+       </footer>
+     )
+   } else if (props.fromInputPage) {
       return(
           <footer id="app-footer">
               <FooterButton
@@ -31,6 +27,17 @@ function Footer (props) {
                   text="Edit"
                   onClick={props.onClickEdit} />
           </footer>
+      )
+    } else {
+      return (
+        <footer id="app-footer">
+          <Link to="/grouper">
+            <FooterButton
+                value={props.value}
+                text="Shuffle"
+                onClick={props.onClickShuffle} />
+          </Link>
+        </footer>
       )
     }
   }

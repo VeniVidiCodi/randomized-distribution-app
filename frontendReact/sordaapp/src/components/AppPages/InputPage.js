@@ -6,7 +6,8 @@ import GroupSection from '../GroupSection/GroupSection';
 import RosterSection from '../RosterSection/RosterSection';
 import Footer from '../Footer/Footer';
 import { Group, GroupName, Person } from '../../utils/groupClass';
-// import e from 'cors';
+import './InputPage.css';
+import SetupModal from '../ModalInput/ModalInput';
 
 
 function InputPage (props) {
@@ -31,13 +32,13 @@ function InputPage (props) {
       }
     }
   } else {
-    GroupObject.setProjectName("My Project");
+    GroupObject.setProjectName("My Project Name");
   }
-  
 
-  // –––––––
+
+  // ––––––––––––––––––––––––
   //  State
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const [aGroupObject, setAGroupObject] = useState(GroupObject);
   const [shuffleClick, setShuffleClick] = useState(false);
@@ -47,27 +48,27 @@ function InputPage (props) {
   // Check console to see from which page is being received
   // console.log("FROM LANDING:", fromLandingPage);
   // console.log("FROM RESULTS:", fromResultPage);
-  
-  
-  // –––––––
-  // Title Behavior 
-  // –––––––
+
+
+  // ––––––––––––––––––––––––
+  // Title Behavior
+  // ––––––––––––––––––––––––
 
   const updateProjectName = title => {
-    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title})); 
+    setAGroupObject(aGroupObject => ({...aGroupObject, projectName: title}));
   }
-  
-  // –––––––
+
+  // ––––––––––––––––––––––––
   // Group Section Behavior
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const addGroup = () => {
       let tempGroupObject = aGroupObject;
       let tempGroupNames = tempGroupObject.groupNames;
-      let newName = "Group " + (tempGroupNames.length + 1); 
+      let newName = "Group " + (tempGroupNames.length + 1);
       let newGroupName = new GroupName(newName, null);
 
-      tempGroupNames.push(newGroupName);   
+      tempGroupNames.push(newGroupName);
       setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: tempGroupNames}));
   }
 
@@ -87,16 +88,16 @@ function InputPage (props) {
     setAGroupObject(aGroupObject => ({...aGroupObject, groupNames: newGroupNames}));
   }
 
-  // –––––––
+  // ––––––––––––––––––––––––
   // Roster Section Behavior
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const addItem = () => {
       let tempItemList = aGroupObject.persons;
-      let newItemName = "item " + (tempItemList.length + 1); 
+      let newItemName = "Item " + (tempItemList.length + 1);
       let newItem = new Person(newItemName, null);
 
-      tempItemList.push(newItem);   
+      tempItemList.push(newItem);
       setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
   }
 
@@ -116,9 +117,9 @@ function InputPage (props) {
     setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
   }
 
-  // –––––––
+  // ––––––––––––––––––––––––
   // Footer Button Handler Functions
-  // –––––––
+  // ––––––––––––––––––––––––
 
   const shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -128,7 +129,7 @@ function InputPage (props) {
       array[j] = temp;
     }
   }
-  
+
 
   const shuffleProject = () => {
     // console.log("shuffle clicked ...");
@@ -159,7 +160,7 @@ function InputPage (props) {
         // console.log("PERSON COUNTDOWN:", count);
         let person = persons[count - 1];
         person.groupNum = count % (numOfGroups) + 1;
-        count--; 
+        count--;
       } while (count > 0)
 
       setShuffleClick(true);
@@ -168,37 +169,79 @@ function InputPage (props) {
     }
   }
 
+  // ––––––––––––––––––––––––
+  // Modal Behavior Functions
+  // ––––––––––––––––––––––––
+  function handleButtonSubmit(numOfGroups, numOfRoster) {
+    for (let i = 0; i < numOfGroups; i++)
+      addGroup();
+
+    for (let i = 0; i < numOfRoster; i++)
+      addItem();
+  }
 
   if (shuffleClick) {
     return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, fromInputPage: true, fromLandingPage: false}}/>;
   }
 
   return (
-      <div>
-        <header className="App-header">
+      // <div className="main-wrapper">
+      //   <div className="content">
+      //     <header className="app-header">
+      //       <Nav />
+      //       <TitleBar
+      //         title={aGroupObject.projectName}
+      //         updateTitle={updateProjectName} />
+      //     </header>
+      //     <main id="entry-container">
+      //       <GroupSection
+      //         groupNames={aGroupObject.groupNames}
+      //         addGroup={addGroup}
+      //         deleteGroup={deleteGroup}
+      //         updateGroupTitle={updateGroupTitle} />
+      //       <RosterSection
+      //         rosterItems={aGroupObject.persons}
+      //         addItem={addItem}
+      //         deleteItem={deleteItem}
+      //         updateItemName={updateItemName} />
+      //     </main>
+      //   </div>
+      //   <Footer
+      //     GroupObject={aGroupObject}
+      //     onClickShuffle={shuffleProject}
+      //     fromResultPage={props.location.fromResultPage}
+      //     /*fromLandingPage={props.location.fromLandingPage}*/
+      //     />
+
+
+      <div className="main-wrapper">
+        <div className="content">
+        <header className="app-header">
           <Nav />
-          <TitleBar 
-            title={aGroupObject.projectName} 
-            updateTitle={updateProjectName} /> 
+          <TitleBar
+            title={aGroupObject.projectName}
+            updateTitle={updateProjectName} />
         </header>
         <main id="entry-container">
-          <GroupSection 
+          <GroupSection
             groupNames={aGroupObject.groupNames}
             addGroup={addGroup}
             deleteGroup={deleteGroup}
             updateGroupTitle={updateGroupTitle} />
-          <RosterSection 
+          <RosterSection
             rosterItems={aGroupObject.persons}
             addItem={addItem}
             deleteItem={deleteItem}
             updateItemName={updateItemName} />
         </main>
-          <Footer 
+        </div>
+          <Footer
             GroupObject={aGroupObject}
             onClickShuffle={shuffleProject}
             fromResultPage={props.location.fromResultPage}
-            fromLandingPage={props.location.fromLandingPage}
+            /*fromLandingPage={props.location.fromLandingPage}*/
             />
+            {props.location.fromLandingPage && <SetupModal handleBtnSubmit={handleButtonSubmit}/>}
       </div>
     );
   }

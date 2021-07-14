@@ -5,6 +5,7 @@ import './LandingPage.css';
 import { getRequest } from "../../utils/queries.js";
 
 // DB Try to fetch an example entry with password: 7JWHR5
+// 3QQOG3  retreives data
 
 function LandingPage() {
 
@@ -54,9 +55,10 @@ function LandingPage() {
         <div className="bottomSection">
           <div className="buttonChild">
             <Link to={{pathname: '/grouper', fromLandingPage: true, fromInputPage: false}}>
-              <button type="submit" value="Submit" id="btn-start">Create Group</button>
+              <button className="createButton" type="submit" value="Submit" id="btn-start">Create Group</button>
             </Link>
           </div>
+          <p>OR</p>
 
           <div className="inputChild">
             <form onSubmit={handleSubmit}>

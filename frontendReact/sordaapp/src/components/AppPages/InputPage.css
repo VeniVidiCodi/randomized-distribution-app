@@ -1,9 +1,47 @@
+.main-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;    
+}
+
+/* Expands the main section for sticky footer */
+.content {
+  flex: 1 0 auto;  
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  /* background: rgb(93,143,86);
+  background: linear-gradient(90deg, rgba(93,143,86,1) 0%, rgba(128,158,124,1) 47%, rgba(93,143,86,1) 100%); */
+  background-color: rgb(144, 172, 144); 
+  background-color: #BBCCBB; 
+
+  /* box-shadow: inset 0 0 10px 2px black; */
+  /* height: 100%; */
+}
+
+.app-header {
+            flex-shrink: 0;
+}
 
 #entry-container {
-    background-color: grey;
-    width: 100%;
+    /* background-color: rgb(191, 210, 191); */
+    /* background-color: red; */
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 100%;
+    
+    /* flex-direction: column; */
+            /* flex: 1 0 auto; */
+         /* align-content: stretch; */
+    /* padding: 5px; */
+    /* border: 2px solid red; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+    /* align-content: center; */
+}
+
+
+@media only screen and (max-width: 600px) {
+    #entry-container {
+        flex-wrap: wrap;
+    }
 }

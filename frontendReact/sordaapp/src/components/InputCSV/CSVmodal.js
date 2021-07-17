@@ -30,7 +30,7 @@ function CSVmodal(props) {
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
-        className="mymodal"
+        className="amodal"
         overlayClassName="myoverlay"
         closeTimeoutMS={250}
         shouldCloseOnOverlayClick={false}

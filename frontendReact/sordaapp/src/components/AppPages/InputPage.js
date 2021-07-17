@@ -185,7 +185,15 @@ function InputPage (props) {
   // CSV Behavior Functions
   // ––––––––––––––––––––––––
   function handleCSVarray(csvArrayToSet) {
-    console.log(aGroupObject.persons.length)
+    
+    while (aGroupObject.persons.length !== 0) {
+      let tempGroupObject = aGroupObject;
+      let newItemsList = tempGroupObject.persons;
+
+      newItemsList.splice(0, 1);
+      setAGroupObject(aGroupObject => ({...aGroupObject, persons: newItemsList}));
+    }
+
     csvArrayToSet.forEach((item) => {
       let tempItemList = aGroupObject.persons;
       //let newItemName = "Item " + (tempItemList.length + 1);

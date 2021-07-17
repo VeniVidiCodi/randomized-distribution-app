@@ -1,7 +1,7 @@
 .card-container {
     min-height: 100px;
     min-width: 200px;
-    /* background-color: grey; */
+    /* background-color: grey;  */
     display: flex;
     flex-direction: column;
 }

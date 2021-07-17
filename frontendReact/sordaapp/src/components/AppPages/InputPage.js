@@ -180,40 +180,29 @@ function InputPage (props) {
       addItem();
   }
 
+
+  // ––––––––––––––––––––––––
+  // CSV Behavior Functions
+  // ––––––––––––––––––––––––
+  function handleCSVarray(csvArrayToSet) {
+    console.log(aGroupObject.persons.length)
+    csvArrayToSet.forEach((item) => {
+      let tempItemList = aGroupObject.persons;
+      //let newItemName = "Item " + (tempItemList.length + 1);
+      let newItem = new Person(item, null);
+
+      tempItemList.push(newItem);
+      setAGroupObject(aGroupObject => ({...aGroupObject, persons: tempItemList}));
+    })
+
+  }
+
+
   if (shuffleClick) {
     return <Redirect push to={{pathname: '/results', GroupObject: aGroupObject, fromInputPage: true, fromLandingPage: false}}/>;
   }
 
   return (
-      // <div className="main-wrapper">
-      //   <div className="content">
-      //     <header className="app-header">
-      //       <Nav />
-      //       <TitleBar
-      //         title={aGroupObject.projectName}
-      //         updateTitle={updateProjectName} />
-      //     </header>
-      //     <main id="entry-container">
-      //       <GroupSection
-      //         groupNames={aGroupObject.groupNames}
-      //         addGroup={addGroup}
-      //         deleteGroup={deleteGroup}
-      //         updateGroupTitle={updateGroupTitle} />
-      //       <RosterSection
-      //         rosterItems={aGroupObject.persons}
-      //         addItem={addItem}
-      //         deleteItem={deleteItem}
-      //         updateItemName={updateItemName} />
-      //     </main>
-      //   </div>
-      //   <Footer
-      //     GroupObject={aGroupObject}
-      //     onClickShuffle={shuffleProject}
-      //     fromResultPage={props.location.fromResultPage}
-      //     /*fromLandingPage={props.location.fromLandingPage}*/
-      //     />
-
-
       <div className="main-wrapper">
         <div className="content">
         <header className="app-header">
@@ -232,7 +221,8 @@ function InputPage (props) {
             rosterItems={aGroupObject.persons}
             addItem={addItem}
             deleteItem={deleteItem}
-            updateItemName={updateItemName} />
+            updateItemName={updateItemName}
+            handleArrayFromRosterSection={handleCSVarray}/>
         </main>
         </div>
           <Footer
@@ -247,3 +237,33 @@ function InputPage (props) {
   }
 
 export default InputPage;
+
+
+
+// <div className="main-wrapper">
+//   <div className="content">
+//     <header className="app-header">
+//       <Nav />
+//       <TitleBar
+//         title={aGroupObject.projectName}
+//         updateTitle={updateProjectName} />
+//     </header>
+//     <main id="entry-container">
+//       <GroupSection
+//         groupNames={aGroupObject.groupNames}
+//         addGroup={addGroup}
+//         deleteGroup={deleteGroup}
+//         updateGroupTitle={updateGroupTitle} />
+//       <RosterSection
+//         rosterItems={aGroupObject.persons}
+//         addItem={addItem}
+//         deleteItem={deleteItem}
+//         updateItemName={updateItemName} />
+//     </main>
+//   </div>
+//   <Footer
+//     GroupObject={aGroupObject}
+//     onClickShuffle={shuffleProject}
+//     fromResultPage={props.location.fromResultPage}
+//     /*fromLandingPage={props.location.fromLandingPage}*/
+//     />

@@ -3,11 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: calc(10px + 2vmin);  
-  color: red;  
+  font-size: calc(10px + 2vmin);
+  color: red;
   min-height: 100%;
 }
 
-.group-items--display {
+/* .group-items--display {
     display: flex;
-}
+} */

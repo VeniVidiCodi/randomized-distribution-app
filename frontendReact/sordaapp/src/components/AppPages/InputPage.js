@@ -216,32 +216,32 @@ function InputPage (props) {
 
       <div className="main-wrapper">
         <div className="content">
-        <header className="app-header">
-          <Nav />
-          <TitleBar
-            title={aGroupObject.projectName}
-            updateTitle={updateProjectName} />
-        </header>
-        <main id="entry-container">
-          <GroupSection
-            groupNames={aGroupObject.groupNames}
-            addGroup={addGroup}
-            deleteGroup={deleteGroup}
-            updateGroupTitle={updateGroupTitle} />
-          <RosterSection
-            rosterItems={aGroupObject.persons}
-            addItem={addItem}
-            deleteItem={deleteItem}
-            updateItemName={updateItemName} />
-        </main>
+          <header className="app-header">
+            <Nav />
+            <TitleBar
+              title={aGroupObject.projectName}
+              updateTitle={updateProjectName} />
+          </header>
+          <main id="entry-container">
+            <GroupSection
+              groupNames={aGroupObject.groupNames}
+              addGroup={addGroup}
+              deleteGroup={deleteGroup}
+              updateGroupTitle={updateGroupTitle} />
+            <RosterSection
+              rosterItems={aGroupObject.persons}
+              addItem={addItem}
+              deleteItem={deleteItem}
+              updateItemName={updateItemName} />
+          </main>
         </div>
-          <Footer
-            GroupObject={aGroupObject}
-            onClickShuffle={shuffleProject}
-            fromResultPage={props.location.fromResultPage}
-            /*fromLandingPage={props.location.fromLandingPage}*/
-            />
-            {props.location.fromLandingPage && <SetupModal handleBtnSubmit={handleButtonSubmit}/>}
+        <Footer
+          GroupObject={aGroupObject}
+          onClickShuffle={shuffleProject}
+          fromResultPage={props.location.fromResultPage}
+          /*fromLandingPage={props.location.fromLandingPage}*/
+          />
+          {props.location.fromLandingPage && <SetupModal handleBtnSubmit={handleButtonSubmit}/>}
       </div>
     );
   }

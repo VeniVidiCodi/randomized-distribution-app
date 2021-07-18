@@ -2,10 +2,10 @@
     background-color: rgb(191, 210, 191);
     width: 100%;
     padding: 10px 0;
-    /* flex-shrink: 0; */
     margin-top: auto;
     display: flex;
     justify-content: space-around;
+    flex-shrink: 0;
 }
 
 .footer-button {

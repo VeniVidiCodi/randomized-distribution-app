@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-around;
     flex-shrink: 0;
+    border-top: 2px solid grey;
+    text-decoration: none;
 }
 
 .footer-button {
@@ -13,15 +15,20 @@
     font-size: 1em;
     font-weight: bold;
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: 125px;
     border: 2px solid #000;
     background-color: #fff;
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
 }
 .footer-button:hover {
-    background-color: lightgreen;
+    background-color: rgb(184, 255, 184);
 }
 .footer-button:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);;
+    text-decoration: none;
 }

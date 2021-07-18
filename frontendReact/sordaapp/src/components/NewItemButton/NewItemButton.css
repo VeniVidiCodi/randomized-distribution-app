@@ -1,15 +1,10 @@
 .add-item-button {
     width: 40px;
-    /* height: 30px; */
     background-color: white;
     border: 2px solid brown;
-    border-radius: 10px;
-    /* margin-bottom: 5px; */
-    /* margin: 0 auto; */
-    text-decoration: none;
+    border-radius: 12px;
     color:  brown;
     font-weight: bolder;
-    transition: background-color 1s;
     text-align: center;
     /* flex: 0; */
     display: flex;
@@ -18,7 +13,7 @@
     align-items: center;
 }
 .add-item-button:hover {
-    background-color: lightgreen;
+    background-color: rgb(184, 255, 184);
 }
 
 /* .roster-add--button {
@@ -31,6 +26,4 @@
 
 .new-roster-item-text {
     font-size: large;
-    /* margin-left: 20px; */
-    
 }

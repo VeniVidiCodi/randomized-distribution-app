@@ -80,7 +80,7 @@ function SetupModal(props) {
     shouldCloseOnOverlayClick={false}
     >
     <div className="numberOfGroupsParent">
-      <h4 className="numberOfGroupsLabel">Number Of Groups: </h4>
+      <h3 className="numberOfGroupsLabel">Number Of Groups: </h3>
       <select value={numGroupsValue} onChange={handleGroupChange}>
         {groupNumArray.map(num => {
           return(
@@ -90,7 +90,7 @@ function SetupModal(props) {
       </select>
     </div>
     <div className="numberOfRosterParent">
-      <h4 className="numberOfGroupsLabel">Number Of Prople: </h4>
+      <h3 className="numberOfRosterLabel">Number Of People: </h3>
       <select value={numRosterValue} onChange={handleRosterChange}>
       {rosterNumArray.map(num => {
         return(
@@ -100,7 +100,7 @@ function SetupModal(props) {
       </select>
 
     </div>
-    <button className="modalSubmit-btn" onClick={handleOnclick}>Go</button>
+    <button className="modalSubmit-btn" onClick={handleOnclick}>GO</button>
 
   </Modal>
   );

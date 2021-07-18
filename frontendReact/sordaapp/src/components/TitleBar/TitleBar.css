@@ -24,11 +24,11 @@
     border-radius: 25px;
     /* border: none; */
     border: 2px solid green;
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
     background-color: white;
 }
 .title-display:hover {
-    background-color: lightgreen;
+    background-color: rgb(184, 255, 184);
 }
 
 .titlebar-input--wrapper {
@@ -79,7 +79,6 @@
 }
 .title-submit-button:hover {
     background-color: lightgreen;
-    border: 1px solid green;
     width: 39px;
     height: 39px;
 }

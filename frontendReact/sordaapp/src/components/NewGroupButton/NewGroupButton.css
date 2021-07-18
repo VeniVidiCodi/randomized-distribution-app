@@ -4,25 +4,18 @@
     justify-content: center;
     align-items: center;
     width: 40px;
-    /* border-radius: 25px; */
-    background-color: lightgreen;
-    /* border: 2px solid brown; */
+    background-color: white;
     text-decoration: none;
     color:  brown;
     font-weight: bolder;
-    transition: background-color .5s;
     text-align: center;
-    /* width: 30px; */
-    /* height: 30px; */
     border: 2px solid brown;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: bold;
     color: brown;
 }
 .group-add--button:hover {
-    background-color: greenyellow;
-    /* width: 32px;
-    height: 32px; */
+    background-color: rgb(184, 255, 184);
 }
 
 /* .new-group-item-text {

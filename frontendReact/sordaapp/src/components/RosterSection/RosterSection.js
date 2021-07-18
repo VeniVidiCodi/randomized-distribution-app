@@ -60,7 +60,7 @@ function RosterSection (props) {
 
                 <header className="roster-section-header">
                     <div className="roster-header-caption">
-                        Roster/Items
+                        Roster
                     </div>
                     {props.rosterItems.length < rosterMax ? 
                         <NewItemButton onClick={props.addItem} /> :

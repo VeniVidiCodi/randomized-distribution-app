@@ -11,14 +11,16 @@
 
 .roster-section-header {
     display: inline-flex;
-    background-color: #fffeec;
     border-radius: 15px;
     border: 2px solid grey;
-
+    background-color: #fffeec;
+    background-color: #DDF3DA;
+    background-color: rgb(23, 116, 147);
 }
 .roster-header-caption {
     flex: 1;
     font-size: x-large;
+    color: white;
     padding: 10px;
     text-transform: uppercase;
 }

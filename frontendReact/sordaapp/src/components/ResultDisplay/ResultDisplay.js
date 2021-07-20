@@ -11,7 +11,7 @@ export default function ResultDisplay (props) {
       <div className="results-section">
 
           <header className="results-section-header">
-              <div className="results-header-caption">Groups</div>
+              <div className="results-header-caption">GROUPS</div>
           </header>
 
           <div className="results-items-container">

@@ -14,11 +14,16 @@
     display: inline-flex;
     border-radius: 15px;
     flex-shrink: 0; 
-    background-color: #fffeec;
     border: 2px solid grey;
+    background-color: #fffeec;
+    background-color: #DDF3DA;
+    background-color: rgb(52, 124, 52);
+   /* background: rgb(221,243,218); */
+    /* background: linear-gradient(0deg, rgba(221,243,218,1) 20%, rgba(246,251,231,1) 50%, rgba(221,243,218,1) 80%); */
 }
 .group-header-caption {
     font-size: 24px;
+    color: white;
     flex: 1;
     padding: 10px;
     text-transform: uppercase;

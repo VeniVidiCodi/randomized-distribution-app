@@ -1,3 +1,19 @@
+/* Custom Properties */
+/* COLOR PALETTE */
+:root {
+  --color-green:#4d9661;
+  --color-lightgreen: #68BB7E;
+  --color-palegreen:#BBCCBB;
+  --color-yellow: #FFFE94;
+  --color-brown: #A2756A;
+  --color-browngrey: #5f4842;
+  --color-aqua: #1ED4FC;
+  --color-aqua-grey: #1da8c8;
+  --color-lightblue: blue;
+  --color-grey: #ECECEC;
+  --color-lightgrey: #ECECEC;
+}
+
 html, body {
   height: 100%;
   margin: 0;

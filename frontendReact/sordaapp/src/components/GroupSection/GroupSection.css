@@ -18,6 +18,7 @@
     background-color: #fffeec;
     background-color: #DDF3DA;
     background-color: rgb(52, 124, 52);
+    background-color: var(--color-green);
    /* background: rgb(221,243,218); */
     /* background: linear-gradient(0deg, rgba(221,243,218,1) 20%, rgba(246,251,231,1) 50%, rgba(221,243,218,1) 80%); */
 }

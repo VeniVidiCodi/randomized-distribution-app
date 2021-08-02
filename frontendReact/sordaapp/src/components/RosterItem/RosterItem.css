@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    /* border: 4px solid var(--color-light-blue); */
+
     border: 4px solid var(--color-blue-dark);
     border-radius: 30px;
     border-radius: 25px;
@@ -11,7 +11,7 @@
     font-size: 1.1em;
     font-size: 20px;
     font-weight: bold;
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .roster-item-title {
@@ -19,13 +19,13 @@
     flex: 1 0 auto;
     justify-content: center;
     align-items: center;
-    color: brown;
+    color: var(--color-blue-dark);
 }
 
 .roster-input--wrapper {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
+    justify-content: center;
     /* align-content: center; */
 }
 label {
@@ -38,14 +38,11 @@ label {
     border: 0;
     font-size: 20px;
     font-weight: bolder;
-    font-family: Times;
 }
 .roster-title-submit-button {
-    /* color: black; */
     width: 46px;
     height: 46px;
     background-color: lightgreen;
-    /* margin-right: 5px; */
     border-radius: 10px;
     border-radius: 50% 0 0 50%;
     border: none;
@@ -70,5 +67,5 @@ label {
     background-color: pink;
 }
 .roster-del-btn:hover {
-    background-color: red;
+    background-color: brown;
 }

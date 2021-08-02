@@ -19,23 +19,25 @@
     flex: 1 0 auto;
     justify-content: center;
     align-items: center;
-    color: rgb(42, 94, 42);
+    color: var(--color-green-dark);
 }
 
 .group-input--wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: large;
-    
+    /* font-size: large; */
 }
-
+label {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 #group-title--input{
     /* color: brown; */
     border: 0;
     font-size: 20px;
     font-weight: bolder;
-    font-family: Times;
 }
 
 .group-title-submit-button {
@@ -69,12 +71,12 @@
 }
 
 .group-items--display {
-    display: none; 
     flex-direction: column;
     flex: 1;
     background-color: rgb(201, 199, 198);
     border-radius: 0 0 18px 18px;
     box-shadow: inset 0px -3px 3px grey;
+    display: none; 
 }
 
 /* This should probably be at the App top level */

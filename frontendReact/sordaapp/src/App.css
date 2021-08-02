@@ -3,7 +3,10 @@
 :root {
   --color-green:#4d9661;
   --color-lightgreen: #68BB7E;
-  --color-palegreen:#BBCCBB;
+  --color-dark-green: #243a2a;
+  --color-pale-green-light: #DDF3DA;
+  --color-pale-green:#bfd2bf;
+  --color-highlight-green: rgb(184, 255, 184);
   --color-yellow: #FFFE94;
   --color-brown: #A2756A;
   --color-browngrey: #5f4842;
@@ -18,7 +21,7 @@ html, body {
   height: 100%;
   margin: 0;
   background-color: #bcb;
-  /* font-family: sans-serif; */
+  font-family: sans-serif;
 }
 
 #root {

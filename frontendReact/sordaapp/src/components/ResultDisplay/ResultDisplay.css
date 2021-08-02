@@ -13,11 +13,11 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    background-color: #DDF3DA;
+    background-color: var(--color-pale-green-light);
     border-bottom: 2px solid grey;
 }
 .results-header-caption {
-    font-size: x-large;
+    font-size: 24px;
     padding: 10px;
 }
 

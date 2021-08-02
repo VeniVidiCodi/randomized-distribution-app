@@ -16,7 +16,7 @@ function GroupSection (props) {
         <div className="group-section">
 
             <header className="group-section-header">
-                <div className="group-header-caption">Groups</div>
+                <div className="group-header-caption">GROUPS</div>
                 {props.groupNames.length < max ? 
                         <NewGroupButton onClick={props.addGroup} /> 
                         : <div></div>

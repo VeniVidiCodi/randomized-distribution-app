@@ -40,14 +40,14 @@ select {
   font-weight: 600;
   padding: 10px 0px;
   background-color: var(--color-pale-green);
-  color: white;
+  color: var(--color-white);
   text-shadow: 0px 0px 10px lightslategray;
   border: 2px solid var(--color-green);
 }
 
 .modalSubmit-btn:hover {
   background-color: var(--color-highlight-green);
-  text-shadow: 0px 0px 20px var(--color-dark-green);
+  text-shadow: 0px 0px 20px var(--color-green-dark);
 }
 
 .myoverlay {
